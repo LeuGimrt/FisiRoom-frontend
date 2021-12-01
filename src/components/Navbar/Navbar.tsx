@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
         <Link className="navbar-brand" to="#">
-          Navbar
+          FisiRoom
         </Link>
         <button
           className="navbar-toggler"
@@ -41,35 +41,13 @@ const Navbar = () => {
                 About
               </Link>
             </li>
-            <li className="nav-item dropdown">
-              <Link
-                className="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                to="#"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
+            <li className="nav-item">
+              <Link className="nav-link" to="#">
+                  Sign out
               </Link>
-              <div className="dropdown-menu">
-                <Link className="dropdown-item" to="#">
-                  Action
-                </Link>
-                <Link className="dropdown-item" to="#">
-                  Another action
-                </Link>
-                <Link className="dropdown-item" to="#">
-                  Something else here
-                </Link>
-                <div className="dropdown-divider" />
-                <Link className="dropdown-item" to="#">
-                  Separated link
-                </Link>
-              </div>
             </li>
           </ul>
-          <form className="d-flex">
+          <form className="d-flex me-auto">
             <input
               className="form-control me-sm-2"
               type="text"
@@ -79,6 +57,13 @@ const Navbar = () => {
               Search
             </button>
           </form>
+          <ul className="navbar-nav  mr-auto ">
+            <li>
+              <Link className="nav-link" to="#" >
+                Sign out
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
