@@ -1,11 +1,11 @@
 import React, {PropsWithChildren} from 'react';
-import Navbar from './Navbar/Navbar';
+import NavbarLogin from './Navbar/NavbarLogin';
 
 
-const Wrapper = (props: PropsWithChildren<any>) => {
+const WrapperLogin = (props: PropsWithChildren<any>) => {
     return (
         <div>
-            <Navbar/>
+            <NavbarLogin/>
             <div className="container-fluid">
                 <div className="row  p-0">
                     <main role="main" className="col-md-12 ml-sm-12 col-lg-12 px-md-4">
@@ -17,4 +17,4 @@ const Wrapper = (props: PropsWithChildren<any>) => {
     );
 };
 
-export default Wrapper;
+export default WrapperLogin;

@@ -4,3 +4,7 @@ export interface Curso {
     picture: string;
     description: number;
 }
+
+export interface TokenUser {
+    id: string
+}

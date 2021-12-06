@@ -9,10 +9,11 @@ const MisCursos = (props: PropsWithRef<any>) => {
         (
             async () => {
                 // Consumir API
-                const response = await fetch('#');
+                const response = await fetch('http://localhost:8000/api/users');
 
                 const data = await response.json();
-
+                console.log(data);
+                localStorage.setItem("datodeprueba",'dato');
                 setCursos(data);
             }
         )();

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -41,11 +41,7 @@ const Navbar = () => {
                 About
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">
-                  Sign out
-              </Link>
-            </li>
+            
           </ul>
           <form className="d-flex me-auto">
             <input
@@ -59,7 +55,7 @@ const Navbar = () => {
           </form>
           <ul className="navbar-nav  mr-auto ">
             <li>
-              <Link className="nav-link" to="#" >
+              <Link className="nav-link" to="/" >
                 Sign out
               </Link>
             </li>
