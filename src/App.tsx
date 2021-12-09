@@ -1,27 +1,25 @@
-import './App.css';
+import 'common/sassStyles/globalStyles.scss';
 import 'bootswatch/dist/zephyr/bootstrap.min.css';
 import Navbar from 'components/Navbar/Navbar';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import MisCursos from './components/Dashboards/MisCursos';
-import MisCursosEnseñados from 'components/Dashboards/MisCursosEnseñados';
-import Login from './components/auth/login';
-import Register from 'components/auth/register';
+import { Route, Routes } from 'react-router-dom';
+import Home from 'pages/Home';
+import Login from 'pages/Login';
+import Register from 'pages/Register';
+import Footer from 'components/Footer/Footer';
 
 function App() {
   return (
-<div className="App">
-      {/* <Navbar/>
-      <NavbarB/> */}
-      <BrowserRouter>
+    <>
+      <Navbar />
+      <div id="content">
         <Routes>
-          {/* <Route path="/" element={<Wrapper/>} /> */}
-          <Route path='/' element={<Login/>} />
-          <Route path='/register' element={<Register/>} />
-          <Route path='/cursos' element={<MisCursos/>} />
-          <Route path='/cursosmaestro' element={<MisCursosEnseñados/>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }
 

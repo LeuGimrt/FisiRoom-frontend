@@ -1,11 +1,34 @@
-import { Link, Navigate } from 'react-router-dom';
+import './Navbar.scss';
+import Button from 'components/Button/Button';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const showButtons = () => {
+    return (
+      <>
+        <Link to="/login">
+          <Button className="mx-1" color="info" elevated>
+            Iniciar Sesión
+          </Button>
+        </Link>
+        <Link to="/register">
+          <Button className="mx-1" color="secondary" elevated>
+            Registrarme
+          </Button>
+        </Link>
+      </>
+    );
+  };
+
+  const showUser = () => {
+    return <div>Usuario logeado</div>;
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <header className="navbar navbar-expand-md navbar-dark bg-primary">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="#">
-          FisiRoom
+        <Link className="navbar-brand" to="/">
+          HoloSchool
         </Link>
         <button
           className="navbar-toggler"
@@ -21,48 +44,20 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarColor01">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <Link className="nav-link active" to="#">
-                Home
-                <span className="visually-hidden">(current)</span>
+              <Link className="nav-link" to="#">
+                Mis Cursos
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="#">
-                Features
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">
-                Pricing
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">
-                About
-              </Link>
-            </li>
-            
-          </ul>
-          <form className="d-flex me-auto">
-            <input
-              className="form-control me-sm-2"
-              type="text"
-              placeholder="Search"
-            />
-            <button className="btn btn-secondary my-2 my-sm-0" type="submit">
-              Search
-            </button>
-          </form>
-          <ul className="navbar-nav  mr-auto ">
-            <li>
-              <Link className="nav-link" to="/" >
-                Sign out
+                Cursos
               </Link>
             </li>
           </ul>
+          {localStorage.getItem('token') ? showUser() : showButtons()}
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 

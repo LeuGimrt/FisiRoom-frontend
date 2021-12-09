@@ -1,4 +1,10 @@
-import React, { PropsWithRef, useReducer, SyntheticEvent, useEffect, useState } from 'react';
+import React, {
+  PropsWithRef,
+  useReducer,
+  SyntheticEvent,
+  useEffect,
+  useState,
+} from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import TextField from '@material-ui/core/TextField';
@@ -9,81 +15,81 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
 //import { Redirect } from 'react-router-dom';
 import { stringify } from 'querystring';
-import { TokenUser } from '../../Interfaces/interfaces';
+import { TokenUser } from '../../common/types';
 import { Navigate } from 'react-router';
-import WrapperLogin from 'components/WrapperLogin';
-
+import WrapperLogin from 'containers/WrapperLogin';
 
 //state type
 
 type State = {
-  username: string
-  password:  string
-  isButtonDisabled: boolean
-  helperText: string
-  isError: boolean
-  go: boolean
+  username: string;
+  password: string;
+  isButtonDisabled: boolean;
+  helperText: string;
+  isError: boolean;
+  go: boolean;
 };
 
-const initialState:State = {
-  username: "",
-  password: "",
+const initialState: State = {
+  username: '',
+  password: '',
   isButtonDisabled: true,
   helperText: '',
   isError: false,
-  go: true
+  go: true,
 };
 
-type Action = { type: 'setUsername', payload: string }
-  | { type: 'setPassword', payload: string }
-  | { type: 'setIsButtonDisabled', payload: boolean }
-  | { type: 'loginSuccess', payload: string }
-  | { type: 'loginFailed', payload: string }
-  | { type: 'setIsError', payload: boolean };
+type Action =
+  | { type: 'setUsername'; payload: string }
+  | { type: 'setPassword'; payload: string }
+  | { type: 'setIsButtonDisabled'; payload: boolean }
+  | { type: 'loginSuccess'; payload: string }
+  | { type: 'loginFailed'; payload: string }
+  | { type: 'setIsError'; payload: boolean };
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case 'setUsername': 
+    case 'setUsername':
       return {
         ...state,
-        username: action.payload
+        username: action.payload,
       };
-    case 'setPassword': 
+    case 'setPassword':
       return {
         ...state,
-        password: action.payload
+        password: action.payload,
       };
-    case 'setIsButtonDisabled': 
+    case 'setIsButtonDisabled':
       return {
         ...state,
-        isButtonDisabled: action.payload
+        isButtonDisabled: action.payload,
       };
-    case 'loginSuccess': 
-      
+    case 'loginSuccess':
       return {
         ...state,
         helperText: action.payload,
         isError: false,
       };
-      
 
-    case 'loginFailed': 
+    case 'loginFailed':
       return {
         ...state,
         helperText: action.payload,
-        isError: true
+        isError: true,
       };
-    case 'setIsError': 
+    case 'setIsError':
       return {
         ...state,
-        isError: action.payload
+        isError: action.payload,
       };
   }
-}
+};
 
 const Login = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [redirect, setRedirect] = useState(false);
+
+  const [user, setUser] = useState();
 
   const [nombre, setUsername] = useState('');
   const [correo, setEmail] = useState('');
@@ -93,27 +99,24 @@ const Login = () => {
   const [Token, setToken] = useState('');
 
   //setToken(localStorage.setItem("token", "2"));
-  
+
   useEffect(() => {
     if (state.username.trim() && state.password.trim()) {
-     dispatch({
-       type: 'setIsButtonDisabled',
-       payload: false
-     });
+      dispatch({
+        type: 'setIsButtonDisabled',
+        payload: false,
+      });
     } else {
       dispatch({
         type: 'setIsButtonDisabled',
-        payload: true
+        payload: true,
       });
     }
   }, [state.username, state.password]);
 
-
-  
   const handleLogin = async () => {
-    
     // localhost:8005/api/user/kenny@gmail.com/1234567
-    console.log("asda");
+    console.log('asda');
     console.log(state.username);
     const correo = state.username.toString();
     const pass = state.password.toString();
@@ -126,30 +129,27 @@ const Login = () => {
     //const codigo = JSON.stringify(response);
     //const number = await fetch(url);
     const product: TokenUser = await number.json();
-    console.log(product.id)
+    console.log(product.id);
     const codigo = product.id.toString();
-    console.log(codigo)
+    console.log(codigo);
     //setToken(codigo)
-    localStorage.setItem( "token", codigo );
-    console.log(localStorage.getItem("token"))
+    localStorage.setItem('token', codigo);
+    console.log(localStorage.getItem('token'));
 
-    if (localStorage.getItem("token")!= "") {
-    // if (state.password === data.contraseña) {
-    //if (state.username === 'abc' && state.password === '123') {
+    if (localStorage.getItem('token') != '') {
+      // if (state.password === data.contraseña) {
+      //if (state.username === 'abc' && state.password === '123') {
       dispatch({
         type: 'loginSuccess',
-        payload: 'Login Successfully',  
+        payload: 'Login Successfully',
       });
       setRedirect(true);
-      
     } else {
       dispatch({
         type: 'loginFailed',
-        payload: 'Incorrect username or password'
+        payload: 'Incorrect username or password',
       });
-
     }
-    
   };
 
   const handleKeyPress = (event: React.KeyboardEvent) => {
@@ -158,74 +158,76 @@ const Login = () => {
     }
   };
 
-  const handleUsernameChange: React.ChangeEventHandler<HTMLInputElement> =
-    (event) => {
-      dispatch({
-        type: 'setUsername',
-        payload: event.target.value
-      });
-    };
+  const handleUsernameChange: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    dispatch({
+      type: 'setUsername',
+      payload: event.target.value,
+    });
+  };
 
-  const handlePasswordChange: React.ChangeEventHandler<HTMLInputElement> =
-    (event) => {
-      dispatch({
-        type: 'setPassword',
-        payload: event.target.value
-      });
-    }
+  const handlePasswordChange: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    dispatch({
+      type: 'setPassword',
+      payload: event.target.value,
+    });
+  };
 
-    if (redirect) {
-      return <Navigate to={'/cursos'}/>
-    }
+  if (redirect) {
+    return <Navigate to={'/cursos'} />;
+  }
 
   return (
     <WrapperLogin>
       <form className="container" noValidate autoComplete="off">
-      <Card className="card">
-        <CardHeader className=" header" title="Iniciar Sesion" />
-        <CardContent>
-          <div>
-            <TextField
-              error={state.isError}
-              fullWidth
-              id="username"
-              type="username"
-              label="Username"
-              placeholder="Username"
-              margin="normal"
-              onChange={handleUsernameChange}
-              onKeyPress={handleKeyPress}
-            />
-            <TextField
-              error={state.isError}
-              fullWidth
-              id="password"
-              type="password"
-              label="Password"
-              placeholder="Password"
-              margin="normal"
-              helperText={state.helperText}
-              onChange={handlePasswordChange}
-              onKeyPress={handleKeyPress}
-            />
-          </div>
-        </CardContent>
-        <CardActions>
-          <Button
-            variant="contained"
-            size="large"
-            color="secondary"
-            className="btn btn-primary"
-            onClick={handleLogin}
-            disabled={state.isButtonDisabled}>
-            Ingresar
-          </Button>
-        </CardActions>
-      </Card>
+        <Card className="card">
+          <CardHeader className=" header" title="Iniciar Sesion" />
+          <CardContent>
+            <div>
+              <TextField
+                error={state.isError}
+                fullWidth
+                id="username"
+                type="username"
+                label="Username"
+                placeholder="Username"
+                margin="normal"
+                onChange={handleUsernameChange}
+                onKeyPress={handleKeyPress}
+              />
+              <TextField
+                error={state.isError}
+                fullWidth
+                id="password"
+                type="password"
+                label="Password"
+                placeholder="Password"
+                margin="normal"
+                helperText={state.helperText}
+                onChange={handlePasswordChange}
+                onKeyPress={handleKeyPress}
+              />
+            </div>
+          </CardContent>
+          <CardActions>
+            <Button
+              variant="contained"
+              size="large"
+              color="secondary"
+              className="btn btn-primary"
+              onClick={handleLogin}
+              disabled={state.isButtonDisabled}
+            >
+              Ingresar
+            </Button>
+          </CardActions>
+        </Card>
       </form>
     </WrapperLogin>
   );
-}
+};
 
 export default Login;
-
