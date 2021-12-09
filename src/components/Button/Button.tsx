@@ -1,10 +1,14 @@
 import './Button.scss';
 
+type ButtonSize = 'sm' | 'md' | 'lg';
+
 type Props = {
   children: React.ReactNode;
   elevated?: boolean;
   color?: string;
   className?: string;
+  size?: ButtonSize;
+  type?: 'button' | 'submit' | 'reset';
 };
 
 const Button = ({
@@ -12,12 +16,34 @@ const Button = ({
   elevated = false,
   color = 'secondary',
   className = '',
+  size = 'md',
+  type = 'button',
 }: Props) => {
   let classString = `btn btn-${color}`;
   elevated && (classString = classString.concat(' btn-elevated'));
-  classString = classString.concat(' ', className);
 
-  return <button className={classString}>{children}</button>;
+  let classSize = '';
+
+  switch (size) {
+    case 'sm':
+      classSize = 'btn-sm';
+      break;
+    case 'md':
+      classSize = 'btn-md';
+      break;
+    case 'lg':
+      classSize = 'btn-lg';
+      break;
+  }
+
+  classString = classString.concat(' ', className);
+  classString = classString.concat(' ', classSize);
+
+  return (
+    <button type={type} className={classString}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;

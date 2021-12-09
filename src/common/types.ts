@@ -1,10 +1,17 @@
-export interface Curso {
-    id: number;
-    title: string;
-    picture: string;
-    description: number;
-}
+export type Curso = {
+  id: number;
+  title: string;
+  picture: string;
+  description: number;
+};
 
-export interface TokenUser {
-    id: string
-}
+export type TokenUser = {
+  id: string;
+};
+
+export type Input = {
+  name: string;
+  type: string;
+  label: string;
+  placeholder: string;
+};

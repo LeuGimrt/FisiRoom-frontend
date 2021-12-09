@@ -1,9 +1,15 @@
+import { registerInputs } from 'common/constants';
+import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
-import Input from 'components/Input/Input';
 
 const Register = () => {
+  // TODO: Incorporar la llamada a la api
+  const handleSubmit = (data: Object) => {
+    console.log(data);
+  };
+
   return (
-    <div className="w-100 d-flex flex-column justify-content-center align-items-center">
+    <div className="py-4 w-100 d-flex flex-column justify-content-center align-items-center">
       <div
         style={{ maxWidth: '600px' }}
         className="w-100 d-flex flex-column justify-content-center align-items-center"
@@ -14,9 +20,13 @@ const Register = () => {
           <Header variant="secondary" centered>
             Bienvenido a HoloSchool
           </Header>
-          <form noValidate className="p-2">
-            <Input />
-          </form>
+          <div className="px-4">
+            <Form
+              inputs={registerInputs}
+              callback={handleSubmit}
+              btnLabel="Registrar"
+            />
+          </div>
         </div>
       </div>
     </div>
