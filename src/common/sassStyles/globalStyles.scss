@@ -1,0 +1,34 @@
+@import 'variables';
+
+html,
+body {
+  height: 100%;
+  margin: 0px;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .btn {
+    border-radius: 4px;
+    padding: 5px 30px;
+  }
+  .btn-info {
+    background-color: $purple;
+    border-color: $purple;
+    transition: all ease-in-out 200ms;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .bg-primary {
+    background-color: $blue;
+  }
+}
+
+#content {
+  display: flex;
+  flex: 1;
+}
