@@ -9,6 +9,12 @@ export type TokenUser = {
   id: string;
 };
 
+export type User = {
+  firstname: string;
+  lastname: string;
+  email: string;
+};
+
 export type Input = {
   name: string;
   type: string;

@@ -133,6 +133,7 @@ const Login = () => {
     const codigo = product.id.toString();
     console.log(codigo);
     //setToken(codigo)
+
     localStorage.setItem('token', codigo);
     console.log(localStorage.getItem('token'));
 

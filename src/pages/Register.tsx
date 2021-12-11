@@ -1,13 +1,35 @@
 import { registerInputs } from 'common/constants';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
+import { useState } from 'react';
+import { Navigate } from 'react-router';
 
 const Register = () => {
+  const [redirect, setRedirect] = useState(false);
   // TODO: Incorporar la llamada a la api
-  const handleSubmit = (data: Object) => {
-    console.log(data);
-  };
 
+  const handleSubmit = async (data: Object) => {
+    const nombre = Object.values(data)[2];
+    const correo = Object.values(data)[1];
+    const password = Object.values(data)[4];
+
+    await fetch('http://localhost:8000/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        nombre,
+        correo,
+        password,
+      }),
+    });
+    console.log(data);
+    setRedirect(true);
+  };
+  if (redirect) {
+    return <Navigate to={'/cursos'} />;
+  }
   return (
     <div className="py-4 w-100 d-flex flex-column justify-content-center align-items-center">
       <div

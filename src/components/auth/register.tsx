@@ -59,6 +59,7 @@ const Register = () => {
         password,
       })
     );
+    const token = localStorage.getItem('token');
     await fetch('http://localhost:8000/api/users', {
       method: 'POST',
       headers: {
