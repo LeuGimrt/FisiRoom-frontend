@@ -15,7 +15,7 @@ const CardCourse = ({
   description = '',
 }: Props) => {
   return (
-    <div className="col-md-4 p-1 " key={id}>
+    <div className="col-md-4 px-auto py-1" key={id}>
       <div className="card">
         <div className="card-body ">
           {/* <img src={image} height="180" className="card-img-top" /> */}

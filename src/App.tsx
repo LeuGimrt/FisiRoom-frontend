@@ -13,14 +13,16 @@ function App() {
   return (
     <>
       <Navbar />
-      <div id="container-fluid">
-        <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
-          <Route path="/cursos" element={<MisCursos />} />
-          <Route path="/cursoscreados" element={<MisCursosCreados />} />
-          <Route path="/" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
+      <div id="content">
+        <div className="container-fluid">
+          <Routes>
+            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/cursos" element={<MisCursos />} />
+            <Route path="/cursoscreados" element={<MisCursosCreados />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </div>
       </div>
       <Footer />
     </>
