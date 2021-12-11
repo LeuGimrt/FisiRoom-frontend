@@ -6,15 +6,19 @@ import Home from 'pages/Home';
 import Login from 'pages/Login';
 import Register from 'pages/Register';
 import Footer from 'components/Footer/Footer';
+import MisCursos from 'pages/MisCursos';
+import MisCursosCreados from 'pages/MisCursosEnseñados';
 
 function App() {
   return (
     <>
       <Navbar />
-      <div id="content">
+      <div id="container-fluid">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/cursos" element={<MisCursos />} />
+          <Route path="/cursoscreados" element={<MisCursosCreados />} />
+          <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       </div>

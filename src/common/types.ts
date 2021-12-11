@@ -1,8 +1,8 @@
 export type Curso = {
   id: number;
-  title: string;
+  nombre: string;
   picture: string;
-  description: number;
+  description: string;
 };
 
 export type TokenUser = {

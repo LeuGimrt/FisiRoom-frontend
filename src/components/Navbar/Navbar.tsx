@@ -44,13 +44,18 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarColor01">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="#">
-                Mis Cursos
+              <Link className="nav-link" to="/cursos">
+                Cursos
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="#">
-                Cursos
+                Mis Cursos
+              </Link>
+            </li>
+            <li className="nav-item  mr-auto ">
+              <Link className="nav-link" to="/">
+                Cerrar Sesión
               </Link>
             </li>
           </ul>
