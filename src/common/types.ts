@@ -6,7 +6,7 @@ export type Curso = {
 };
 
 export type TokenUser = {
-  id: string;
+  token: string;
 };
 
 export type User = {

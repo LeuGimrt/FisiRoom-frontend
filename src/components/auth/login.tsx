@@ -129,8 +129,8 @@ const Login = () => {
     //const codigo = JSON.stringify(response);
     //const number = await fetch(url);
     const product: TokenUser = await number.json();
-    console.log(product.id);
-    const codigo = product.id.toString();
+    console.log(product.token);
+    const codigo = product.token.toString();
     console.log(codigo);
     //setToken(codigo)
 
