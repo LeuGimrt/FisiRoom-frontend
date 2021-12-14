@@ -4,8 +4,31 @@ import Header from 'components/Header/Header';
 
 const Login = () => {
   // TODO: Incorporar la llamada a la api
-  const handleSubmit = (data: Object) => {
-    console.log(data);
+
+  const handleSubmit = async (data: LoginData) => {
+    try {
+      const number = await fetch(`http://localhost:8000/auth/login/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          //Authorization: 'sdadasdasdasd',
+        },
+        body: JSON.stringify({
+          email: data.email,
+          password: data.password,
+        }),
+      });
+      const token: TokenUser = await number.json();
+      console.log(token.token);
+      const codigo = token.token.toString();
+      //localstorage
+      localStorage.setItem('token', codigo);
+      console.log(localStorage.getItem('token'));
+    } catch {}
+
+    if (localStorage.getItem('token') != '') {
+      setState(true);
+    }
   };
 
   return (
