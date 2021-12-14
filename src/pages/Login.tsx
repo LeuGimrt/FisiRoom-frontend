@@ -1,8 +1,12 @@
 import { loginInputs } from 'common/constants';
+import { LoginData, TokenUser } from 'common/types';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
+import { useState } from 'react';
+import { Navigate } from 'react-router';
 
 const Login = () => {
+  const [loginSucess, setState] = useState(false);
   // TODO: Incorporar la llamada a la api
 
   const handleSubmit = async (data: LoginData) => {
@@ -26,11 +30,13 @@ const Login = () => {
       console.log(localStorage.getItem('token'));
     } catch {}
 
-    if (localStorage.getItem('token') != '') {
+    if (localStorage.getItem('token') !== '') {
       setState(true);
     }
   };
-
+  if (loginSucess) {
+    return <Navigate to={'/cursos'} />;
+  }
   return (
     <div className="py-4 w-100 d-flex flex-column justify-content-center align-items-center">
       <div
