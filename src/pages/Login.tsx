@@ -30,7 +30,7 @@ const Login = () => {
       console.log(localStorage.getItem('token'));
     } catch {}
 
-    if (localStorage.getItem('token') != '') {
+    if (localStorage.getItem('token') !== '') {
       setState(true);
     }
   };

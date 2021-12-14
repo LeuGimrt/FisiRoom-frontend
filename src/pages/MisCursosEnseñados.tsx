@@ -1,11 +1,10 @@
 import { Curso } from 'common/types';
 import CardCourse from 'components/Card/CardCourse';
 import Wrapper from 'containers/Wrapper';
-import React, { PropsWithRef, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-const MisCursosCreados = (props: PropsWithRef<any>) => {
-  const [cursos, setCursos] = useState([]);
+const MisCursosCreados = () => {
+  const [cursos, setCursos] = useState<Curso[]>([]);
   // carga de lista de cursos
   useEffect(() => {
     (async () => {
@@ -25,15 +24,14 @@ const MisCursosCreados = (props: PropsWithRef<any>) => {
             <h1 className="text-center">Mis Cursos Enseñados</h1>
           </div>
           <div className="row">
-            {cursos.map((C: Curso) => {
+            {cursos.map((curso) => {
               return (
                 <CardCourse
-                  id={C.id}
-                  image={C.picture}
-                  description={C.description}
-                >
-                  {C.nombre}
-                </CardCourse>
+                  key={curso.id}
+                  id={curso.id}
+                  description={curso.description}
+                  title={curso.title}
+                />
               );
             })}
           </div>

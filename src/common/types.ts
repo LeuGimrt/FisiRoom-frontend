@@ -1,8 +1,14 @@
 export type Curso = {
-  id: number;
-  nombre: string;
-  picture: string;
+  category: number;
+  day: string;
+  day_of_the_week: string;
   description: string;
+  id: number;
+  owner: number;
+  owner_name: string;
+  time_end: string;
+  time_start: string;
+  title: string;
 };
 
 export type TokenUser = {

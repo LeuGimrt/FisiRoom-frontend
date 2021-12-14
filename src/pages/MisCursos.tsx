@@ -1,19 +1,17 @@
 import { Curso } from 'common/types';
 import CardCourse from 'components/Card/CardCourse';
-import { Console } from 'console';
 import Wrapper from 'containers/Wrapper';
-import React, { PropsWithRef, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-const MisCursos = (props: PropsWithRef<any>) => {
-  const [cursos, setCursos] = useState([]);
+const MisCursos = () => {
+  const [cursos, setCursos] = useState<Curso[]>([]);
   // carga de lista de cursos
   useEffect(() => {
     (async () => {
       // Consumir API
       const headers = {
         'Content-Type': 'application/json',
-        Authorization: 'Token 476a0d0d4f368cb649935e1ecca5a633cd45d772',
+        Authorization: 'Token 652d6f18ce0f3c02bf115d87cb3f665cf6b57d14',
       };
       const response = await fetch('http://localhost:8000/courses/created/', {
         method: 'GET',
@@ -33,15 +31,14 @@ const MisCursos = (props: PropsWithRef<any>) => {
             <h1 className="text-center">Mis Cursos</h1>
           </div>
           <div className="row">
-            {cursos.map((C: Curso) => {
+            {cursos.map((curso) => {
               return (
                 <CardCourse
-                  id={C.id}
-                  image={C.picture}
-                  description={C.description}
-                >
-                  {C.nombre}
-                </CardCourse>
+                  key={curso.id}
+                  id={curso.id}
+                  description={curso.description}
+                  title={curso.title}
+                />
               );
             })}
           </div>
