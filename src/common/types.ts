@@ -15,6 +15,18 @@ export type User = {
   email: string;
 };
 
+export type LoginData = {
+  email: string;
+  password: string;
+};
+
+export type NewUser = {
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+};
+
 export type Input = {
   name: string;
   type: string;

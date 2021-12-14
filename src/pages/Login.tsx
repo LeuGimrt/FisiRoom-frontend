@@ -1,5 +1,5 @@
 import { loginInputs } from 'common/constants';
-import { TokenUser } from 'common/types';
+import { LoginData, TokenUser } from 'common/types';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
 import { useState } from 'react';
@@ -8,29 +8,27 @@ import { Navigate } from 'react-router';
 const Login = () => {
   const [loginSucess, setState] = useState(false);
   // TODO: Incorporar la llamada a la api
-  const handleSubmit = async (data: Object) => {
-    const email = Object.values(data)[0];
-    const password = Object.values(data)[1];
-    /* const number = await fetch(
-      `http://localhost:8000/api/user/${user}/${password}`
-    ) */
-    const number = await fetch(`http://localhost:8000/auth/login/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        //Authorization: 'sdadasdasdasd',
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
 
-    const token: TokenUser = await number.json();
-    const codigo = token.token.toString();
-    //localstorage
-    localStorage.setItem('token', codigo);
-    console.log(localStorage.getItem('token'));
+  const handleSubmit = async (data: LoginData) => {
+    try {
+      const number = await fetch(`http://localhost:8000/auth/login/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          //Authorization: 'sdadasdasdasd',
+        },
+        body: JSON.stringify({
+          email: data.email,
+          password: data.password,
+        }),
+      });
+      const token: TokenUser = await number.json();
+      console.log(token.token);
+      const codigo = token.token.toString();
+      //localstorage
+      localStorage.setItem('token', codigo);
+      console.log(localStorage.getItem('token'));
+    } catch {}
 
     if (localStorage.getItem('token') != '') {
       setState(true);

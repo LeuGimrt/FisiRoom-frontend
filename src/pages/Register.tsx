@@ -1,4 +1,5 @@
 import { registerInputs } from 'common/constants';
+import { NewUser } from 'common/types';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
 import { useState } from 'react';
@@ -8,20 +9,14 @@ const Register = () => {
   const [redirect, setRedirect] = useState(false);
   // TODO: Incorporar la llamada a la api
 
-  const handleSubmit = async (data: Object) => {
-    const nombre = Object.values(data)[2];
-    const correo = Object.values(data)[1];
-    const password = Object.values(data)[4];
-
+  const handleSubmit = async (data: NewUser) => {
     await fetch('http://localhost:8000/api/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        nombre,
-        correo,
-        password,
+        data,
       }),
     });
     console.log(data);
