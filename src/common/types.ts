@@ -1,3 +1,5 @@
+import internal from "stream";
+
 export type Curso = {
   category: number;
   day: string;
@@ -38,4 +40,9 @@ export type Input = {
   type: string;
   label: string;
   placeholder: string;
+  required: boolean;
+  validFeedback: string;
+  invalidFeedback: string;
+  maxLength: number;
+  minLength: number;
 };
