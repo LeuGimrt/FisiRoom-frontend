@@ -12,8 +12,16 @@ const Form = ({ inputs, callback, btnLabel }: Props) => {
   const [data, setData] = useState({});
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    callback(data);
+    const form=e.currentTarget;
+    e.currentTarget.className+= " was-validated";
+    if(form.checkValidity()===false){
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    else{
+      e.preventDefault();
+      callback(data);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,13 +38,18 @@ const Form = ({ inputs, callback, btnLabel }: Props) => {
               {input.label}
             </label>
             <input
+              maxLength={input.maxLength}
+              minLength={input.minLength}
               className="form-control"
               type={input.type}
               id={input.name}
               name={input.name}
               placeholder={input.placeholder}
               onChange={handleChange}
+              required={input.required}
             />
+            <div className="valid-feedback">{input.validFeedback}</div>
+            <div className="invalid-feedback">{input.invalidFeedback}</div>
           </div>
         );
       })}
