@@ -18,7 +18,6 @@ const Form = ({ inputs, callback, btnLabel }: Props) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
-    console.log(data);
   };
 
   return (

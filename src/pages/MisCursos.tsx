@@ -3,18 +3,21 @@ import CardCourse from 'components/Card/CardCourse';
 import Wrapper from 'containers/Wrapper';
 import { useEffect, useState } from 'react';
 import axiosInstance from 'api/config';
+import { getCourses } from 'api/getCourses';
 
 const MisCursos = () => {
   const [cursos, setCursos] = useState<Curso[]>([]);
   // carga de lista de cursos
   useEffect(() => {
-    (async () => {
-      // Consumir API
-      const responseAxios = axiosInstance.get('/courses/created/');
-      console.log('data');
-      console.log((await responseAxios).data);
-      setCursos((await responseAxios).data);
-    })();
+    // Consumir API
+    getCourses()
+      .then((response) => {
+        console.log('data:', response.data);
+        setCursos(response.data);
+      })
+      .catch((e) => {
+        console.error('Error: ', e);
+      });
   }, []);
   return (
     <Wrapper>

@@ -1,14 +1,12 @@
-import React, { PropsWithChildren } from 'react';
-import NavbarLogin from '../components/Navbar/NavbarLogin';
+import React from 'react';
 
-const WrapperLogin = (props: PropsWithChildren<any>) => {
+const WrapperLogin = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
-      <NavbarLogin />
       <div className="container-fluid">
         <div className="row  p-0">
           <main role="main" className="col-md-12 ml-sm-12 col-lg-12 px-md-4">
-            {props.children}
+            {children}
           </main>
         </div>
       </div>

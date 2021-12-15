@@ -1,9 +1,14 @@
 import './Navbar.scss';
 import Button from 'components/Button/Button';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Navbar = () => {
-  const showButtons = () => {
+  let token;
+  useEffect(() => {
+    token = localStorage.getItem('user-token');
+  }, [token]);
+  const showAccessButtons = () => {
     return (
       <>
         <Link to="/login">
@@ -54,12 +59,18 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item  mr-auto ">
-              <Link className="nav-link" to="/">
+              <Link
+                className="nav-link"
+                onClick={() => {
+                  localStorage.removeItem('user-token');
+                }}
+                to="/"
+              >
                 Cerrar Sesión
               </Link>
             </li>
           </ul>
-          {localStorage.getItem('token') ? showUser() : showButtons()}
+          {token ? showUser() : showAccessButtons()}
         </div>
       </div>
     </header>

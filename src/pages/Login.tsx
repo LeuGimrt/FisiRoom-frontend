@@ -2,41 +2,23 @@ import { loginInputs } from 'common/constants';
 import { LoginData, TokenUser } from 'common/types';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
-import { useState } from 'react';
-import { Navigate } from 'react-router';
+import { useNavigate } from 'react-router';
+import axios from 'axios';
 
 const Login = () => {
-  const [loginSucess, setState] = useState(false);
-  // TODO: Incorporar la llamada a la api
-
+  const navigate = useNavigate();
   const handleSubmit = async (data: LoginData) => {
-    try {
-      const number = await fetch(`http://localhost:8000/auth/login/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          //Authorization: 'sdadasdasdasd',
-        },
-        body: JSON.stringify({
-          email: data.email,
-          password: data.password,
-        }),
+    axios
+      .post<TokenUser>('http://localhost:8000/users/login/', data)
+      .then((response) => {
+        localStorage.setItem('user-token', response.data.token);
+        console.log(response.data.token);
+        navigate('/cursos');
+      })
+      .catch((e) => {
+        console.error('Error: ', e);
       });
-      const token: TokenUser = await number.json();
-      console.log(token.token);
-      const codigo = token.token.toString();
-      //localstorage
-      localStorage.setItem('token', codigo);
-      console.log(localStorage.getItem('token'));
-    } catch {}
-
-    if (localStorage.getItem('token') !== '') {
-      setState(true);
-    }
   };
-  if (loginSucess) {
-    return <Navigate to={'/cursos'} />;
-  }
   return (
     <div className="py-4 w-100 d-flex flex-column justify-content-center align-items-center">
       <div
