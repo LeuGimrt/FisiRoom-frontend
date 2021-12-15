@@ -1,30 +1,39 @@
+import axiosInstance from 'api/config';
 import { registerInputs } from 'common/constants';
 import { NewUser } from 'common/types';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
-import { useState } from 'react';
-import { Navigate } from 'react-router';
+import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 
 const Register = () => {
-  const [redirect, setRedirect] = useState(false);
-  // TODO: Incorporar la llamada a la api
+  const navigate = useNavigate();
+
+  const showSuccessMsg = () => {
+    toast.success('Usuario registrado');
+  };
+
+  const showErrorMsg = () => {};
 
   const handleSubmit = async (data: NewUser) => {
-    await fetch('http://localhost:8000/api/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        data,
-      }),
-    });
-    console.log(data);
-    setRedirect(true);
+    axiosInstance
+      .post('/users/', {
+        email: data.email,
+        password: data.password,
+        confirm_password: data.password,
+        username: data.firstname,
+        first_name: data.firstname,
+        last_name: data.lastname,
+      })
+      .then((response) => {
+        navigate('/login');
+        showSuccessMsg();
+      })
+      .catch((e) => {
+        console.log('Error: ', e);
+        showErrorMsg();
+      });
   };
-  if (redirect) {
-    return <Navigate to={'/cursos'} />;
-  }
   return (
     <div className="py-4 w-100 d-flex flex-column justify-content-center align-items-center">
       <div
