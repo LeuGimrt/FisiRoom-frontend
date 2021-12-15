@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NavbarMenu = () => {
   const closeSession = () => {
-    localStorage.setItem('token', '');
+    localStorage.setItem('user-token', '');
   };
   return (
     <>

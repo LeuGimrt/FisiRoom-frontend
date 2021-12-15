@@ -3,15 +3,6 @@ import Button from 'components/Button/Button';
 import { useEffect, useState } from 'react';
 
 const NavbarLogin = () => {
-  const [sessionActive, setSessionActive] = useState(false);
-  useEffect(() => {
-    (() => {
-      if (localStorage.getItem('token') != '') {
-        setSessionActive(true);
-        console.log('login entrance');
-      }
-    })();
-  }, []);
   return (
     <>
       <div className="ml-auto">

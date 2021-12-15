@@ -3,14 +3,13 @@ import { registerInputs } from 'common/constants';
 import { NewUser } from 'common/types';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
-<<<<<<< Updated upstream
+
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
-=======
+
 import Wrapper from 'containers/Wrapper';
 import { useState } from 'react';
 import { Navigate } from 'react-router';
->>>>>>> Stashed changes
 
 const Register = () => {
   const navigate = useNavigate();

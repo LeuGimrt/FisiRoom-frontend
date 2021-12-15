@@ -1,19 +1,14 @@
 import { Curso } from 'common/types';
 import CardCourse from 'components/Card/CardCourse';
 import Wrapper from 'containers/Wrapper';
-<<<<<<< Updated upstream
-import { useEffect, useState } from 'react';
+import { PropsWithRef, useEffect, useState } from 'react';
 import axiosInstance from 'api/config';
 import { getCourses } from 'api/getCourses';
-=======
-import { PropsWithRef, useEffect, useState } from 'react';
->>>>>>> Stashed changes
 
 const MisCursos = (props: PropsWithRef<any>) => {
   const [cursos, setCursos] = useState([]);
   // carga de lista de cursos
   useEffect(() => {
-<<<<<<< Updated upstream
     // Consumir API
     getCourses()
       .then((response) => {
@@ -23,21 +18,6 @@ const MisCursos = (props: PropsWithRef<any>) => {
       .catch((e) => {
         console.error('Error: ', e);
       });
-=======
-    (async () => {
-      // Consumir API
-      const headers = {
-        'Content-Type': 'application/json',
-        Authorization: 'Token 476a0d0d4f368cb649935e1ecca5a633cd45d772',
-      };
-      const response = await fetch('http://localhost:8000/courses/created/', {
-        method: 'GET',
-        headers: headers,
-      });
-      const data = await response.json();
-      setCursos(data);
-    })();
->>>>>>> Stashed changes
   }, []);
   return (
     <Wrapper>

@@ -2,19 +2,13 @@ import { loginInputs } from 'common/constants';
 import { LoginData, TokenUser } from 'common/types';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
-<<<<<<< Updated upstream
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-=======
 import Wrapper from 'containers/Wrapper';
-import { useState } from 'react';
-import { Navigate } from 'react-router';
->>>>>>> Stashed changes
 
 const Login = () => {
   const navigate = useNavigate();
   const handleSubmit = async (data: LoginData) => {
-<<<<<<< Updated upstream
     axios
       .post<TokenUser>('http://localhost:8000/users/login/', data)
       .then((response) => {
@@ -24,19 +18,6 @@ const Login = () => {
       })
       .catch((e) => {
         console.error('Error: ', e);
-=======
-    try {
-      const number = await fetch(`http://localhost:8000/users/login/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          //Authorization: 'sdadasdasdasd',
-        },
-        body: JSON.stringify({
-          email: data.email,
-          password: data.password,
-        }),
->>>>>>> Stashed changes
       });
   };
   return (
