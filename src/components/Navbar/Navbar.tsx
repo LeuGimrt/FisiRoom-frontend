@@ -1,9 +1,12 @@
 import './Navbar.scss';
-import Button from 'components/Button/Button';
+import { useEffect, useState } from 'react';
+import NavbarLogin from './NavbarLogin';
+import NavbarMenu from './NavbarMenu';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const Navbar = () => {
+<<<<<<< Updated upstream
   let token;
   useEffect(() => {
     token = localStorage.getItem('user-token');
@@ -23,18 +26,32 @@ const Navbar = () => {
         </Link>
       </>
     );
-  };
+=======
+  const [sessionActive, setSessionActive] = useState(false);
+  useEffect(() => {
+    (() => {
+      if (localStorage.getItem('token') != '') {
+        setSessionActive(true);
+        console.log('start');
+      }
+      console.log(sessionActive);
+    })();
+  }, []);
 
+  const showButtons = () => {
+    return <NavbarLogin />;
+>>>>>>> Stashed changes
+  };
   const showUser = () => {
-    return <div>Usuario logeado</div>;
+    return <NavbarMenu />;
   };
-
   return (
     <header className="navbar navbar-expand-md navbar-dark bg-primary">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           HoloSchool
         </Link>
+<<<<<<< Updated upstream
         <button
           className="navbar-toggler"
           type="button"
@@ -72,6 +89,9 @@ const Navbar = () => {
           </ul>
           {token ? showUser() : showAccessButtons()}
         </div>
+=======
+        {localStorage.getItem('token') ? showUser() : showButtons()}
+>>>>>>> Stashed changes
       </div>
     </header>
   );
