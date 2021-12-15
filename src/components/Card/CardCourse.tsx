@@ -28,11 +28,13 @@ const CardCourse = ({
             <p className="card-text">{description}</p>
           </div>
           <div className="row pt-2">
-            <Link to="#" className=" d-flex justify-content-center">
-              <Button className="mx-1" color="primary" elevated>
-                Ir al Curso
-              </Button>
-            </Link>
+            <div className=" d-flex justify-content-center">
+              <Link to="#">
+                <Button className="mx-1" color="primary" elevated>
+                  Ir al Curso
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

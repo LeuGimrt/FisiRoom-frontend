@@ -28,18 +28,17 @@ const MisCursosCreados = () => {
             <h1 className="text-center ">Mis Cursos Creados</h1>
           </div>
           <div className="row ">
-            <Link
-              to="#"
-              className="d-flex justify-content-center py-3 border-bottom"
-            >
-              <Button
-                className="mx-1 d-flex justify-content-center"
-                color="primary"
-                elevated
-              >
-                Crear nuevo curso
-              </Button>
-            </Link>
+            <div className="d-flex justify-content-center py-3 border-bottom">
+              <Link to="#">
+                <Button
+                  className="mx-1 d-flex justify-content-center"
+                  color="primary"
+                  elevated
+                >
+                  Crear nuevo curso
+                </Button>
+              </Link>
+            </div>
           </div>
           <div className="row pt-2">
             {cursos.map((curso: Curso) => {
