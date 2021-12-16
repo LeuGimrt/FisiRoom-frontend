@@ -3,13 +3,12 @@ import { useEffect, useState } from 'react';
 import NavbarLogin from './NavbarLogin';
 import NavbarMenu from './NavbarMenu';
 import { Link } from 'react-router-dom';
-import Button from 'components/Button/Button';
 
 const Navbar = () => {
   const [sessionActive, setSessionActive] = useState(false);
   useEffect(() => {
     (() => {
-      if (localStorage.getItem('user-token') != '') {
+      if (localStorage.getItem('user-token') !== '') {
         setSessionActive(true);
         console.log('start');
       }

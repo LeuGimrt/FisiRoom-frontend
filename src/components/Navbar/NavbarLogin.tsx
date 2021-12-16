@@ -1,30 +1,9 @@
 import { Link } from 'react-router-dom';
 import Button from 'components/Button/Button';
-import { useEffect, useState } from 'react';
 
 const NavbarLogin = () => {
   return (
     <>
-      <div className="ml-auto">
-        <div className=" collapse navbar-collapse" id="navbarColor01">
-          <ul className="navbar-nav">
-            <li>
-              <Link to="/login">
-                <Button className="mx-1" color="info" elevated>
-                  Iniciar Sesión
-                </Button>
-              </Link>
-            </li>
-            <li>
-              <Link to="/register">
-                <Button className="mx-1" color="secondary" elevated>
-                  Registrarme
-                </Button>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
       <button
         className="navbar-toggler"
         type="button"
@@ -36,6 +15,27 @@ const NavbarLogin = () => {
       >
         <span className="navbar-toggler-icon" />
       </button>
+      <div className="collapse navbar-collapse" id="navbarColor01">
+        <ul
+          style={{ marginLeft: 'auto' }}
+          className="navbar-nav d-flex align-items-center"
+        >
+          <li>
+            <Link to="/login">
+              <Button className="m-1" color="info" elevated>
+                Iniciar Sesión
+              </Button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/register">
+              <Button className="m-1" color="secondary" elevated>
+                Registrarme
+              </Button>
+            </Link>
+          </li>
+        </ul>
+      </div>
     </>
   );
 };
