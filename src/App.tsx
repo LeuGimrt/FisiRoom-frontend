@@ -7,6 +7,7 @@ import MisCursos from 'pages/MisCursos';
 import Home from 'pages/Home';
 import 'react-toastify/dist/ReactToastify.css';
 import MisCursosCreados from 'pages/MisCursosCreados';
+import CursosForm from 'pages/CursosForm';
 
 function App() {
   return (
