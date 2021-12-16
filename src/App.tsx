@@ -7,6 +7,7 @@ import MisCursos from 'pages/MisCursos';
 import Home from 'pages/Home';
 import 'react-toastify/dist/ReactToastify.css';
 import MisCursosCreados from 'pages/MisCursosCreados';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
+      <ToastContainer autoClose={2000} />
     </>
   );
 }
