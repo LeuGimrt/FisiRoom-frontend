@@ -1,23 +1,42 @@
 import { Link } from 'react-router-dom';
+import Button from 'components/Button/Button';
 
 const NavbarLogin = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary flex-md-nowrap p-0 shadow">
-      <div className="container-fluid">
-        <Link className="navbar-brand " to="#">
-          FisiRoom
-        </Link>
-        <div className="ml-auto " id="navbarColor01">
-          <ul className="navbar-nav">
-            <li className= "">
-              <Link className="nav-link " to="register" >
-                Registrarse
-              </Link>
-            </li>
-          </ul>
-        </div> 
+    <>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarColor01"
+        aria-controls="navbarColor01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon" />
+      </button>
+      <div className="collapse navbar-collapse" id="navbarColor01">
+        <ul
+          style={{ marginLeft: 'auto' }}
+          className="navbar-nav d-flex align-items-center"
+        >
+          <li>
+            <Link to="/login">
+              <Button className="m-1" color="info" elevated>
+                Iniciar Sesión
+              </Button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/register">
+              <Button className="m-1" color="secondary" elevated>
+                Registrarme
+              </Button>
+            </Link>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </>
   );
 };
 
