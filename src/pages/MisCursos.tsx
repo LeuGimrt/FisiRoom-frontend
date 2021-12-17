@@ -4,13 +4,14 @@ import Wrapper from 'containers/Wrapper';
 import { PropsWithRef, useEffect, useState } from 'react';
 import axiosInstance from 'api/config';
 import { getCourses } from 'api/getCourses';
+import { getCoursesEnrolled } from 'api/getCoursesEnrolled';
 
 const MisCursos = (props: PropsWithRef<any>) => {
   const [cursos, setCursos] = useState([]);
   // carga de lista de cursos
   useEffect(() => {
     // Consumir API
-    getCourses()
+    getCoursesEnrolled()
       .then((response) => {
         console.log('data:', response.data);
         setCursos(response.data);

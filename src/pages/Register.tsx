@@ -18,7 +18,7 @@ const Register = () => {
     toast.success('Usuario registrado');
   };
 
-  const showErrorMsg = () => {};
+  const showErrorMsg = () => { };
 
   const handleSubmit = async (data: NewUser) => {
     axiosInstance
@@ -47,7 +47,6 @@ const Register = () => {
           className="w-100 d-flex flex-column justify-content-center align-items-center"
         >
           <Header centered>Registrar nuevo usuario</Header>
-
           <div style={{ maxWidth: '500px' }} className="card my-3 p-2 w-100">
             <Header variant="secondary" centered>
               Bienvenido a HoloSchool
@@ -55,6 +54,7 @@ const Register = () => {
             <div className="px-4">
               <Form
                 inputs={registerInputs}
+                textAreas={[]}
                 callback={handleSubmit}
                 btnLabel="Registrar"
               />

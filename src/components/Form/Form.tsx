@@ -1,14 +1,15 @@
-import { Input } from 'common/types';
+import { Input, TextArea } from 'common/types';
 import Button from 'components/Button/Button';
 import { useState } from 'react';
 
 type Props = {
   inputs: Input[];
+  textAreas: TextArea[];
   callback: Function;
   btnLabel: string;
 };
 
-const Form = ({ inputs, callback, btnLabel }: Props) => {
+const Form = ({ inputs, callback, btnLabel,textAreas }: Props) => {
   const [data, setData] = useState({});
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -49,6 +50,27 @@ const Form = ({ inputs, callback, btnLabel }: Props) => {
             />
             <div className="valid-feedback">{input.validFeedback}</div>
             <div className="invalid-feedback">{input.invalidFeedback}</div>
+          </div>
+        );
+      })}
+      {textAreas.map((textArea) => {
+        return (
+          <div className="form-group my-3">
+            <label htmlFor={textArea.name} className="form-label">
+              {textArea.label}
+            </label>
+            <textarea
+              maxLength={textArea.maxLength}
+              minLength={textArea.minLength}
+              className="form-control"
+              id={textArea.name}
+              name={textArea.name}
+              placeholder={textArea.placeholder}
+              required={textArea.required}
+              rows={textArea.rows}
+            />
+            <div className="valid-feedback">{textArea.validFeedback}</div>
+            <div className="invalid-feedback">{textArea.invalidFeedback}</div>
           </div>
         );
       })}

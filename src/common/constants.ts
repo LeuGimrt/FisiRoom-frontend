@@ -80,3 +80,65 @@ export const loginInputs = [
     minLength: 8,
   },
 ];
+
+export const courseCreationInputs = [
+  {
+    name: 'imagen',
+    type: 'file',
+    label: 'Imagen',
+    placeholder: 'Añadir imagen...',
+    required: false,
+    validFeedback: '',
+    invalidFeedback: 'El archivo debe ser png o jpg y pesar como máximo 1 MB',
+    maxLength: 30,
+    minLength: 8,
+  },
+  {
+    name: 'horarioInicio',
+    type: 'datetime-local',
+    label: 'Horario de Inicio',
+    placeholder: '',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'El horario de inicio es obligatorio',
+    maxLength: 250,
+    minLength: 1,
+  },
+  {
+    name: 'horarioFin',
+    type: 'datetime-local',
+    label: 'Horario de Fin',
+    placeholder: '',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'El horario de fin es obligatorio',
+    maxLength: 250,
+    minLength: 1,
+  },
+  {
+    name: 'nombreCurso',
+    type: 'text',
+    label: 'Nombre del curso',
+    placeholder: 'Añadir nombre del curso...',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'El nombre es obligatorio. De 1 a 100 caracteres',
+    maxLength: 100,
+    minLength: 1,
+  },
+]
+
+export const courseCreationTextAreas = [
+  {
+    name: 'descripcion',
+    type: 'textarea',
+    label: 'Descripción',
+    placeholder: 'Añadir descripción del curso...',
+    required: false,
+    validFeedback: '',
+    invalidFeedback: 'De 1 a 250 caracteres',
+    maxLength: 250,
+    minLength: 1,
+    rows: 3,
+  },
+]
