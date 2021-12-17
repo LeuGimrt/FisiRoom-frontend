@@ -28,7 +28,6 @@ const Login = () => {
           className="w-100 d-flex flex-column justify-content-center align-items-center"
         >
           <Header centered>Iniciar Sesión</Header>
-
           <div style={{ maxWidth: '500px' }} className="card my-3 p-2 w-100">
             <Header variant="secondary" centered>
               Bienvenido a HoloSchool
@@ -36,6 +35,7 @@ const Login = () => {
             <div className="px-4">
               <Form
                 inputs={loginInputs}
+                textAreas={[]}
                 callback={handleSubmit}
                 btnLabel="Ingresar"
               />

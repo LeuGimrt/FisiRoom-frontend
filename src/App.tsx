@@ -9,6 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import MisCursosCreados from 'pages/MisCursosCreados';
 import CursosForm from 'pages/CursosForm';
 import { ToastContainer } from 'react-toastify';
+import CrearCurso from 'pages/CrearCurso';
+import Footer from 'components/Footer/Footer';
+import Navbar from 'components/Navbar/Navbar';
 
 function App() {
   return (
@@ -20,6 +23,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/cursos/crear" element={<CrearCurso />} />
       </Routes>
       <ToastContainer autoClose={2000} />
     </>

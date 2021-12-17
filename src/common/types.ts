@@ -46,3 +46,15 @@ export type Input = {
   maxLength: number;
   minLength: number;
 };
+
+export type TextArea={
+  name: string;
+  label: string;
+  placeholder: string;
+  required: boolean;
+  validFeedback: string;
+  invalidFeedback: string;
+  maxLength: number;
+  minLength: number;
+  rows: number;
+}
