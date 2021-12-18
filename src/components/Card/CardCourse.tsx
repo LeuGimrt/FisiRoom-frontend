@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import './CardCourse.scss';
 import Button from 'components/Button/Button';
-import { loginInputs } from '../../common/constants';
 type Props = {
   id?: number;
   image?: string;

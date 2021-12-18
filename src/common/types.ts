@@ -1,5 +1,3 @@
-import internal from 'stream';
-
 export type Curso = {
   category: number;
   day: string;
@@ -66,5 +64,16 @@ export type Select = {
   required: boolean;
   validFeedback: string;
   invalidFeedback: string;
-  options: string[];
+  options: {
+    id: string;
+    name: string;
+  }[];
+};
+
+export type CourseData = {
+  title: string;
+  description: string;
+  day: string;
+  time_start: string;
+  time_end: string;
 };

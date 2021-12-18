@@ -1,21 +1,38 @@
+import { postCourse } from 'api/postCourse';
 import {
   courseCreationInputs,
   courseCreationSelects,
   courseCreationTextAreas,
-  registerInputs,
 } from 'common/constants';
-import { NewUser } from 'common/types';
+import { CourseData } from 'common/types';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
-import { useState } from 'react';
-import { Navigate } from 'react-router';
 import Wrapper from 'containers/Wrapper';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
 
 const CrearCurso = () => {
-  const [redirect, setRedirect] = useState(false);
-  // TODO: Incorporar la llamada a la api
+  const navigate = useNavigate();
 
-  const handleSubmit = async (data: NewUser) => {};
+  const handleSubmit = async (data: CourseData) => {
+    console.log(data);
+    postCourse({
+      title: data.title,
+      day: data.day,
+      description: data.description,
+      time_end: data.time_end,
+      time_start: data.time_start,
+    })
+      .then((res) => {
+        console.log(res);
+        toast.success('Curso creado con éxito');
+        navigate('/cursoscreados');
+      })
+      .catch((e) => {
+        console.error('Error: ', e);
+        toast.error('Ocurrio un error');
+      });
+  };
   return (
     <Wrapper>
       <div className="py-4 w-100 d-flex flex-column justify-content-center align-items-center">

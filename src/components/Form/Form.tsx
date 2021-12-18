@@ -25,8 +25,13 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
     setData({ ...data, [e.target.name]: e.target.value });
+    console.log(data);
   };
 
   return (
@@ -43,9 +48,13 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
               name={select.name}
               placeholder={select.placeholder}
               required={select.required}
+              onChange={handleChange}
             >
+              <option disabled selected value="">
+                -- Elija un día --
+              </option>
               {select.options.map((option) => {
-                return <option value={option.indexOf(option)}>{option}</option>;
+                return <option value={option.id}>{option.name}</option>;
               })}
             </select>
             <div className="valid-feedback">{select.validFeedback}</div>
@@ -90,6 +99,7 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
               placeholder={textArea.placeholder}
               required={textArea.required}
               rows={textArea.rows}
+              onChange={handleChange}
             />
             <div className="valid-feedback">{textArea.validFeedback}</div>
             <div className="invalid-feedback">{textArea.invalidFeedback}</div>
