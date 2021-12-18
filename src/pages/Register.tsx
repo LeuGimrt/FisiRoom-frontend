@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 
 import Wrapper from 'containers/Wrapper';
+import React from 'react';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -19,11 +20,14 @@ const Register = () => {
   const showErrorMsg = () => {};
 
   const handleSubmit = async (data: NewUser) => {
+    if (data.cpassword != data.password) {
+      toast.error('Las contraseñas no coinciden');
+    }
     axiosInstance
       .post('/users/', {
         email: data.email,
         password: data.password,
-        confirm_password: data.password,
+        confirm_password: data.cpassword,
         username: data.firstname,
         first_name: data.firstname,
         last_name: data.lastname,

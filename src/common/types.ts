@@ -31,6 +31,7 @@ export type NewUser = {
   lastname: string;
   email: string;
   password: string;
+  cpassword: string;
 };
 
 export type Input = {

@@ -51,7 +51,7 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
               onChange={handleChange}
             >
               <option disabled selected value="">
-                -- Elija un día --
+                -- Elija una opcion --
               </option>
               {select.options.map((option) => {
                 return <option value={option.id}>{option.name}</option>;
