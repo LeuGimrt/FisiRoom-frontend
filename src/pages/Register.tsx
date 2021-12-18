@@ -18,7 +18,7 @@ const Register = () => {
     toast.success('Usuario registrado');
   };
 
-  const showErrorMsg = () => { };
+  const showErrorMsg = () => {};
 
   const handleSubmit = async (data: NewUser) => {
     axiosInstance
@@ -55,6 +55,7 @@ const Register = () => {
               <Form
                 inputs={registerInputs}
                 textAreas={[]}
+                selects={[]}
                 callback={handleSubmit}
                 btnLabel="Registrar"
               />

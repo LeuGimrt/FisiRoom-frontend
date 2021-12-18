@@ -36,6 +36,7 @@ const Login = () => {
               <Form
                 inputs={loginInputs}
                 textAreas={[]}
+                selects={[]}
                 callback={handleSubmit}
                 btnLabel="Ingresar"
               />

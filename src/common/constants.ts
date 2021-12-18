@@ -28,7 +28,8 @@ export const registerInputs = [
     placeholder: 'Ingrese su correo...',
     required: true,
     validFeedback: '',
-    invalidFeedback: 'El correo es obligatorio y debe poseer el formato de email. Máximo 50 caracteres',
+    invalidFeedback:
+      'El correo es obligatorio y debe poseer el formato de email. Máximo 50 caracteres',
     maxLength: 50,
     minLength: 1,
   },
@@ -64,7 +65,8 @@ export const loginInputs = [
     placeholder: 'Ingrese su correo...',
     required: true,
     validFeedback: '',
-    invalidFeedback: 'El correo es obligatorio y debe poseer el formato de email. Máximo 50 caracteres',
+    invalidFeedback:
+      'El correo es obligatorio y debe poseer el formato de email. Máximo 50 caracteres',
     maxLength: 50,
     minLength: 1,
   },
@@ -83,6 +85,28 @@ export const loginInputs = [
 
 export const courseCreationInputs = [
   {
+    name: 'horaInicio',
+    type: 'time',
+    label: 'Hora de Inicio',
+    placeholder: '',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'El horario de inicio es obligatorio',
+    maxLength: 250,
+    minLength: 1,
+  },
+  {
+    name: 'horaFin',
+    type: 'time',
+    label: 'Hora de Fin',
+    placeholder: '',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'El horario de fin es obligatorio',
+    maxLength: 250,
+    minLength: 1,
+  },
+  {
     name: 'imagen',
     type: 'file',
     label: 'Imagen',
@@ -92,28 +116,6 @@ export const courseCreationInputs = [
     invalidFeedback: 'El archivo debe ser png o jpg y pesar como máximo 1 MB',
     maxLength: 30,
     minLength: 8,
-  },
-  {
-    name: 'horarioInicio',
-    type: 'datetime-local',
-    label: 'Horario de Inicio',
-    placeholder: '',
-    required: true,
-    validFeedback: '',
-    invalidFeedback: 'El horario de inicio es obligatorio',
-    maxLength: 250,
-    minLength: 1,
-  },
-  {
-    name: 'horarioFin',
-    type: 'datetime-local',
-    label: 'Horario de Fin',
-    placeholder: '',
-    required: true,
-    validFeedback: '',
-    invalidFeedback: 'El horario de fin es obligatorio',
-    maxLength: 250,
-    minLength: 1,
   },
   {
     name: 'nombreCurso',
@@ -126,7 +128,7 @@ export const courseCreationInputs = [
     maxLength: 100,
     minLength: 1,
   },
-]
+];
 
 export const courseCreationTextAreas = [
   {
@@ -141,4 +143,24 @@ export const courseCreationTextAreas = [
     minLength: 1,
     rows: 3,
   },
-]
+];
+
+export const courseCreationSelects = [
+  {
+    name: 'dia',
+    label: 'Día',
+    placeholder: 'Seleccione el día',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'Todo curso debe tener un día seleccionado',
+    options: [
+      'Lunes',
+      'Martes',
+      'Miércoles',
+      'Jueves',
+      'Viernes',
+      'Sábado',
+      'Domingo',
+    ],
+  },
+];
