@@ -2,8 +2,6 @@ import { Curso } from 'common/types';
 import CardCourse from 'components/Card/CardCourse';
 import Wrapper from 'containers/Wrapper';
 import { PropsWithRef, useEffect, useState } from 'react';
-import axiosInstance from 'api/config';
-import { getCourses } from 'api/getCourses';
 import { getCoursesEnrolled } from 'api/getCoursesEnrolled';
 
 const MisCursos = (props: PropsWithRef<any>) => {
