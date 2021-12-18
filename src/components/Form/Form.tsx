@@ -1,25 +1,25 @@
-import { Input, TextArea } from 'common/types';
+import { Input, Select, TextArea } from 'common/types';
 import Button from 'components/Button/Button';
 import { useState } from 'react';
 
 type Props = {
   inputs: Input[];
   textAreas: TextArea[];
+  selects: Select[];
   callback: Function;
   btnLabel: string;
 };
 
-const Form = ({ inputs, callback, btnLabel,textAreas }: Props) => {
+const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
   const [data, setData] = useState({});
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    const form=e.currentTarget;
-    e.currentTarget.className+= " was-validated";
-    if(form.checkValidity()===false){
+    const form = e.currentTarget;
+    e.currentTarget.className += ' was-validated';
+    if (form.checkValidity() === false) {
       e.preventDefault();
       e.stopPropagation();
-    }
-    else{
+    } else {
       e.preventDefault();
       callback(data);
     }
@@ -31,6 +31,28 @@ const Form = ({ inputs, callback, btnLabel,textAreas }: Props) => {
 
   return (
     <form noValidate onSubmit={handleSubmit}>
+      {selects.map((select) => {
+        return (
+          <div className="form-group my-3">
+            <label htmlFor={select.name} className="form-label">
+              {select.label}
+            </label>
+            <select
+              className="form-select"
+              id={select.name}
+              name={select.name}
+              placeholder={select.placeholder}
+              required={select.required}
+            >
+              {select.options.map((option) => {
+                return <option value={option.indexOf(option)}>{option}</option>;
+              })}
+            </select>
+            <div className="valid-feedback">{select.validFeedback}</div>
+            <div className="invalid-feedback">{select.invalidFeedback}</div>
+          </div>
+        );
+      })}
       {inputs.map((input) => {
         return (
           <div className="form-group my-3">
@@ -74,6 +96,7 @@ const Form = ({ inputs, callback, btnLabel,textAreas }: Props) => {
           </div>
         );
       })}
+
       <div className="d-flex justify-content-center">
         <Button type="submit" size="lg" color="primary" elevated>
           {btnLabel}

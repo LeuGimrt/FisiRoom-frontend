@@ -1,5 +1,6 @@
 import {
   courseCreationInputs,
+  courseCreationSelects,
   courseCreationTextAreas,
   registerInputs,
 } from 'common/constants';
@@ -31,6 +32,7 @@ const CrearCurso = () => {
               <Form
                 inputs={courseCreationInputs}
                 textAreas={courseCreationTextAreas}
+                selects={courseCreationSelects}
                 callback={handleSubmit}
                 btnLabel="Guardar"
               />

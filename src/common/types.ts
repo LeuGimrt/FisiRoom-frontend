@@ -1,4 +1,4 @@
-import internal from "stream";
+import internal from 'stream';
 
 export type Curso = {
   category: number;
@@ -47,7 +47,7 @@ export type Input = {
   minLength: number;
 };
 
-export type TextArea={
+export type TextArea = {
   name: string;
   label: string;
   placeholder: string;
@@ -57,4 +57,14 @@ export type TextArea={
   maxLength: number;
   minLength: number;
   rows: number;
-}
+};
+
+export type Select = {
+  name: string;
+  label: string;
+  placeholder: string;
+  required: boolean;
+  validFeedback: string;
+  invalidFeedback: string;
+  options: string[];
+};
