@@ -51,7 +51,7 @@ export const registerInputs = [
     placeholder: 'Vuelva a ingresar su contraseña...',
     required: true,
     validFeedback: '',
-    invalidFeedback: '',
+    invalidFeedback: 'La contraseña es obligatoria. De 8 a 30 caracteres',
     maxLength: 30,
     minLength: 8,
   },
