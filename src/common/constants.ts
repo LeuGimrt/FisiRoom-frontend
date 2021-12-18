@@ -45,7 +45,7 @@ export const registerInputs = [
     minLength: 8,
   },
   {
-    name: 'c-password',
+    name: 'cpassword',
     type: 'password',
     label: 'Confirmar contraseña',
     placeholder: 'Vuelva a ingresar su contraseña...',
