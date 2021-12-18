@@ -8,8 +8,6 @@ import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 
 import Wrapper from 'containers/Wrapper';
-import { useState } from 'react';
-import { Navigate } from 'react-router';
 
 const Register = () => {
   const navigate = useNavigate();

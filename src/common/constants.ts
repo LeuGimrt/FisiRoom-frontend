@@ -85,7 +85,7 @@ export const loginInputs = [
 
 export const courseCreationInputs = [
   {
-    name: 'horaInicio',
+    name: 'time_start',
     type: 'time',
     label: 'Hora de Inicio',
     placeholder: '',
@@ -96,7 +96,7 @@ export const courseCreationInputs = [
     minLength: 1,
   },
   {
-    name: 'horaFin',
+    name: 'time_end',
     type: 'time',
     label: 'Hora de Fin',
     placeholder: '',
@@ -118,7 +118,7 @@ export const courseCreationInputs = [
     minLength: 8,
   },
   {
-    name: 'nombreCurso',
+    name: 'title',
     type: 'text',
     label: 'Nombre del curso',
     placeholder: 'Añadir nombre del curso...',
@@ -132,7 +132,7 @@ export const courseCreationInputs = [
 
 export const courseCreationTextAreas = [
   {
-    name: 'descripcion',
+    name: 'description',
     type: 'textarea',
     label: 'Descripción',
     placeholder: 'Añadir descripción del curso...',
@@ -147,20 +147,41 @@ export const courseCreationTextAreas = [
 
 export const courseCreationSelects = [
   {
-    name: 'dia',
+    name: 'day',
     label: 'Día',
     placeholder: 'Seleccione el día',
     required: true,
     validFeedback: '',
     invalidFeedback: 'Todo curso debe tener un día seleccionado',
     options: [
-      'Lunes',
-      'Martes',
-      'Miércoles',
-      'Jueves',
-      'Viernes',
-      'Sábado',
-      'Domingo',
+      {
+        id: '1',
+        name: 'Lunes',
+      },
+      {
+        id: '2',
+        name: 'Martes',
+      },
+      {
+        id: '3',
+        name: 'Miércoles',
+      },
+      {
+        id: '4',
+        name: 'Jueves',
+      },
+      {
+        id: '5',
+        name: 'Viernes',
+      },
+      {
+        id: '6',
+        name: 'Sábado',
+      },
+      {
+        id: '7',
+        name: 'Domingo',
+      },
     ],
   },
 ];

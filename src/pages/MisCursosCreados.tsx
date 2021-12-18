@@ -29,8 +29,9 @@ const MisCursosCreados = () => {
           </div>
           <div className="row ">
             <div className="d-flex justify-content-center py-3 border-bottom">
-              <Link to="#">
+              <Link to="/cursos/crear">
                 <Button
+                  type="button"
                   className="mx-1 d-flex justify-content-center"
                   color="primary"
                   elevated
