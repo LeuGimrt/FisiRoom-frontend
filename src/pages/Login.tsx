@@ -3,14 +3,15 @@ import { LoginData, TokenUser } from 'common/types';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
 import { useNavigate } from 'react-router';
-import axios from 'axios';
 import Wrapper from 'containers/Wrapper';
+import axiosInstance from 'api/config';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const navigate = useNavigate();
   const handleSubmit = async (data: LoginData) => {
-    axios
-      .post<TokenUser>('http://localhost:8000/users/login/', data)
+    axiosInstance
+      .post<TokenUser>('/users/login/', data)
       .then((response) => {
         localStorage.setItem('user-token', response.data.token);
         console.log(response.data.token);
@@ -18,6 +19,7 @@ const Login = () => {
       })
       .catch((e) => {
         console.error('Error: ', e);
+        toast.error('Ocurrió un error en el servidor');
       });
   };
   return (

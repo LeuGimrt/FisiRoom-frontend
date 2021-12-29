@@ -13,15 +13,10 @@ import React from 'react';
 const Register = () => {
   const navigate = useNavigate();
 
-  const showSuccessMsg = () => {
-    toast.success('Usuario registrado');
-  };
-
-  const showErrorMsg = () => {};
-
   const handleSubmit = async (data: NewUser) => {
-    if (data.cpassword != data.password) {
+    if (data.cpassword !== data.password) {
       toast.error('Las contraseñas no coinciden');
+      return;
     }
     axiosInstance
       .post('/users/', {
@@ -34,11 +29,11 @@ const Register = () => {
       })
       .then((response) => {
         navigate('/login');
-        showSuccessMsg();
+        toast.success('Usuario registrado');
       })
       .catch((e) => {
         console.log('Error: ', e);
-        showErrorMsg();
+        toast.error('Ocurrió un error en el servidor');
       });
   };
   return (
