@@ -78,3 +78,14 @@ export type CourseData = {
   time_start: string;
   time_end: string;
 };
+
+export type ButtonItem = {
+  label: string;
+  route: string;
+};
+
+export type newMaterial = {
+  title: string;
+  description: string;
+  document: File;
+};

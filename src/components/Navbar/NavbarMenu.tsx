@@ -34,6 +34,7 @@ const NavbarMenu = () => {
               Mi Perfil
             </Link>
           </li>
+
           <li className="nav-item responsive-item">
             <Link onClick={closeSession} className="nav-link" to="/">
               Cerrar Sesión
@@ -62,6 +63,11 @@ const NavbarMenu = () => {
               <li>
                 <Link to="/profile" className="dropdown-item">
                   Mi Perfil
+                </Link>
+              </li>
+              <li>
+                <Link to="/settings" className="dropdown-item">
+                  Configuración
                 </Link>
               </li>
               <li>
