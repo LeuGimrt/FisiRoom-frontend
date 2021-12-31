@@ -1,10 +1,13 @@
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren, useContext } from 'react';
 import Navbar from 'components/Navbar/Navbar';
 import Footer from 'components/Footer/Footer';
+import { ThemeContext } from 'context/ThemeContext';
 
 const Wrapper = (props: PropsWithChildren<any>) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <>
+    <div id={`theme-${theme}`}>
       <Navbar />
       <div id="content">
         <div className="container-fluid">
@@ -22,7 +25,7 @@ const Wrapper = (props: PropsWithChildren<any>) => {
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 };
 

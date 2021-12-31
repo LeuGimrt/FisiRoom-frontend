@@ -3,9 +3,10 @@ import { LoginData, TokenUser } from 'common/types';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
 import { useNavigate } from 'react-router';
-import Wrapper from 'containers/Wrapper';
+import Wrapper from 'containers/Wrapper/Wrapper';
 import axiosInstance from 'api/config';
 import { toast } from 'react-toastify';
+import { AxiosError } from 'axios';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,9 +18,10 @@ const Login = () => {
         console.log(response.data.token);
         navigate('/cursos');
       })
-      .catch((e) => {
-        console.error('Error: ', e);
-        toast.error('Ocurrió un error en el servidor');
+      .catch((e: AxiosError) => {
+        const msg = `Error: ${e.response?.data.message}`;
+        console.log(msg);
+        toast.error(msg);
       });
   };
   return (
