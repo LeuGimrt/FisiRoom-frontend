@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import MisCursosCreados from 'pages/MisCursosCreados';
 import { ToastContainer } from 'react-toastify';
 import CrearCurso from 'pages/CrearCurso';
+import SeleccionColor from 'pages/SeleccionColor';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/cursos/crear" element={<CrearCurso />} />
+        <Route path="/configuracion/color" element={<SeleccionColor />} />
       </Routes>
       <ToastContainer autoClose={4000} />
     </>
