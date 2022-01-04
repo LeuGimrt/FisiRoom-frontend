@@ -80,3 +80,14 @@ export type CourseData = {
 };
 
 export type PalleteOptions = 'default' | 'first-v' | 'second' | 'third';
+
+export type ButtonItem = {
+  label: string;
+  route: string;
+};
+
+export type newMaterial = {
+  title: string;
+  description: string;
+  document: File;
+};
