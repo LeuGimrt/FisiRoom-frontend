@@ -79,6 +79,8 @@ export type CourseData = {
   time_end: string;
 };
 
+export type PalleteOptions = 'default' | 'first-v' | 'second' | 'third';
+
 export type ButtonItem = {
   label: string;
   route: string;

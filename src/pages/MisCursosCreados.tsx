@@ -1,7 +1,7 @@
 import { getCourses } from 'api/getCourses';
 import { Curso } from 'common/types';
 import CardCourse from 'components/Card/CardCourse';
-import Wrapper from 'containers/Wrapper';
+import Wrapper from 'containers/Wrapper/Wrapper';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'components/Button/Button';

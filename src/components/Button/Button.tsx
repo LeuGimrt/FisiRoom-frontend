@@ -9,6 +9,7 @@ type Props = {
   className?: string;
   size?: ButtonSize;
   type?: 'button' | 'submit' | 'reset';
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const Button = ({
@@ -18,6 +19,7 @@ const Button = ({
   className = '',
   size = 'md',
   type = 'button',
+  onClick = () => {},
 }: Props) => {
   let classString = `btn btn-${color}`;
   elevated && (classString = classString.concat(' btn-elevated'));
@@ -40,7 +42,7 @@ const Button = ({
   classString = classString.concat(' ', classSize);
 
   return (
-    <button type={type} className={classString}>
+    <button type={type} className={classString} onClick={onClick}>
       {children}
     </button>
   );

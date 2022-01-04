@@ -1,6 +1,6 @@
 import React, { PropsWithRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Wrapper from '../../containers/Wrapper';
+import Wrapper from '../../containers/Wrapper/Wrapper';
 
 const MisCursosEnseñados = (props: PropsWithRef<any>) => {
   const [cursos, setCursos] = useState([]);
