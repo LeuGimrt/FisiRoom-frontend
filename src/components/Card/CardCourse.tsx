@@ -58,7 +58,7 @@ const CardCourse = ({
           </div>
           <div className="row pt-2">
             <div className=" d-flex justify-content-center">
-              <Link to="/curso/detalles">
+              <Link to={`/curso/${id}/detalles`}>
                 <Button className="mx-1" color="primary" elevated>
                   Ir al Curso
                 </Button>
