@@ -1,6 +1,4 @@
-import { ButtonItem } from 'common/types';
 import GroupListCustomCursos from 'components/GroupList-Custom-Cursos/GroupList-custom.cursos';
-import GroupList from 'components/GroupList/GroupList';
 import CourseDashboard from 'containers/CourseDashboard/CourseDashboard';
 
 const MisCursoDetalles = () => {

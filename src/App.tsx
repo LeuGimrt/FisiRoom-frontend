@@ -15,7 +15,6 @@ import SeleccionColor from 'pages/SeleccionColor';
 import MisCursoDetalles from './pages/MisCursosDetalles';
 import MisCursoTemas from './pages/MisCursosTemas';
 import MisCursoTareas from 'pages/MisCursosTareas';
-import Wrapper from 'containers/Wrapper';
 import CrearTema from 'pages/CrearTema';
 import CrearTarea from 'pages/CrearTarea';
 

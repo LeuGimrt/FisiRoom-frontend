@@ -1,17 +1,8 @@
-import { ButtonItem, newMaterial } from 'common/types';
-import Form from 'components/Form/Form';
+import { newMaterial } from 'common/types';
 import GroupListCustomCursos from 'components/GroupList-Custom-Cursos/GroupList-custom.cursos';
-import GroupList from 'components/GroupList/GroupList';
 import CourseDashboard from 'containers/CourseDashboard/CourseDashboard';
 import { Link } from 'react-router-dom';
 import Button from 'components/Button/Button';
-import {
-  courseCreationSelects,
-  courseCreationTextAreas,
-  MaterialCreationInputs,
-  MaterialCreationSelects,
-  MaterialCreationTextAreas,
-} from '../common/constants';
 
 const MisCursoTemas = () => {
   //logica

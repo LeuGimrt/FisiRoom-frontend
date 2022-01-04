@@ -1,11 +1,8 @@
-import { ButtonItem, newMaterial } from 'common/types';
+import { newMaterial } from 'common/types';
 import Form from 'components/Form/Form';
 import GroupListCustomCursos from 'components/GroupList-Custom-Cursos/GroupList-custom.cursos';
-import GroupList from 'components/GroupList/GroupList';
 import CourseDashboard from 'containers/CourseDashboard/CourseDashboard';
 import {
-  courseCreationSelects,
-  courseCreationTextAreas,
   MaterialCreationInputs,
   MaterialCreationSelects,
   MaterialCreationTextAreas,
