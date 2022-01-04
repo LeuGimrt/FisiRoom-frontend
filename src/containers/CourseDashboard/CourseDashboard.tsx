@@ -1,6 +1,6 @@
 import Header from 'components/Header/Header';
-import { PropsWithChildren, useState } from 'react';
-import Wrapper from 'containers/Wrapper';
+import { PropsWithChildren } from 'react';
+import Wrapper from 'containers/Wrapper/Wrapper';
 const CourseDashboard = (props: PropsWithChildren<any>) => {
   return (
     <Wrapper>
