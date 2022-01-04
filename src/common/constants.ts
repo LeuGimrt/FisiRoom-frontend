@@ -186,6 +186,21 @@ export const courseCreationSelects = [
   },
 ];
 
+export const initialCourseData = {
+  category: 1,
+  day: '',
+  day_of_the_week: '',
+  description: '',
+  id: 1,
+  owner: 1,
+  owner_name: '',
+  time_end: '',
+  time_start: '',
+  title: '',
+  enrolled: [],
+  posts: [],
+};
+
 export const MaterialCreationInputs = [
   {
     name: 'title',

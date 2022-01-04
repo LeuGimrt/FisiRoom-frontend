@@ -25,7 +25,7 @@ const NavbarMenu = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/cursoscreados">
+            <Link className="nav-link" to="/cursos-creados">
               Mis Cursos
             </Link>
           </li>

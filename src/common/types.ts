@@ -9,6 +9,8 @@ export type Curso = {
   time_end: string;
   time_start: string;
   title: string;
+  enrolled: Object[];
+  posts: Object[];
 };
 
 export type TokenUser = {

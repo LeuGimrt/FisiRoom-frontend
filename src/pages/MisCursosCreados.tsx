@@ -5,6 +5,7 @@ import Wrapper from 'containers/Wrapper/Wrapper';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'components/Button/Button';
+import Header from 'components/Header/Header';
 
 const MisCursosCreados = () => {
   const [cursos, setCursos] = useState([]);
@@ -24,9 +25,7 @@ const MisCursosCreados = () => {
     <Wrapper>
       <div className="album py-3 bg-light">
         <div className="container">
-          <div className="row border-bottom border-primary pt-3">
-            <h1 className="text-center ">Mis Cursos Creados</h1>
-          </div>
+          <Header centered>Mis Cursos Creados</Header>
           <div className="row ">
             <div className="d-flex justify-content-center py-3 border-bottom">
               <Link to="/cursos/crear">
