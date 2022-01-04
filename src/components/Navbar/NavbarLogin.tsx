@@ -22,7 +22,7 @@ const NavbarLogin = () => {
         >
           <li>
             <Link to="/login">
-              <Button className="m-1" color="info" elevated>
+              <Button className="m-1" color="primary" elevated>
                 Iniciar Sesión
               </Button>
             </Link>

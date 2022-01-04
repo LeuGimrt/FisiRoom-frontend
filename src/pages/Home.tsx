@@ -8,14 +8,14 @@ const Home = () => {
     <Wrapper>
       <button
         onClick={() => {
-          setTheme(themes.deu);
+          setTheme(themes.default);
         }}
       >
         Deu
       </button>
       <button
         onClick={() => {
-          setTheme(themes.true);
+          setTheme(themes.default);
         }}
       >
         True

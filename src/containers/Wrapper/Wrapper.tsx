@@ -7,12 +7,14 @@ const Wrapper = (props: PropsWithChildren<any>) => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div id={`theme-${theme}`}>
-      <Navbar />
-      <div id="content">
+    <>
+      <div className={`theme-${theme}`}>
+        <Navbar />
+      </div>
+      <div className={`theme-${theme}`} id="content">
         <div className="container-fluid">
           <div>
-            <div className="row  p-0">
+            <div className="row p-0">
               <main
                 role="main"
                 className="col-md-12 ml-sm-12 col-lg-12 px-md-4"
@@ -23,9 +25,10 @@ const Wrapper = (props: PropsWithChildren<any>) => {
           </div>
         </div>
       </div>
-
-      <Footer />
-    </div>
+      <div className={`theme-${theme}`}>
+        <Footer />
+      </div>
+    </>
   );
 };
 

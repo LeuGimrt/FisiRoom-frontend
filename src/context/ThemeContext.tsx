@@ -6,13 +6,13 @@ export type ThemeValueType = {
 };
 
 export const themes = {
-  true: 'true',
-  deu: 'deu',
-  tri: 'tri',
-  pro: 'pro',
+  default: 'default',
+  first: 'first',
+  second: 'second',
+  third: 'third',
 };
 
-const initialValue = localStorage.getItem('user-theme') || themes.true;
+const initialValue = localStorage.getItem('user-theme') || themes.default;
 
 export const ThemeContext = createContext<ThemeValueType>({
   theme: initialValue,

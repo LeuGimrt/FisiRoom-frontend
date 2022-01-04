@@ -1,9 +1,49 @@
 import Button from 'components/Button/Button';
 import Header from 'components/Header/Header';
-import Wrapper from 'containers/Wrapper';
-import React from 'react';
+import Wrapper from 'containers/Wrapper/Wrapper';
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ThemeContext } from 'context/ThemeContext';
+import PaletteRadioButton from 'components/RadioButton/PaletteRadioButton';
+
+const paletteOptions = [
+  {
+    id: 'first',
+    labelImg: '/assets/images/col1.png',
+  },
+  {
+    id: 'second',
+    labelImg: '/assets/images/col2.png',
+  },
+  {
+    id: 'third',
+    labelImg: '/assets/images/col3.png',
+  },
+];
 
 const SeleccionColor = () => {
+  const [palette, setPalette] = useState<string>(
+    localStorage.getItem('user-theme') || 'default'
+  );
+
+  const { setTheme } = useContext(ThemeContext);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPalette(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setTheme(palette);
+    localStorage.setItem('user-theme', palette);
+  };
+
+  const handleRevert = () => {
+    setPalette('default');
+    setTheme('default');
+    localStorage.setItem('user-theme', 'default');
+  };
+
   return (
     <Wrapper>
       <div className="py-4 w-100 d-flex flex-column justify-content-center align-items-center">
@@ -19,36 +59,36 @@ const SeleccionColor = () => {
             <div className="row py-1 ">
               <div className="col-3">
                 <div className="list-group">
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className="list-group-item list-group-item-action"
                   >
                     Información
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    to="#"
                     className="list-group-item list-group-item-action"
                   >
                     Fuente
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    to="#"
                     className="list-group-item list-group-item-action"
                   >
                     Cursor
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    to="#"
                     className="list-group-item list-group-item-action"
                   >
                     Brillo
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    to="#"
                     className="list-group-item list-group-item-action active"
                   >
                     Daltónicos
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="col-9">
@@ -56,66 +96,49 @@ const SeleccionColor = () => {
                   Escoja la paleta de colores que se le acomode mejor y presione
                   el botón "Guardar"
                 </h4>
-                <div className="row">
-                  <div className="col btn ">
-                    <input
-                      className="btn-check"
-                      type="radio"
-                      name="exampleRadios"
-                      id="option1"
-                      autoComplete="off"
-                    />
-                    <label className="btn btn-secondary" htmlFor="option1">
-                      <img src="/assets/images/col1.png" alt="" />
-                    </label>
+                <form noValidate onSubmit={handleSubmit}>
+                  <div className="row">
+                    {paletteOptions.map((opt) => {
+                      return (
+                        <div className="col btn">
+                          <PaletteRadioButton
+                            id={opt.id}
+                            name="colorVariations"
+                            imgUrl={opt.labelImg}
+                            onChange={handleChange}
+                            value={opt.id}
+                            checked={palette === opt.id}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
-                  <div className="col btn">
-                    <input
-                      className="btn-check"
-                      type="radio"
-                      name="exampleRadios"
-                      id="option2"
-                      autoComplete="off"
-                    />
-                    <label className="btn btn-secondary" htmlFor="option2">
-                      <img src="/assets/images/col2.png" alt="" />
-                    </label>
+                  <div className="row">
+                    <div className="col-6 d-flex justify-content-center">
+                      <Button
+                        color="warning"
+                        size="lg"
+                        type="button"
+                        className="px-auto"
+                        onClick={handleRevert}
+                        elevated
+                      >
+                        Revertir
+                      </Button>
+                    </div>
+                    <div className="col-6 d-flex justify-content-center">
+                      <Button
+                        color="primary"
+                        size="lg"
+                        type="submit"
+                        className="px-auto"
+                        elevated
+                      >
+                        Guardar
+                      </Button>
+                    </div>
                   </div>
-                  <div className="col btn">
-                    <input
-                      className="btn-check"
-                      type="radio"
-                      name="exampleRadios"
-                      id="option3"
-                      autoComplete="off"
-                    />
-                    <label className="btn btn-secondary" htmlFor="option3">
-                      <img src="/assets/images/col3.png" alt="" />
-                    </label>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-6 d-flex justify-content-center">
-                    <Button
-                      color="secondary"
-                      size="lg"
-                      type="submit"
-                      className="px-auto"
-                    >
-                      Revertir
-                    </Button>
-                  </div>
-                  <div className="col-6 d-flex justify-content-center">
-                    <Button
-                      color="primary"
-                      size="lg"
-                      type="submit"
-                      className="px-auto"
-                    >
-                      Guardar
-                    </Button>
-                  </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>

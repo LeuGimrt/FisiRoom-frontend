@@ -1,11 +1,13 @@
 import 'common/sassStyles/globalStyles.scss';
 import 'bootswatch/dist/zephyr/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Route, Routes } from 'react-router-dom';
 import Login from 'pages/Login';
 import Register from 'pages/Register';
 import MisCursos from 'pages/MisCursos';
 import Home from 'pages/Home';
-import 'react-toastify/dist/ReactToastify.css';
+
 import MisCursosCreados from 'pages/MisCursosCreados';
 import { ToastContainer } from 'react-toastify';
 import CrearCurso from 'pages/CrearCurso';

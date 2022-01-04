@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 html,
 body {
@@ -10,31 +11,72 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-
   .btn {
     border-radius: 4px;
-  }
-  .btn-info {
-    background-color: $purple;
-    border-color: $purple;
     transition: all ease-in-out 200ms;
     &:hover {
       opacity: 0.8;
     }
   }
-  .bg-primary {
-    background-color: $blue;
+  .theme-default {
+    .bg-primary {
+      @include bg-primary($primary);
+    }
+    .bg-secondary {
+      @include bg-secondary($secondary);
+    }
+    .btn-secondary {
+      @include btn-secondary($secondary);
+    }
+    .btn-primary {
+      @include btn-primary($primary);
+    }
+  }
+  .theme-first {
+    .bg-primary {
+      @include bg-primary($f-primary);
+    }
+    .bg-secondary {
+      @include bg-secondary($f-secondary);
+    }
+    .btn-secondary {
+      @include btn-secondary($f-secondary);
+    }
+    .btn-primary {
+      @include btn-primary($f-primary);
+    }
+  }
+  .theme-second {
+    .bg-primary {
+      @include bg-primary($s-primary);
+    }
+    .bg-secondary {
+      @include bg-secondary($s-secondary);
+    }
+    .btn-secondary {
+      @include btn-secondary($s-secondary);
+    }
+    .btn-primary {
+      @include btn-primary($s-primary);
+    }
+  }
+  .theme-third {
+    .bg-primary {
+      @include bg-primary($t-primary);
+    }
+    .bg-secondary {
+      @include bg-secondary($t-secondary);
+    }
+    .btn-secondary {
+      @include btn-secondary($t-secondary);
+    }
+    .btn-primary {
+      @include btn-primary($t-primary);
+    }
   }
 }
 
 #content {
   display: flex;
   flex: 1;
-}
-
-#theme-true {
-  background-color: red;
-}
-#theme-deu {
-  background-color: blue;
 }

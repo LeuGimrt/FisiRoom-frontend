@@ -78,3 +78,5 @@ export type CourseData = {
   time_start: string;
   time_end: string;
 };
+
+export type PalleteOptions = 'default' | 'first-v' | 'second' | 'third';
