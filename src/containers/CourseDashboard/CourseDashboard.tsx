@@ -1,5 +1,6 @@
 import Header from 'components/Header/Header';
 import Wrapper from 'containers/Wrapper/Wrapper';
+import { PropsWithChildren } from 'react';
 
 type Props = {
   children: React.ReactNode;

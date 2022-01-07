@@ -19,7 +19,7 @@ const HeaderCourse = () => {
   ];
   console.log(alumnosbtns);
   return (
-    <div className="container">
+    <div className="container ">
       <div className=" headercourse row py-3 px-4">
         <Header>COURSE NAME</Header>
         <div className="col-12 px-5 pt-2">
