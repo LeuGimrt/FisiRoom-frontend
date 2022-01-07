@@ -2,6 +2,7 @@ import { newMaterial } from 'common/types';
 import { Link } from 'react-router-dom';
 import Button from 'components/Button/Button';
 import CardItemsTema from '../components/CardItemsTema/CardItemsTema';
+import GroupListCustomCursos from 'components/GroupList-Custom-Cursos/GroupList-custom.cursos';
 
 const CursoTemas = () => {
   //logica
