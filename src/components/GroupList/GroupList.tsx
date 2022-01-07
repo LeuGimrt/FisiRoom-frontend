@@ -14,7 +14,7 @@ const GroupList = ({ btnlist, activeBtn }: Props) => {
   console.log(activeBtn);
   const activarBoton = (btn: ButtonItem) => {
     if (activeBtn === btn.label) {
-      return 'col-12 py-3 list-group-item list-group-item-action active';
+      return 'col-12 py-3 list-group-item list-group-item-action active bg-primary';
     } else {
       return 'col-12 py-3 list-group-item list-group-item-action ';
     }
