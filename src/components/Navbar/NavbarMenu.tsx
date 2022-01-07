@@ -66,7 +66,7 @@ const NavbarMenu = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/settings" className="dropdown-item">
+                <Link to="/configuracion/color" className="dropdown-item">
                   Configuración
                 </Link>
               </li>
