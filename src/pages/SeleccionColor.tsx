@@ -85,7 +85,7 @@ const SeleccionColor = () => {
                   </Link>
                   <Link
                     to="#"
-                    className="list-group-item list-group-item-action active"
+                    className="list-group-item list-group-item-action active bg-primary"
                   >
                     Daltónicos
                   </Link>
