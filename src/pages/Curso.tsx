@@ -12,7 +12,6 @@ const Curso = () => {
   const { cursoId } = useParams();
   const [curso, setCurso] = useState<CursoType>(initialCourseData);
   const { setCourse } = useContext(CourseContext);
-
   useEffect(() => {
     getCourseDetails(cursoId ? cursoId : '').then((response: AxiosResponse) => {
       setCurso(response.data);
@@ -20,11 +19,9 @@ const Curso = () => {
       console.log(response);
     });
   }, [cursoId]);
-
   return (
     <CourseDashboard title={curso.title} teacher={curso.owner_name}>
       <div className="row border-top border-primary pt-2">
-        <GroupListCustomCursos activeBtn={'Información'} />
         <Outlet />
       </div>
     </CourseDashboard>

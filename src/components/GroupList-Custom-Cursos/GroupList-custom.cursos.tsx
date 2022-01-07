@@ -2,10 +2,10 @@ import { ButtonItem } from 'common/types';
 import GroupList from 'components/GroupList/GroupList';
 
 type Props = {
-  activeBtn: string;
+  activeBtn?: string;
 };
 
-const GroupListCustomCursos = ({ activeBtn }: Props) => {
+const GroupListCustomCursos = ({ activeBtn = 'Información' }: Props) => {
   let alumnosbtns: ButtonItem[] = [
     { label: 'Información', route: `detalles` },
     { label: 'Temas', route: `temas` },
@@ -17,7 +17,7 @@ const GroupListCustomCursos = ({ activeBtn }: Props) => {
     { label: 'Gestionar Notas', route: 'a' },
   ];
   return (
-    <div className="col-3 border border-light ">
+    <div className=" d-none d-md-block col-md-3 col-3 border border-light ">
       <div className="col-12 pt-3">
         <p>Opciones del Alumno: </p>
       </div>
