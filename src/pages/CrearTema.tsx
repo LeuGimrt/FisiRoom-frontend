@@ -9,7 +9,7 @@ import {
 const CrearTema = () => {
   //logica
   const handleSubmit = async (data: newMaterial) => {
-    console.log('tema creado');
+    console.log(data);
   };
   //respuesta
   return (

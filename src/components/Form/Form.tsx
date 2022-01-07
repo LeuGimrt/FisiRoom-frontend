@@ -1,6 +1,6 @@
 import { Input, Select, TextArea } from 'common/types';
 import Button from 'components/Button/Button';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 type Props = {
   inputs: Input[];
@@ -16,24 +16,25 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const form = e.currentTarget;
     e.currentTarget.className += ' was-validated';
+    e.preventDefault();
     if (form.checkValidity() === false) {
-      e.preventDefault();
       e.stopPropagation();
     } else {
-      e.preventDefault();
       callback(data);
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
-    console.log(data);
   };
 
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
   return (
     <form noValidate onSubmit={handleSubmit}>
       {selects.map((select) => {
@@ -48,7 +49,7 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
               name={select.name}
               placeholder={select.placeholder}
               required={select.required}
-              onChange={handleChange}
+              onChange={handleSelectChange}
             >
               <option disabled selected value="">
                 -- Elija una opcion --
@@ -76,7 +77,7 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
               id={input.name}
               name={input.name}
               placeholder={input.placeholder}
-              onChange={handleChange}
+              onChange={handleInputChange}
               required={input.required}
             />
             <div className="valid-feedback">{input.validFeedback}</div>
@@ -99,7 +100,7 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
               placeholder={textArea.placeholder}
               required={textArea.required}
               rows={textArea.rows}
-              onChange={handleChange}
+              onChange={handleTextAreaChange}
             />
             <div className="valid-feedback">{textArea.validFeedback}</div>
             <div className="invalid-feedback">{textArea.invalidFeedback}</div>

@@ -1,6 +1,4 @@
 import { newMaterial } from 'common/types';
-import GroupListCustomCursos from 'components/GroupList-Custom-Cursos/GroupList-custom.cursos';
-import CourseDashboard from 'containers/CourseDashboard/CourseDashboard';
 import { Link } from 'react-router-dom';
 import Button from 'components/Button/Button';
 
