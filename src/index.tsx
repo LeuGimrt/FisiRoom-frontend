@@ -1,3 +1,5 @@
+import CourseProvider from 'context/CourseContext';
+import ThemeProvider from 'context/ThemeContext';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
@@ -6,9 +8,13 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ThemeProvider>
+      <CourseProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CourseProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

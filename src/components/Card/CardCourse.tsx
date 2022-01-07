@@ -13,7 +13,8 @@ type Props = {
 
 const CardCourse = ({
   id = 0,
-  image = 'https://i.imgur.com/crEJgaf.gif.gif',
+  // image = 'https://i.imgur.com/crEJgaf.gif.gif',
+  image = 'https://vilmanunez.com/wp-content/uploads/2016/03/herramientas-y-recursos-para-crear-curso-online.png',
   description = '',
   title,
   day_of_the_week,
@@ -57,7 +58,7 @@ const CardCourse = ({
           </div>
           <div className="row pt-2">
             <div className=" d-flex justify-content-center">
-              <Link to="#">
+              <Link to={`/curso/${id}/detalles`}>
                 <Button className="mx-1" color="primary" elevated>
                   Ir al Curso
                 </Button>

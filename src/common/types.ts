@@ -9,6 +9,8 @@ export type Curso = {
   time_end: string;
   time_start: string;
   title: string;
+  enrolled: Object[];
+  posts: Object[];
 };
 
 export type TokenUser = {
@@ -77,4 +79,17 @@ export type CourseData = {
   day: string;
   time_start: string;
   time_end: string;
+};
+
+export type PalleteOptions = 'default' | 'first-v' | 'second' | 'third';
+
+export type ButtonItem = {
+  label: string;
+  route: string;
+};
+
+export type newMaterial = {
+  title: string;
+  description: string;
+  document: File;
 };

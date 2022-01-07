@@ -185,3 +185,98 @@ export const courseCreationSelects = [
     ],
   },
 ];
+
+export const initialCourseData = {
+  category: 1,
+  day: '',
+  day_of_the_week: '',
+  description: '',
+  id: 1,
+  owner: 1,
+  owner_name: '',
+  time_end: '',
+  time_start: '',
+  title: '',
+  enrolled: [],
+  posts: [],
+};
+
+export const MaterialCreationInputs = [
+  {
+    name: 'title',
+    type: 'text',
+    label: 'Nombre del Material',
+    placeholder: 'Añadir nombre del nuevo material...',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'El nombre es obligatorio. De 1 a 100 caracteres',
+    maxLength: 100,
+    minLength: 1,
+  },
+  {
+    name: 'Documento',
+    type: 'file',
+    label: 'Documento',
+    placeholder: 'Añadir un Documento...',
+    required: false,
+    validFeedback: '',
+    invalidFeedback: 'El archivo debe pesar como máximo 1 MB',
+    maxLength: 30,
+    minLength: 8,
+  },
+];
+export const MaterialCreationTextAreas = [
+  {
+    name: 'description',
+    type: 'textarea',
+    label: 'Descripción',
+    placeholder: 'Añadir descripción del material...',
+    required: false,
+    validFeedback: '',
+    invalidFeedback: 'De 1 a 250 caracteres',
+    maxLength: 250,
+    minLength: 1,
+    rows: 3,
+  },
+];
+export const TareaCreationSelects = [];
+
+export const TareaCreationInputs = [
+  {
+    name: 'title',
+    type: 'text',
+    label: 'Nombre de la Tarea',
+    placeholder: 'Añadir nombre de la nueva tarea...',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'El nombre es obligatorio. De 1 a 100 caracteres',
+    maxLength: 100,
+    minLength: 1,
+  },
+  {
+    name: 'Documento',
+    type: 'file',
+    label: 'Documento',
+    placeholder: 'Añadir un Documento...',
+    required: false,
+    validFeedback: '',
+    invalidFeedback: 'El archivo debe pesar como máximo 1 MB',
+    maxLength: 30,
+    minLength: 8,
+  },
+];
+export const TareaCreationTextAreas = [
+  {
+    name: 'description',
+    type: 'textarea',
+    label: 'Descripción',
+    placeholder: 'Añadir descripción del aarea...',
+    required: false,
+    validFeedback: '',
+    invalidFeedback: 'De 1 a 250 caracteres',
+    maxLength: 250,
+    minLength: 1,
+    rows: 3,
+  },
+];
+export const MaterialCreationSelects = [];

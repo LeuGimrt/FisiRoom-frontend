@@ -11,10 +11,10 @@ const Header = ({ children, centered = false, variant = 'primary' }: Props) => {
 
   switch (variant) {
     case 'primary':
-      classString = 'title';
+      classString = 'title ';
       break;
     case 'secondary':
-      classString = 'block-title';
+      classString = 'block-title bg-primary';
   }
 
   return (

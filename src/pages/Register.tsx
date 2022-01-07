@@ -7,7 +7,7 @@ import Header from 'components/Header/Header';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 
-import Wrapper from 'containers/Wrapper';
+import Wrapper from 'containers/Wrapper/Wrapper';
 import React from 'react';
 
 const Register = () => {

@@ -1,4 +1,26 @@
+import Wrapper from 'containers/Wrapper/Wrapper';
+import { ThemeContext, themes } from 'context/ThemeContext';
+import { useContext } from 'react';
+
 const Home = () => {
-  return <div>Home page</div>;
+  const { setTheme } = useContext(ThemeContext);
+  return (
+    <Wrapper>
+      <button
+        onClick={() => {
+          setTheme(themes.default);
+        }}
+      >
+        Deu
+      </button>
+      <button
+        onClick={() => {
+          setTheme(themes.default);
+        }}
+      >
+        True
+      </button>
+    </Wrapper>
+  );
 };
 export default Home;

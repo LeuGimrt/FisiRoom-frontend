@@ -7,7 +7,7 @@ import {
 import { CourseData } from 'common/types';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
-import Wrapper from 'containers/Wrapper';
+import Wrapper from 'containers/Wrapper/Wrapper';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
 
