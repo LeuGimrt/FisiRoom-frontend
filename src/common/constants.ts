@@ -194,7 +194,7 @@ export const initialCourseData = {
   day_of_the_week: '',
   description: '',
   id: 1,
-  owner: 1,
+  owner: '',
   owner_name: '',
   time_end: '',
   time_start: '',

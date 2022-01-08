@@ -1,5 +1,8 @@
+import { postMaterial } from 'api/postMaterial';
 import { newMaterial } from 'common/types';
 import Form from 'components/Form/Form';
+import { useParams } from 'react-router';
+import { toast } from 'react-toastify';
 import {
   MaterialCreationInputs,
   MaterialCreationSelects,
@@ -7,9 +10,16 @@ import {
 } from '../common/constants';
 
 const CrearTema = () => {
+  const { cursoId } = useParams();
   //logica
   const handleSubmit = async (data: newMaterial) => {
-    console.log(data);
+    postMaterial(cursoId ? cursoId : '', data)
+      .then(() => {
+        toast.success('El material fue subido exitosamente');
+      })
+      .catch(() => {
+        toast.error('Ocurrió un errror');
+      });
   };
   //respuesta
   return (
