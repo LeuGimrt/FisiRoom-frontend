@@ -1,17 +1,17 @@
-.carditem {
+.carditemTarea {
   height: 9rem;
 }
 
-@media screen and(max-width:768px) {
-  .carditem {
-    height: 18rem;
+@media only screen and(max-width:768px) {
+  .carditemTarea {
+    height: 24rem !important;
   }
 }
 
-.btnlistgroup {
-  height: 7rem;
+.btnlistgroupTarea {
+  height: 8rem;
 }
 
-.btnitem {
+.btnitemTarea {
   height: 2rem;
 }

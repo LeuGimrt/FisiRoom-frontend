@@ -241,7 +241,46 @@ export const MaterialCreationTextAreas = [
     rows: 3,
   },
 ];
-export const TareaCreationSelects = [];
+export const TareaCreationSelects = [
+  {
+    name: 'day',
+    label: 'Fecha Límite',
+    placeholder: 'Seleccione el día',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'Todo curso debe tener un día seleccionado',
+    options: [
+      {
+        id: '1',
+        name: 'Lunes',
+      },
+      {
+        id: '2',
+        name: 'Martes',
+      },
+      {
+        id: '3',
+        name: 'Miércoles',
+      },
+      {
+        id: '4',
+        name: 'Jueves',
+      },
+      {
+        id: '5',
+        name: 'Viernes',
+      },
+      {
+        id: '6',
+        name: 'Sábado',
+      },
+      {
+        id: '7',
+        name: 'Domingo',
+      },
+    ],
+  },
+];
 
 export const TareaCreationInputs = [
   {
