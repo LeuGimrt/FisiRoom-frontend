@@ -6,7 +6,8 @@ const NavbarMenu = () => {
   const { user } = useContext(UserContext);
 
   const closeSession = () => {
-    localStorage.setItem('user-token', '');
+    localStorage.removeItem('user-token');
+    localStorage.removeItem('user-data');
   };
   return (
     <>

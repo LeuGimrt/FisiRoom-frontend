@@ -10,13 +10,13 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
-      <CourseProvider>
-        <UserProvider>
-          <BrowserRouter>
+      <BrowserRouter>
+        <CourseProvider>
+          <UserProvider>
             <App />
-          </BrowserRouter>
-        </UserProvider>
-      </CourseProvider>
+          </UserProvider>
+        </CourseProvider>
+      </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
