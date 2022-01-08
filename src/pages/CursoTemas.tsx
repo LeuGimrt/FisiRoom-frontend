@@ -1,13 +1,23 @@
-import { newMaterial } from 'common/types';
+import { Topic } from 'common/types';
 import { Link } from 'react-router-dom';
 import Button from 'components/Button/Button';
 import CardItemsTema from '../components/CardItemsTema/CardItemsTema';
+import { useEffect, useState } from 'react';
+import { getCourseTopics } from 'api/getCourseTopics';
+import { useParams } from 'react-router';
+import { AxiosResponse } from 'axios';
 
 const CursoTemas = () => {
   //logica
-  const handleSubmit = async (data: newMaterial) => {
-    console.log(data);
-  };
+  const [temas, setTemas] = useState<Topic[]>([]);
+  const { cursoId } = useParams();
+
+  useEffect(() => {
+    getCourseTopics(cursoId ? cursoId : '').then((response: AxiosResponse) => {
+      setTemas(response.data);
+      console.log(response.data);
+    });
+  }, []);
   //respuesta
   return (
     <>
@@ -21,7 +31,7 @@ const CursoTemas = () => {
             </Link>
           </div>
         </div>
-        <CardItemsTema />
+        <CardItemsTema temas={temas} />
       </div>
     </>
   );

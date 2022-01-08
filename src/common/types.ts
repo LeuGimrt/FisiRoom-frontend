@@ -109,3 +109,22 @@ export type newMaterial = {
   description: string;
   document: File;
 };
+
+export type Assignment = {
+  id: number;
+  course: number;
+  title: string;
+  description: string;
+  creation_timestamp: string;
+  file: Object;
+  due_datetime: string;
+};
+
+export type Topic = {
+  id: number;
+  course: number;
+  title: string;
+  description: string;
+  creation_timestamp: string;
+  file: Object;
+};

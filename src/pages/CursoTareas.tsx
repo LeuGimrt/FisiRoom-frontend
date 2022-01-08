@@ -1,13 +1,23 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Button from 'components/Button/Button';
 import CardItemsTarea from 'components/CardItemsTarea/CardItemsTarea';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { getCourseAssignments } from 'api/getCourseAssignments';
+import { AxiosResponse } from 'axios';
+import { Assignment } from 'common/types';
 
 const CursoTareas = () => {
+  const { cursoId } = useParams();
+  const [tareas, setTareas] = useState<Assignment[]>([]);
   //logica
   useEffect(() => {
-    localStorage.setItem('vista', 'Tareas');
-  });
+    getCourseAssignments(cursoId ? cursoId : '').then(
+      (response: AxiosResponse) => {
+        setTareas(response.data);
+        console.log(response.data);
+      }
+    );
+  }, []);
   //respuesta
   return (
     <>
@@ -21,8 +31,7 @@ const CursoTareas = () => {
             </Link>
           </div>
         </div>
-        <CardItemsTarea />
-        <CardItemsTarea />
+        <CardItemsTarea tareas={tareas} />
       </div>
     </>
   );

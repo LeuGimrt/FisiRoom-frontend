@@ -31,7 +31,7 @@ const GroupListCustomCursos = ({ ownerId }: Props) => {
         </>
       )}
       {/* Opciones del docente */}
-      {(user.id = ownerId) && (
+      {user.id === ownerId && (
         <>
           <GroupList btnlist={profesorbtns} />
         </>
