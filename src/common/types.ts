@@ -23,6 +23,22 @@ export type User = {
   email: string;
 };
 
+export type UserData = {
+  id: number;
+  username: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  token: string;
+  last_login: string;
+  is_superuser: boolean;
+  is_staff: boolean;
+  is_active: boolean;
+  date_joined: string;
+  groups: Object[];
+  user_permissions: Object[];
+};
+
 export type LoginData = {
   email: string;
   password: string;

@@ -1,11 +1,19 @@
 import { ButtonItem } from 'common/types';
 import GroupList from 'components/GroupList/GroupList';
+import { UserContext } from 'context/UserContext';
+import { useContext } from 'react';
 
 type Props = {
   activeBtn?: string;
+  ownerId: number;
 };
 
-const GroupListCustomCursos = ({ activeBtn = 'Información' }: Props) => {
+const GroupListCustomCursos = ({
+  activeBtn = 'Información',
+  ownerId,
+}: Props) => {
+  const { user } = useContext(UserContext);
+
   let alumnosbtns: ButtonItem[] = [
     { label: 'Información', route: `detalles` },
     { label: 'Temas', route: `temas` },
@@ -22,10 +30,14 @@ const GroupListCustomCursos = ({ activeBtn = 'Información' }: Props) => {
         <p>Opciones del Alumno: </p>
       </div>
       <GroupList btnlist={alumnosbtns} activeBtn={activeBtn} />
-      <div className="col-12 pt-3">
-        <p>Opciones del Profesor: </p>
-      </div>
-      <GroupList btnlist={profesorbtns} activeBtn={activeBtn} />
+      {(user.id = ownerId) && (
+        <>
+          <div className="col-12 pt-3">
+            <p>Opciones del Profesor: </p>
+          </div>
+          <GroupList btnlist={profesorbtns} activeBtn={activeBtn} />
+        </>
+      )}
     </div>
   );
 };
