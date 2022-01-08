@@ -1,4 +1,3 @@
-import GroupListCustomCursos from 'components/GroupList-Custom-Cursos/GroupList-custom.cursos';
 import { CourseContext } from 'context/CourseContext';
 import { useContext } from 'react';
 import { Outlet } from 'react-router';
@@ -8,7 +7,6 @@ const CursoDetalles = () => {
 
   return (
     <>
-      <GroupListCustomCursos activeBtn="Información" />
       <div className="col-9 border border-light ">
         <div className="row ">
           <div className="d-flex justify-content-start py-4 border-bottom">

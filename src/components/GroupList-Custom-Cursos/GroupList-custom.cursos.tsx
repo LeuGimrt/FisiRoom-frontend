@@ -4,14 +4,10 @@ import { UserContext } from 'context/UserContext';
 import { useContext } from 'react';
 
 type Props = {
-  activeBtn?: string;
   ownerId: number;
 };
 
-const GroupListCustomCursos = ({
-  activeBtn = 'Información',
-  ownerId,
-}: Props) => {
+const GroupListCustomCursos = ({ ownerId }: Props) => {
   const { user } = useContext(UserContext);
 
   let alumnosbtns: ButtonItem[] = [
@@ -29,13 +25,13 @@ const GroupListCustomCursos = ({
       <div className="col-12 pt-3">
         <p>Opciones del Alumno: </p>
       </div>
-      <GroupList btnlist={alumnosbtns} activeBtn={activeBtn} />
+      <GroupList btnlist={alumnosbtns} />
       {(user.id = ownerId) && (
         <>
           <div className="col-12 pt-3">
             <p>Opciones del Profesor: </p>
           </div>
-          <GroupList btnlist={profesorbtns} activeBtn={activeBtn} />
+          <GroupList btnlist={profesorbtns} />
         </>
       )}
     </div>

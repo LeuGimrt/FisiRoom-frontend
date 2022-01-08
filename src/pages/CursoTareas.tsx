@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import Button from 'components/Button/Button';
 import CardItemsTarea from 'components/CardItemsTarea/CardItemsTarea';
 import { useEffect } from 'react';
-import GroupListCustomCursos from 'components/GroupList-Custom-Cursos/GroupList-custom.cursos';
 
 const CursoTareas = () => {
   //logica
@@ -12,7 +11,6 @@ const CursoTareas = () => {
   //respuesta
   return (
     <>
-      <GroupListCustomCursos activeBtn="Tareas" />
       <div className="col-9 border border-light p-3">
         <div className="row ">
           <div className="d-flex justify-content-end py-3 border-bottom">
