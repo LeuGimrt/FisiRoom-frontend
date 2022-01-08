@@ -1,3 +1,5 @@
+import { nullToString } from './utils/isNull';
+
 export const registerInputs = [
   {
     name: 'firstname',
@@ -199,6 +201,24 @@ export const initialCourseData = {
   title: '',
   enrolled: [],
   posts: [],
+};
+
+export const initialUserData = JSON.parse(
+  nullToString(localStorage.getItem('user-data'))
+) || {
+  id: 1,
+  username: '',
+  first_name: 'default',
+  last_name: '',
+  email: '',
+  token: '',
+  last_login: '',
+  is_superuser: false,
+  is_staff: false,
+  is_active: true,
+  date_joined: '',
+  groups: [{}],
+  user_permissions: [{}],
 };
 
 export const MaterialCreationInputs = [

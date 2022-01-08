@@ -1,6 +1,10 @@
+import { UserContext } from 'context/UserContext';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 const NavbarMenu = () => {
+  const { user } = useContext(UserContext);
+
   const closeSession = () => {
     localStorage.setItem('user-token', '');
   };
@@ -46,7 +50,7 @@ const NavbarMenu = () => {
           <Link to="/">
             <img src="/assets/images/profile.jpg" alt="" />
           </Link>
-          <span className="user-name">Nombre largazooooooooooooo</span>
+          <span className="user-name">{user.first_name}</span>
           <div className="dropdown">
             <button
               className="btn btn-secondary dropdown-toggle"
