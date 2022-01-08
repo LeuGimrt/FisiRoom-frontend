@@ -26,7 +26,7 @@ const CrearCurso = () => {
       .then((res) => {
         console.log(res);
         toast.success('Curso creado con éxito');
-        navigate('/cursoscreados');
+        navigate('/cursos-creados');
       })
       .catch((e) => {
         console.error('Error: ', e);

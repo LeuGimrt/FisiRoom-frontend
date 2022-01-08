@@ -20,7 +20,7 @@ const Curso = () => {
     });
   }, [cursoId]);
   return (
-    <CourseDashboard title={curso.title} teacher={curso.owner_name}>
+    <CourseDashboard course={curso}>
       <div className="row border-top border-primary pt-2">
         <GroupListCustomCursos ownerId={curso.owner} />
         <Outlet />
