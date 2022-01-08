@@ -16,13 +16,14 @@ const Curso = () => {
     getCourseDetails(cursoId ? cursoId : '').then((response: AxiosResponse) => {
       setCurso(response.data);
       setCourse(response.data);
-      console.log(response);
+      console.log(response.data);
+      console.log();
     });
   }, [cursoId]);
   return (
     <CourseDashboard course={curso}>
       <div className="row border-top border-primary pt-2">
-        <GroupListCustomCursos ownerId={curso.owner} />
+        <GroupListCustomCursos ownerId={parseInt(curso.owner)} />
         <Outlet />
       </div>
     </CourseDashboard>
