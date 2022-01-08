@@ -13,24 +13,26 @@ const GroupListCustomCursos = ({ ownerId }: Props) => {
   let alumnosbtns: ButtonItem[] = [
     { label: 'Información', route: `detalles` },
     { label: 'Temas', route: `temas` },
-    { label: 'Tareas', route: `tareas` },
+    { label: 'Tareas', route: `gestionar-tareas` },
   ];
   let profesorbtns: ButtonItem[] = [
-    { label: 'Gestionar Tareas', route: 'a' },
-    { label: 'Gestionar Alumnos', route: 'a' },
-    { label: 'Gestionar Notas', route: 'a' },
+    { label: 'Información', route: `detalles` },
+    { label: 'Temas', route: `temas` },
+    { label: 'Gestionar Tareas', route: 'gestionar-tareas' },
+    { label: 'Gestionar Alumnos', route: 'gestionar-alumnos' },
+    { label: 'Gestionar Notas', route: 'gestionar-notas' },
   ];
   return (
     <div className=" d-none d-md-block col-md-3 col-3 border border-light ">
-      <div className="col-12 pt-3">
-        <p>Opciones del Alumno: </p>
-      </div>
-      <GroupList btnlist={alumnosbtns} />
+      {/* Opciones del alumno */}
+      {user.id !== ownerId && (
+        <>
+          <GroupList btnlist={alumnosbtns} />
+        </>
+      )}
+      {/* Opciones del docente */}
       {(user.id = ownerId) && (
         <>
-          <div className="col-12 pt-3">
-            <p>Opciones del Profesor: </p>
-          </div>
           <GroupList btnlist={profesorbtns} />
         </>
       )}

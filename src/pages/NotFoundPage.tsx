@@ -1,7 +1,5 @@
-import Wrapper from 'containers/Wrapper/Wrapper';
-
 const NotFoundPage = () => {
-  return <Wrapper>Página no encontrada</Wrapper>;
+  return <div>Página no encontrada</div>;
 };
 
 export default NotFoundPage;

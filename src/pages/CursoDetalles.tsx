@@ -1,6 +1,5 @@
 import { CourseContext } from 'context/CourseContext';
 import { useContext } from 'react';
-import { Outlet } from 'react-router';
 
 const CursoDetalles = () => {
   const { course } = useContext(CourseContext);
