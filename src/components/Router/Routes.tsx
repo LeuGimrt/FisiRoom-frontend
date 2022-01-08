@@ -34,10 +34,11 @@ const Routes = () => {
             <Route path="" element={<CursoTemas />} />
             <Route path="crear" element={<CrearTema />} />
           </Route>
-          <Route path="tareas">
+          <Route path="gestionar-tareas">
             <Route path="" element={<CursoTareas />} />
             <Route path="crear" element={<CrearTarea />} />
           </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="/cursos" element={<MisCursos />} />
         <Route path="/cursos-creados" element={<MisCursosCreados />} />
