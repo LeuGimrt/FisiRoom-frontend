@@ -107,7 +107,7 @@ export type ButtonItem = {
 export type newMaterial = {
   title: string;
   description: string;
-  document: File;
+  file: File;
 };
 
 export type Assignment = {
