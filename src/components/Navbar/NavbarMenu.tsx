@@ -8,6 +8,7 @@ const NavbarMenu = () => {
   const closeSession = () => {
     localStorage.removeItem('user-token');
     localStorage.removeItem('user-data');
+    window.location.reload();
   };
   return (
     <>
