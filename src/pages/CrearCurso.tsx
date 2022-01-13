@@ -10,6 +10,7 @@ import Header from 'components/Header/Header';
 import Wrapper from 'containers/Wrapper/Wrapper';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
+import { AxiosError } from 'axios';
 
 const CrearCurso = () => {
   const navigate = useNavigate();
@@ -22,15 +23,16 @@ const CrearCurso = () => {
       description: data.description,
       time_end: data.time_end,
       time_start: data.time_start,
+      image: data.image,
     })
       .then((res) => {
         console.log(res);
         toast.success('Curso creado con éxito');
         navigate('/cursos-creados');
       })
-      .catch((e) => {
+      .catch((e: AxiosError) => {
         console.error('Error: ', e);
-        toast.error('Ocurrio un error');
+        toast.error('Ocurrio un error:', e.response?.data.message);
       });
   };
   return (

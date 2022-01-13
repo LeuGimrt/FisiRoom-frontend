@@ -25,7 +25,13 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    if (e.target.type !== 'file') {
+      setData({ ...data, [e.target.name]: e.target.value });
+    } else {
+      const files = e.target.files;
+      if (!files || !files[0]) return;
+      setData({ ...data, [e.target.name]: files[0] });
+    }
   };
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -35,6 +41,15 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
   const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+
+  const restrictFileType = (name: string): string => {
+    console.log('uwu');
+
+    if (name === 'image') return '.png,.jpg';
+
+    return '';
+  };
+
   return (
     <form noValidate onSubmit={handleSubmit}>
       {selects.map((select) => {
@@ -79,6 +94,7 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
               placeholder={input.placeholder}
               onChange={handleInputChange}
               required={input.required}
+              accept={restrictFileType(input.name)}
             />
             <div className="valid-feedback">{input.validFeedback}</div>
             <div className="invalid-feedback">{input.invalidFeedback}</div>

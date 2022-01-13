@@ -95,6 +95,7 @@ export type CourseData = {
   day: string;
   time_start: string;
   time_end: string;
+  image: File;
 };
 
 export type PalleteOptions = 'default' | 'first-v' | 'second' | 'third';
