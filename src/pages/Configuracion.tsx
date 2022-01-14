@@ -31,7 +31,7 @@ const Configuracion = () => {
                     Fuente
                   </Link>
                   <Link
-                    to="#"
+                    to="/configuracion/cursor"
                     className="list-group-item list-group-item-action"
                   >
                     Cursor
