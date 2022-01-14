@@ -32,11 +32,6 @@ const CardCourse = ({
             <h5 className="card-title mt-2">{title}</h5>
           </div>
           <div className="row ">
-            <p className="card-text py-2" id="descripcion">
-              {description}
-            </p>
-          </div>
-          <div className="row ">
             <p className="card-text py-2 border-top border-primary">Horario:</p>
           </div>
           <div className="row">

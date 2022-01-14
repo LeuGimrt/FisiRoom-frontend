@@ -26,6 +26,7 @@ const Register = () => {
         username: data.firstname,
         first_name: data.firstname,
         last_name: data.lastname,
+        visual_config: 0,
       })
       .then((response) => {
         navigate('/login');
