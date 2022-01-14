@@ -20,7 +20,7 @@ import SeleccionFuente from 'pages/SeleccionFuente';
 import Configuracion from 'pages/Configuracion';
 
 import TareaDetalles from '../../pages/TareaDetalles';
-
+import SeleccionCursor from 'pages/SeleccionCursor';
 
 const Routes = () => {
   return (
@@ -36,6 +36,7 @@ const Routes = () => {
         <Route path="/configuracion" element={<Configuracion />}>
           <Route path="color" element={<SeleccionColor />} />
           <Route path="fuente" element={<SeleccionFuente />} />
+          <Route path="cursor" element={<SeleccionCursor />} />
         </Route>
         <Route path="/curso/:cursoId" element={<Curso />}>
           <Route path="detalles" element={<CursoDetalles />} />
