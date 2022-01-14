@@ -15,7 +15,12 @@ import CrearTarea from 'pages/CrearTarea';
 import Curso from 'pages/Curso';
 import ProtectedRoutes from './ProtectedRoutes';
 import NotFoundPage from 'pages/NotFoundPage';
+
+import SeleccionFuente from 'pages/SeleccionFuente';
+import Configuracion from 'pages/Configuracion';
+
 import TareaDetalles from '../../pages/TareaDetalles';
+
 
 const Routes = () => {
   return (
@@ -28,7 +33,10 @@ const Routes = () => {
       {/* Protected Routes */}
       <Route element={<ProtectedRoutes />}>
         <Route path="/cursos/crear" element={<CrearCurso />} />
-        <Route path="/configuracion/color" element={<SeleccionColor />} />
+        <Route path="/configuracion" element={<Configuracion />}>
+          <Route path="color" element={<SeleccionColor />} />
+          <Route path="fuente" element={<SeleccionFuente />} />
+        </Route>
         <Route path="/curso/:cursoId" element={<Curso />}>
           <Route path="detalles" element={<CursoDetalles />} />
           <Route path="temas">

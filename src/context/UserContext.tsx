@@ -25,6 +25,7 @@ if (initialUserData === null) {
     date_joined: '',
     groups: [{}],
     user_permissions: [{}],
+    visual_config: 0,
   };
 } else {
   initialUserDataObject = JSON.parse(nullToString(initialUserData));

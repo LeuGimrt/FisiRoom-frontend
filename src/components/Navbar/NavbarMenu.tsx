@@ -8,6 +8,8 @@ const NavbarMenu = () => {
   const closeSession = () => {
     localStorage.removeItem('user-token');
     localStorage.removeItem('user-data');
+    localStorage.removeItem('user-theme');
+    window.location.reload();
   };
   return (
     <>
