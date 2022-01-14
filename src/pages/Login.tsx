@@ -1,5 +1,5 @@
 import { loginInputs } from 'common/constants';
-import { LoginData, TokenUser, UserData } from 'common/types';
+import { LoginData, TokenUser, User, UserData } from 'common/types';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
 import { useNavigate } from 'react-router';
@@ -15,11 +15,18 @@ const Login = () => {
   const { setUser } = useContext(UserContext);
   const handleSubmit = async (data: LoginData) => {
     axiosInstance
-      .post<TokenUser>('/users/login/', data)
-      .then((response: AxiosResponse) => {
+      .post<UserData>('/users/login/', data)
+      .then((response: AxiosResponse<UserData>) => {
         localStorage.setItem('user-token', response.data.token);
         setUser(response.data);
         localStorage.setItem('user-data', JSON.stringify(response.data));
+        localStorage.setItem(
+          'user-theme',
+          JSON.stringify({
+            colorTheme: response.data.visual_config,
+            fontSize: '16px', // modificar con la respuesta
+          })
+        );
 
         navigate('/cursos');
       })

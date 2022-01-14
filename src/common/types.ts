@@ -37,6 +37,7 @@ export type UserData = {
   date_joined: string;
   groups: Object[];
   user_permissions: Object[];
+  visual_config: 0;
 };
 
 export type LoginData = {
