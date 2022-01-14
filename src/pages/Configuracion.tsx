@@ -44,7 +44,7 @@ const Configuracion = () => {
                   </Link>
                   <Link
                     to="/configuracion/color"
-                    className="list-group-item list-group-item-action active bg-primary"
+                    className="list-group-item list-group-item-action"
                   >
                     Daltónicos
                   </Link>
