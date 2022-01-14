@@ -248,7 +248,7 @@ export const TareaCreationSelects = [
     placeholder: 'Seleccione el día',
     required: true,
     validFeedback: '',
-    invalidFeedback: 'Todo curso debe tener un día seleccionado',
+    invalidFeedback: 'Toda tarea debe tener un día seleccionado',
     options: [
       {
         id: '1',
@@ -321,3 +321,83 @@ export const TareaCreationTextAreas = [
   },
 ];
 export const MaterialCreationSelects = [];
+
+export const RespuestaCreationSelects = [
+  {
+    name: 'day',
+    label: 'Fecha Límite',
+    placeholder: 'Seleccione el día',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'Toda tarea debe tener un día seleccionado',
+    options: [
+      {
+        id: '1',
+        name: 'Lunes',
+      },
+      {
+        id: '2',
+        name: 'Martes',
+      },
+      {
+        id: '3',
+        name: 'Miércoles',
+      },
+      {
+        id: '4',
+        name: 'Jueves',
+      },
+      {
+        id: '5',
+        name: 'Viernes',
+      },
+      {
+        id: '6',
+        name: 'Sábado',
+      },
+      {
+        id: '7',
+        name: 'Domingo',
+      },
+    ],
+  },
+];
+
+export const RespuestaCreationInputs = [
+  {
+    name: 'title',
+    type: 'text',
+    label: 'Nombre de la Tarea',
+    placeholder: 'Añadir nombre de la nueva tarea...',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'El nombre es obligatorio. De 1 a 100 caracteres',
+    maxLength: 100,
+    minLength: 1,
+  },
+  {
+    name: 'Documento',
+    type: 'file',
+    label: 'Documento',
+    placeholder: 'Añadir un Documento...',
+    required: false,
+    validFeedback: '',
+    invalidFeedback: '',
+    maxLength: 30,
+    minLength: 8,
+  },
+];
+export const RespuestaCreationTextAreas = [
+  {
+    name: 'description',
+    type: 'textarea',
+    label: 'Descripción',
+    placeholder: 'Añadir descripción del area...',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'De 1 a 250 caracteres',
+    maxLength: 250,
+    minLength: 1,
+    rows: 3,
+  },
+];
