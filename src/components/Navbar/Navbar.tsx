@@ -24,7 +24,7 @@ const Navbar = () => {
   };
   return (
     <header className="navbar navbar-expand-md navbar-dark bg-primary">
-      <div className="container-fluid">
+      <div className="container-fluid  ">
         <Link className="navbar-brand" to="/">
           HoloSchool
         </Link>

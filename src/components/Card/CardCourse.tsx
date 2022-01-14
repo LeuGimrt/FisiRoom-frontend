@@ -13,7 +13,7 @@ type Props = {
 
 const CardCourse = ({
   id = 0,
-  // image = 'https://i.imgur.com/crEJgaf.gif.gif',
+  //image = 'https://i.imgur.com/crEJgaf.gif.gif',
   image = 'https://vilmanunez.com/wp-content/uploads/2016/03/herramientas-y-recursos-para-crear-curso-online.png',
   description = '',
   title,

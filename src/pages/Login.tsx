@@ -1,21 +1,26 @@
 import { loginInputs } from 'common/constants';
-import { LoginData, TokenUser } from 'common/types';
+import { LoginData, TokenUser, UserData } from 'common/types';
 import Form from 'components/Form/Form';
 import Header from 'components/Header/Header';
 import { useNavigate } from 'react-router';
 import Wrapper from 'containers/Wrapper/Wrapper';
 import axiosInstance from 'api/config';
 import { toast } from 'react-toastify';
-import { AxiosError } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
+import { UserContext } from 'context/UserContext';
+import { useContext } from 'react';
 
 const Login = () => {
   const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
   const handleSubmit = async (data: LoginData) => {
     axiosInstance
       .post<TokenUser>('/users/login/', data)
-      .then((response) => {
+      .then((response: AxiosResponse) => {
         localStorage.setItem('user-token', response.data.token);
-        console.log(response.data.token);
+        setUser(response.data);
+        localStorage.setItem('user-data', JSON.stringify(response.data));
+
         navigate('/cursos');
       })
       .catch((e: AxiosError) => {

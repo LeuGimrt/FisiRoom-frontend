@@ -1,3 +1,5 @@
+import { nullToString } from './utils/isNull';
+
 export const registerInputs = [
   {
     name: 'firstname',
@@ -192,7 +194,7 @@ export const initialCourseData = {
   day_of_the_week: '',
   description: '',
   id: 1,
-  owner: 1,
+  owner: '',
   owner_name: '',
   time_end: '',
   time_start: '',
@@ -220,7 +222,7 @@ export const MaterialCreationInputs = [
     placeholder: 'Añadir un Documento...',
     required: false,
     validFeedback: '',
-    invalidFeedback: 'El archivo debe pesar como máximo 1 MB',
+    invalidFeedback: '',
     maxLength: 30,
     minLength: 8,
   },
@@ -231,7 +233,7 @@ export const MaterialCreationTextAreas = [
     type: 'textarea',
     label: 'Descripción',
     placeholder: 'Añadir descripción del material...',
-    required: false,
+    required: true,
     validFeedback: '',
     invalidFeedback: 'De 1 a 250 caracteres',
     maxLength: 250,
@@ -239,7 +241,46 @@ export const MaterialCreationTextAreas = [
     rows: 3,
   },
 ];
-export const TareaCreationSelects = [];
+export const TareaCreationSelects = [
+  {
+    name: 'day',
+    label: 'Fecha Límite',
+    placeholder: 'Seleccione el día',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'Todo curso debe tener un día seleccionado',
+    options: [
+      {
+        id: '1',
+        name: 'Lunes',
+      },
+      {
+        id: '2',
+        name: 'Martes',
+      },
+      {
+        id: '3',
+        name: 'Miércoles',
+      },
+      {
+        id: '4',
+        name: 'Jueves',
+      },
+      {
+        id: '5',
+        name: 'Viernes',
+      },
+      {
+        id: '6',
+        name: 'Sábado',
+      },
+      {
+        id: '7',
+        name: 'Domingo',
+      },
+    ],
+  },
+];
 
 export const TareaCreationInputs = [
   {
@@ -260,7 +301,7 @@ export const TareaCreationInputs = [
     placeholder: 'Añadir un Documento...',
     required: false,
     validFeedback: '',
-    invalidFeedback: 'El archivo debe pesar como máximo 1 MB',
+    invalidFeedback: '',
     maxLength: 30,
     minLength: 8,
   },
@@ -270,8 +311,8 @@ export const TareaCreationTextAreas = [
     name: 'description',
     type: 'textarea',
     label: 'Descripción',
-    placeholder: 'Añadir descripción del aarea...',
-    required: false,
+    placeholder: 'Añadir descripción del area...',
+    required: true,
     validFeedback: '',
     invalidFeedback: 'De 1 a 250 caracteres',
     maxLength: 250,

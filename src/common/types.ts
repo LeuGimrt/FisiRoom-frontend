@@ -4,7 +4,7 @@ export type Curso = {
   day_of_the_week: string;
   description: string;
   id: number;
-  owner: number;
+  owner: string;
   owner_name: string;
   time_end: string;
   time_start: string;
@@ -21,6 +21,22 @@ export type User = {
   firstname: string;
   lastname: string;
   email: string;
+};
+
+export type UserData = {
+  id: number;
+  username: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  token: string;
+  last_login: string;
+  is_superuser: boolean;
+  is_staff: boolean;
+  is_active: boolean;
+  date_joined: string;
+  groups: Object[];
+  user_permissions: Object[];
 };
 
 export type LoginData = {
@@ -91,5 +107,24 @@ export type ButtonItem = {
 export type newMaterial = {
   title: string;
   description: string;
-  document: File;
+  file: File;
+};
+
+export type Assignment = {
+  id: number;
+  course: number;
+  title: string;
+  description: string;
+  creation_timestamp: string;
+  file: Object;
+  due_datetime: string;
+};
+
+export type Topic = {
+  id: number;
+  course: number;
+  title: string;
+  description: string;
+  creation_timestamp: string;
+  file: Object;
 };

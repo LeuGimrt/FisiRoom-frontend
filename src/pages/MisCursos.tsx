@@ -1,8 +1,8 @@
 import { Curso } from 'common/types';
 import CardCourse from 'components/Card/CardCourse';
-import Wrapper from 'containers/Wrapper/Wrapper';
 import { PropsWithRef, useEffect, useState } from 'react';
 import { getCoursesEnrolled } from 'api/getCoursesEnrolled';
+import Wrapper from '../containers/Wrapper/Wrapper';
 
 const MisCursos = (props: PropsWithRef<any>) => {
   const [cursos, setCursos] = useState([]);

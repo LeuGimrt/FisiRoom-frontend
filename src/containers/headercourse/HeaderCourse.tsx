@@ -1,10 +1,6 @@
 import './HeaderCourse.scss';
-import Button from 'components/Button/Button';
-import axiosInstance from 'api/config';
-import { Link } from 'react-router-dom';
 import Header from 'components/Header/Header';
 import GroupList from 'components/GroupList/GroupList';
-import { useState } from 'react';
 import { ButtonItem } from 'common/types';
 const HeaderCourse = () => {
   let alumnosbtns: ButtonItem[] = [
@@ -19,7 +15,7 @@ const HeaderCourse = () => {
   ];
   console.log(alumnosbtns);
   return (
-    <div className="container">
+    <div className="container ">
       <div className=" headercourse row py-3 px-4">
         <Header>COURSE NAME</Header>
         <div className="col-12 px-5 pt-2">
@@ -31,11 +27,10 @@ const HeaderCourse = () => {
           <div className="col-12 pt-3">
             <p>Opciones del Alumno: </p>
           </div>
-          <GroupList btnlist={alumnosbtns} activeBtn="Información" />
+          <GroupList btnlist={alumnosbtns} />
           <div className="col-12 pt-3">
             <p>Opciones del Profesor: </p>
           </div>
-          {/* <GroupList btnlist={profesorbtns} /> */}
         </div>
         <div className="col-9 border border-light "> detalles</div>
       </div>

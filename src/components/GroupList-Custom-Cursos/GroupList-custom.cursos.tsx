@@ -1,31 +1,46 @@
 import { ButtonItem } from 'common/types';
 import GroupList from 'components/GroupList/GroupList';
+import { UserContext } from 'context/UserContext';
+import { useContext, useEffect } from 'react';
 
 type Props = {
-  activeBtn: string;
+  ownerId: number;
 };
 
-const GroupListCustomCursos = ({ activeBtn }: Props) => {
+const GroupListCustomCursos = ({ ownerId }: Props) => {
+  const { user } = useContext(UserContext);
+
   let alumnosbtns: ButtonItem[] = [
     { label: 'Información', route: `detalles` },
     { label: 'Temas', route: `temas` },
-    { label: 'Tareas', route: `tareas` },
+    { label: 'Tareas', route: `gestionar-tareas` },
   ];
   let profesorbtns: ButtonItem[] = [
-    { label: 'Gestionar Tareas', route: 'a' },
-    { label: 'Gestionar Alumnos', route: 'a' },
-    { label: 'Gestionar Notas', route: 'a' },
+    { label: 'Información', route: `detalles` },
+    { label: 'Temas', route: `temas` },
+    { label: 'Gestionar Tareas', route: 'gestionar-tareas' },
+    { label: 'Gestionar Alumnos', route: 'gestionar-alumnos' },
+    { label: 'Gestionar Notas', route: 'gestionar-notas' },
   ];
+
+  useEffect(() => {
+    console.log('owner', ownerId);
+    console.log('user', user.id);
+  }, []);
   return (
-    <div className="col-3 border border-light ">
-      <div className="col-12 pt-3">
-        <p>Opciones del Alumno: </p>
-      </div>
-      <GroupList btnlist={alumnosbtns} activeBtn={activeBtn} />
-      <div className="col-12 pt-3">
-        <p>Opciones del Profesor: </p>
-      </div>
-      <GroupList btnlist={profesorbtns} activeBtn={activeBtn} />
+    <div className=" d-none d-md-block col-md-3 col-3 border border-light ">
+      {/* Opciones del docente */}
+      {user.id === ownerId && (
+        <>
+          <GroupList btnlist={profesorbtns} />
+        </>
+      )}
+      {/* Opciones del alumno */}
+      {user.id !== ownerId && (
+        <>
+          <GroupList btnlist={alumnosbtns} />
+        </>
+      )}
     </div>
   );
 };

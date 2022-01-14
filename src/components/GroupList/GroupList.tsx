@@ -1,30 +1,30 @@
 import { ButtonItem } from 'common/types';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
+import { useState } from 'react';
 type Props = {
   btnlist: ButtonItem[];
-  activeBtn?: string;
 };
 
-const GroupList = ({ btnlist, activeBtn }: Props) => {
+const GroupList = ({ btnlist }: Props) => {
   const { cursoId } = useParams();
-  console.log('btnlist');
-  console.log(btnlist);
-  console.log('activeBtn');
-  console.log(activeBtn);
-  const activarBoton = (btn: ButtonItem) => {
-    if (activeBtn === btn.label) {
-      return 'col-12 py-3 list-group-item list-group-item-action active bg-primary';
-    } else {
-      return 'col-12 py-3 list-group-item list-group-item-action ';
-    }
+  const [selectedBtn, setSelectedBtn] = useState('detalles');
+  const giveClassName = (btn: string) => {
+    const baseClass = 'col-12 py-3 list-group-item list-group-item-action';
+    if (btn === selectedBtn) return `${baseClass} active bg-primary`;
+    return baseClass;
   };
   return (
     <div className="col-12 list-group">
       {btnlist.map((btnitem: ButtonItem) => {
-        let classname = activarBoton(btnitem);
         return (
-          <Link className={classname} to={`/curso/${cursoId}/${btnitem.route}`}>
+          <Link
+            onClick={() => {
+              setSelectedBtn(btnitem.route);
+            }}
+            className={giveClassName(btnitem.route)}
+            to={`/curso/${cursoId}/${btnitem.route}`}
+          >
             {btnitem.label}
           </Link>
         );
