@@ -15,6 +15,7 @@ import CrearTarea from 'pages/CrearTarea';
 import Curso from 'pages/Curso';
 import ProtectedRoutes from './ProtectedRoutes';
 import NotFoundPage from 'pages/NotFoundPage';
+import TareaDetalles from '../../pages/TareaDetalles';
 
 const Routes = () => {
   return (
@@ -37,6 +38,7 @@ const Routes = () => {
           <Route path="gestionar-tareas">
             <Route path="" element={<CursoTareas />} />
             <Route path="crear" element={<CrearTarea />} />
+            <Route path="detalles" element={<TareaDetalles />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Route>
