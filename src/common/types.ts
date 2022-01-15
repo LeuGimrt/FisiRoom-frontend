@@ -122,7 +122,7 @@ export type Assignment = {
   title: string;
   description: string;
   creation_timestamp: string;
-  file?: Object;
+  file?: string;
   due_datetime: string;
 };
 

@@ -1,6 +1,11 @@
 import { Assignment } from 'common/types';
+import Button from 'components/Button/Button';
+import { CourseContext } from 'context/CourseContext';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import './CardItemsTarea.scss';
 const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
+  const { course } = useContext(CourseContext);
   return (
     <>
       {tareas.map((tarea) => {
@@ -17,12 +22,13 @@ const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
             </div>
             {}
             <div className="col-12 col-xs-12 col-md-3 offset-md-1 list-group justify-content-center px-3 btnlistgroup">
-              <button
-                className="col-xs-4 col-md-12 list-group-item list-group-item-action btnitem text-center p-1 m-1 btn btn-primary active "
-                type="button"
+              <Link
+                to={`/curso/${course.id}/gestionar-tareas/${tarea.id}/detalles`}
               >
-                Ver
-              </button>
+                <Button className="mx-1" color="primary" elevated>
+                  Ir a la Tarea
+                </Button>
+              </Link>
               {/* <button
                 className="col-xs-4 col-md-12 list-group-item list-group-item-action btnitem text-center p-1 m-1 btn btn-primary active "
                 type="button"

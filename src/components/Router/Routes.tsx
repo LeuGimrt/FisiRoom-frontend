@@ -47,7 +47,7 @@ const Routes = () => {
           <Route path="gestionar-tareas">
             <Route path="" element={<CursoTareas />} />
             <Route path="crear" element={<CrearTarea />} />
-            <Route path=":TareaId/detalles" element={<RespuestaTarea />} />
+            <Route path=":tareaId/detalles" element={<RespuestaTarea />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Route>

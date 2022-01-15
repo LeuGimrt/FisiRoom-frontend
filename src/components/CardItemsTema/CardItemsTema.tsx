@@ -1,4 +1,6 @@
 import { Topic } from 'common/types';
+import Button from 'components/Button/Button';
+import { Link } from 'react-router-dom';
 import './CardItemsTema.scss';
 const CardItemsTema = ({ temas }: { temas: Topic[] }) => {
   return (

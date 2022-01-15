@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 
 const RespuestaTarea = () => {
   const { cursoId } = useParams();
+  const { tareaId } = useParams();
   const [tarea, setTarea] = useState<Assignment>({
     id: 0,
     course: 0,
@@ -17,7 +18,8 @@ const RespuestaTarea = () => {
     due_datetime: '',
   });
   console.log(cursoId);
-  console.log(tarea);
+  console.log(tareaId);
+  console.log(tarea.id);
 
   useEffect(() => {
     getCourseAssignments(cursoId ? cursoId : '').then(
@@ -29,7 +31,10 @@ const RespuestaTarea = () => {
   }, []);
   return (
     <>
-      <TareaDetalles tarea={tarea} />
+      <TareaDetalles
+        tareaId={tareaId ? tareaId : ''}
+        cursoId={cursoId ? cursoId : ''}
+      />
     </>
   );
 };
