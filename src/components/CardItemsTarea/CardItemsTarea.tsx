@@ -4,8 +4,16 @@ import { CourseContext } from 'context/CourseContext';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './CardItemsTarea.scss';
+import moment from 'moment';
+import 'moment/locale/es';
+
 const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
-  const { course } = useContext(CourseContext);
+  const showDate = (datetime: string) => {
+    moment.locale('es');
+    let date = moment(datetime);
+    return date.format('LLLL');
+  };
+
   return (
     <>
       {tareas.map((tarea) => {
@@ -18,7 +26,7 @@ const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
             </div>
             <div className="col-12 col-md-4 p-2 bg-light text-black">
               <h6>Fecha de entrega:</h6>
-              <p> Inserte fecha</p>
+              <p>{showDate(tarea.due_datetime)}</p>
             </div>
             {}
             <div className="col-12 col-xs-12 col-md-3 offset-md-1 list-group justify-content-center px-3 btnlistgroup">

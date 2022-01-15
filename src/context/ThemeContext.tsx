@@ -3,14 +3,17 @@ import React, { createContext, useState } from 'react';
 
 export type UserTheme = {
   colorTheme: string;
-  fontSize: string;
+  fontSize: number;
+  cursorSize: number;
 };
 
 export type ThemeValueType = {
   themeColor: string;
-  fontSize: string;
+  fontSize: number;
+  cursorSize: number;
   setThemeColor: React.Dispatch<React.SetStateAction<string>>;
-  setFontSize: React.Dispatch<React.SetStateAction<string>>;
+  setFontSize: React.Dispatch<React.SetStateAction<number>>;
+  setCursorSize: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export const colorThemes = {
@@ -20,7 +23,13 @@ export const colorThemes = {
   third: 'third',
 };
 
-export const ROOT_FONT_SIZE = '16px';
+export const cursorSizes = {
+  small: 0,
+  medium: 1,
+  large: 2,
+};
+
+export const ROOT_FONT_SIZE = 16;
 
 const initial = localStorage.getItem('user-theme');
 let initialUserThemeObject: UserTheme;
@@ -28,8 +37,10 @@ let initialUserThemeObject: UserTheme;
 if (initial === null) {
   initialUserThemeObject = {
     colorTheme: colorThemes.default,
-    fontSize: '16px',
+    fontSize: 16,
+    cursorSize: cursorSizes.small,
   };
+  localStorage.setItem('user-theme', JSON.stringify(initialUserThemeObject));
 } else {
   initialUserThemeObject = JSON.parse(nullToString(initial));
 }
@@ -37,8 +48,10 @@ if (initial === null) {
 export const ThemeContext = createContext<ThemeValueType>({
   themeColor: initialUserThemeObject.colorTheme,
   fontSize: initialUserThemeObject.fontSize,
+  cursorSize: initialUserThemeObject.cursorSize,
   setThemeColor: () => {},
   setFontSize: () => {},
+  setCursorSize: () => {},
 });
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
@@ -46,10 +59,20 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     initialUserThemeObject.colorTheme
   );
   const [fontSize, setFontSize] = useState(initialUserThemeObject.fontSize);
+  const [cursorSize, setCursorSize] = useState(
+    initialUserThemeObject.cursorSize
+  );
 
   return (
     <ThemeContext.Provider
-      value={{ themeColor, fontSize, setThemeColor, setFontSize }}
+      value={{
+        themeColor,
+        fontSize,
+        cursorSize,
+        setThemeColor,
+        setFontSize,
+        setCursorSize,
+      }}
     >
       {children}
     </ThemeContext.Provider>
