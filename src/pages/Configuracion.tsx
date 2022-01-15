@@ -1,6 +1,14 @@
 import Header from 'components/Header/Header';
+import Menu from 'components/Menu/Menu';
 import Wrapper from 'containers/Wrapper/Wrapper';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router';
+
+const options = [
+  { label: 'Información', route: 'info' },
+  { label: 'Fuente', route: 'fuente' },
+  { label: 'Cursor', route: 'cursor' },
+  { label: 'Daltónicos', route: 'color' },
+];
 
 const Configuracion = () => {
   return (
@@ -17,38 +25,7 @@ const Configuracion = () => {
           >
             <div className="row py-1 ">
               <div className="col-12 col-sm-2 col-md-3">
-                <div className="list-group">
-                  <Link
-                    to="#"
-                    className="list-group-item list-group-item-action"
-                  >
-                    Información
-                  </Link>
-                  <Link
-                    to="/configuracion/fuente"
-                    className="list-group-item list-group-item-action"
-                  >
-                    Fuente
-                  </Link>
-                  <Link
-                    to="/configuracion/cursor"
-                    className="list-group-item list-group-item-action"
-                  >
-                    Cursor
-                  </Link>
-                  <Link
-                    to="#"
-                    className="list-group-item list-group-item-action"
-                  >
-                    Brillo
-                  </Link>
-                  <Link
-                    to="/configuracion/color"
-                    className="list-group-item list-group-item-action"
-                  >
-                    Daltónicos
-                  </Link>
-                </div>
+                <Menu options={options} path="/configuracion" />
               </div>
               <div className="col-12 col-sm-10 col-md-9">
                 <Outlet />

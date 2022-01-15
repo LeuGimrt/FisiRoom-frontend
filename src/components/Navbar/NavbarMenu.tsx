@@ -37,8 +37,8 @@ const NavbarMenu = () => {
             </Link>
           </li>
           <li className="nav-item responsive-item">
-            <Link className="nav-link" to="/profile">
-              Mi Perfil
+            <Link className="nav-link" to="/configuracion/color">
+              Configuración
             </Link>
           </li>
 
