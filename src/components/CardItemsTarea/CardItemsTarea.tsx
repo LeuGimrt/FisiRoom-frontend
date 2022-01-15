@@ -1,18 +1,12 @@
 import { Assignment } from 'common/types';
 import Button from 'components/Button/Button';
-import { CourseContext } from 'context/CourseContext';
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './CardItemsTarea.scss';
-import moment from 'moment';
-import 'moment/locale/es';
+import { useParams } from 'react-router';
+import { formatDate } from 'common/utils/formatDate';
 
 const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
-  const showDate = (datetime: string) => {
-    moment.locale('es');
-    let date = moment(datetime);
-    return date.format('LLLL');
-  };
+  const { cursoId } = useParams();
 
   return (
     <>
@@ -26,12 +20,12 @@ const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
             </div>
             <div className="col-12 col-md-4 p-2 bg-light text-black">
               <h6>Fecha de entrega:</h6>
-              <p>{showDate(tarea.due_datetime)}</p>
+              <p>{formatDate(tarea.due_datetime)}</p>
             </div>
             {}
             <div className="col-12 col-xs-12 col-md-3 offset-md-1 list-group justify-content-center px-3 btnlistgroup">
               <Link
-                to={`/curso/${course.id}/gestionar-tareas/${tarea.id}/detalles`}
+                to={`/curso/${cursoId}/gestionar-tareas/${tarea.id}/detalles`}
               >
                 <Button className="mx-1" color="primary" elevated>
                   Ir a la Tarea

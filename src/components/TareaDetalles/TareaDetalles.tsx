@@ -1,13 +1,12 @@
-import Button from 'components/Button/Button';
-import Wrapper from 'containers/Wrapper/Wrapper';
 import { useEffect, useState } from 'react';
-import Form from 'components/Form/Form';
-import FormRespuesta from 'components/FormRespuesta/FormRespuesta';
 import PopupRespuesta from 'components/PopupRespuesta/PopupRespuesta';
 import { Assignment } from 'common/types';
 import { getAssignment } from 'api/getAssignment';
 import { AxiosResponse } from 'axios';
 import { BASE_URL } from 'common/constants';
+import { formatDate } from 'common/utils/formatDate';
+import { nullToString } from 'common/utils/isNull';
+import { Link } from 'react-router-dom';
 
 type Props = {
   tareaId: string;
@@ -55,10 +54,7 @@ const TareaDetalles = ({ cursoId, tareaId }: Props) => {
             <div>
               <div>
                 <h5>Fecha límite</h5>
-                <p>{tareadetalle.due_datetime}</p>
-              </div>
-              <div>
-                <b>Status: Undefined</b>
+                <p>{formatDate(tareadetalle.due_datetime)}</p>
               </div>
             </div>
           </div>
@@ -68,16 +64,14 @@ const TareaDetalles = ({ cursoId, tareaId }: Props) => {
           style={{ height: '10rem' }}
         >
           <div className="align-self-center">
-            <img
-              src={
-                tareadetalle.file
-                  ? BASE_URL?.concat(tareadetalle.file)
-                  : defaultImg
-              }
-              height="100px"
-              className="card-img-top "
-              alt=""
-            />
+            <a
+              target="_blank"
+              href={nullToString(
+                BASE_URL?.concat(nullToString(tareadetalle.file))
+              )}
+            >
+              Ir al archivo
+            </a>
           </div>
         </div>
       </div>
