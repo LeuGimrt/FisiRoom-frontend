@@ -3,6 +3,7 @@ export type Curso = {
   day: string;
   day_of_the_week: string;
   description: string;
+  image: string;
   id: number;
   owner: string;
   owner_name: string;

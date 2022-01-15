@@ -12,6 +12,7 @@ const initialCourseData = {
   day_of_the_week: '',
   description: '',
   id: 1,
+  image: '',
   owner: '',
   owner_name: '',
   time_end: '',

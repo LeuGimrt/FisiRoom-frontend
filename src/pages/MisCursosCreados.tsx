@@ -48,6 +48,7 @@ const MisCursosCreados = () => {
                   id={curso.id}
                   description={curso.description}
                   title={curso.title}
+                  image={process.env.REACT_APP_BASE_URL2 + curso.image}
                   day_of_the_week={curso.day_of_the_week}
                   time_start={curso.time_start}
                   time_end={curso.time_end}

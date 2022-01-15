@@ -14,7 +14,8 @@ type Props = {
 const CardCourse = ({
   id = 0,
   //image = 'https://i.imgur.com/crEJgaf.gif.gif',
-  image = 'https://vilmanunez.com/wp-content/uploads/2016/03/herramientas-y-recursos-para-crear-curso-online.png',
+  //image = 'https://vilmanunez.com/wp-content/uploads/2016/03/herramientas-y-recursos-para-crear-curso-online.png',
+  image = 'http://35.239.210.85:8000/media/courses/35/portada.jpg',
   description = '',
   title,
   day_of_the_week,
