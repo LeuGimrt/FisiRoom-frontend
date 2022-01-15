@@ -9,6 +9,15 @@ header {
   display: none;
 }
 
+#root {
+  .navbar {
+    font-size: 0.875em;
+  }
+  .navbar-brand {
+    font-size: 1.25em;
+  }
+}
+
 #root .user-wrapper {
   background-color: $darkGray;
   margin-right: -12px;

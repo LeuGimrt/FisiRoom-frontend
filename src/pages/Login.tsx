@@ -20,13 +20,6 @@ const Login = () => {
         localStorage.setItem('user-token', response.data.token);
         setUser(response.data);
         localStorage.setItem('user-data', JSON.stringify(response.data));
-        localStorage.setItem(
-          'user-theme',
-          JSON.stringify({
-            colorTheme: response.data.visual_config,
-            fontSize: '16px', // modificar con la respuesta
-          })
-        );
 
         navigate('/cursos');
       })
