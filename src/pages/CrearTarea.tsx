@@ -1,21 +1,23 @@
 import { postAssignment } from 'api/postAssignment';
-import { newMaterial } from 'common/types';
+import { newAssignment, newMaterial } from 'common/types';
 import Form from 'components/Form/Form';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
 import {
   TareaCreationInputs,
-  TareaCreationSelects,
   TareaCreationTextAreas,
 } from '../common/constants';
 
 const CrearTarea = () => {
   const { cursoId } = useParams();
   //logica
-  const handleSubmit = async (data: newMaterial) => {
+  const handleSubmit = async (data: newAssignment) => {
+    console.log(data);
+
     postAssignment(cursoId ? cursoId : '', data)
-      .then(() => {
+      .then((response) => {
         toast.success('La tarea fue subida exitosamente');
+        console.log(response);
       })
       .catch(() => {
         toast.error('Ocurrió un errror');
@@ -30,7 +32,7 @@ const CrearTarea = () => {
       <Form
         inputs={TareaCreationInputs}
         textAreas={TareaCreationTextAreas}
-        selects={TareaCreationSelects}
+        selects={[]}
         callback={handleSubmit}
         btnLabel="Agregar"
       />

@@ -111,8 +111,7 @@ export type newMaterial = {
 export type newAssignment = {
   title: string;
   description: string;
-  creation_timestamp: string;
-  file: Object;
+  file: File;
   due_datetime: string;
 };
 
