@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import './CardCourse.scss';
 import Button from 'components/Button/Button';
+import { BASE_URL } from 'common/constants';
 type Props = {
   id?: number;
-  image?: string;
+  image: string;
   description?: string;
   title: string;
   day_of_the_week?: string;
@@ -11,12 +12,12 @@ type Props = {
   time_end?: string;
 };
 
+const defaultImg =
+  'https://vilmanunez.com/wp-content/uploads/2016/03/herramientas-y-recursos-para-crear-curso-online.png';
+
 const CardCourse = ({
   id = 0,
-  //image = 'https://i.imgur.com/crEJgaf.gif.gif',
-  //image = 'https://vilmanunez.com/wp-content/uploads/2016/03/herramientas-y-recursos-para-crear-curso-online.png',
-  image = 'http://35.239.210.85:8000/media/courses/35/portada.jpg',
-  description = '',
+  image,
   title,
   day_of_the_week,
   time_start,
@@ -27,7 +28,12 @@ const CardCourse = ({
       <div className="card">
         <div className="card-body ">
           <div className="row py-2  ">
-            <img src={image} height="180rem" className="card-img-top" alt="" />
+            <img
+              src={image ? BASE_URL?.concat(image) : defaultImg}
+              height="180rem"
+              className="card-img-top"
+              alt=""
+            />
           </div>
           <div className="row">
             <h5 className="card-title mt-2">{title}</h5>
