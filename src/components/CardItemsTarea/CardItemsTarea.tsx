@@ -2,12 +2,13 @@ import { Assignment } from 'common/types';
 import Button from 'components/Button/Button';
 import { CourseContext } from 'context/CourseContext';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './CardItemsTarea.scss';
 import moment from 'moment';
 import 'moment/locale/es';
 
 const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
+  const { course } = useContext(CourseContext);
   const showDate = (datetime: string) => {
     moment.locale('es');
     let date = moment(datetime);
