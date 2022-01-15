@@ -1,12 +1,25 @@
 import { Assignment } from 'common/types';
 import Button from 'components/Button/Button';
 import { Link } from 'react-router-dom';
+
+import { CourseContext } from 'context/CourseContext';
+import { useContext } from 'react';
+import { Link, useParams } from 'react-router-dom';
+
 import './CardItemsTarea.scss';
 import { useParams } from 'react-router';
 import { formatDate } from 'common/utils/formatDate';
 
 const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
+
   const { cursoId } = useParams();
+
+  const showDate = (datetime: string) => {
+    moment.locale('es');
+    let date = moment(datetime);
+    return date.format('LLLL');
+  };
+
 
   return (
     <>
