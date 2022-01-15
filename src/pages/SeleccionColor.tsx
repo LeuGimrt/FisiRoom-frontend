@@ -1,7 +1,9 @@
 import Button from 'components/Button/Button';
 import { useContext, useState } from 'react';
-import { ThemeContext } from 'context/ThemeContext';
+import { ThemeContext, UserTheme } from 'context/ThemeContext';
 import PaletteRadioButton from 'components/RadioButton/PaletteRadioButton';
+import { nullToString } from 'common/utils/isNull';
+import { toast } from 'react-toastify';
 
 const paletteOptions = [
   {
@@ -30,13 +32,23 @@ const SeleccionColor = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setThemeColor(palette);
-    localStorage.setItem('user-theme', palette);
+    let obj: UserTheme = JSON.parse(
+      nullToString(localStorage.getItem('user-theme'))
+    );
+    obj.colorTheme = palette;
+    localStorage.setItem('user-theme', JSON.stringify(obj));
+    toast.success('Configuración guardada');
   };
 
   const handleRevert = () => {
     setPalette('default');
     setThemeColor('default');
-    localStorage.setItem('user-theme', 'default');
+    let obj: UserTheme = JSON.parse(
+      nullToString(localStorage.getItem('user-theme'))
+    );
+    obj.colorTheme = 'default';
+    localStorage.setItem('user-theme', JSON.stringify(obj));
+    toast.success('Configuración por defecto');
   };
 
   return (
