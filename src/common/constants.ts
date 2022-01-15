@@ -204,6 +204,15 @@ export const initialCourseData = {
   posts: [],
 };
 
+export const initialTareaData = {
+  id: 0,
+  course: 0,
+  title: '',
+  description: '',
+  creation_timestamp: '',
+  file: undefined,
+  due_datetime: '',
+};
 export const MaterialCreationInputs = [
   {
     name: 'title',
@@ -323,59 +332,9 @@ export const TareaCreationTextAreas = [
 ];
 export const MaterialCreationSelects = [];
 
-export const RespuestaCreationSelects = [
-  {
-    name: 'day',
-    label: 'Fecha Límite',
-    placeholder: 'Seleccione el día',
-    required: true,
-    validFeedback: '',
-    invalidFeedback: 'Toda tarea debe tener un día seleccionado',
-    options: [
-      {
-        id: '1',
-        name: 'Lunes',
-      },
-      {
-        id: '2',
-        name: 'Martes',
-      },
-      {
-        id: '3',
-        name: 'Miércoles',
-      },
-      {
-        id: '4',
-        name: 'Jueves',
-      },
-      {
-        id: '5',
-        name: 'Viernes',
-      },
-      {
-        id: '6',
-        name: 'Sábado',
-      },
-      {
-        id: '7',
-        name: 'Domingo',
-      },
-    ],
-  },
-];
+export const RespuestaCreationSelects = [];
 
 export const RespuestaCreationInputs = [
-  {
-    name: 'title',
-    type: 'text',
-    label: 'Nombre de la Tarea',
-    placeholder: 'Añadir nombre de la nueva tarea...',
-    required: true,
-    validFeedback: '',
-    invalidFeedback: 'El nombre es obligatorio. De 1 a 100 caracteres',
-    maxLength: 100,
-    minLength: 1,
-  },
   {
     name: 'Documento',
     type: 'file',
@@ -390,10 +349,10 @@ export const RespuestaCreationInputs = [
 ];
 export const RespuestaCreationTextAreas = [
   {
-    name: 'description',
+    name: 'comentario',
     type: 'textarea',
-    label: 'Descripción',
-    placeholder: 'Añadir descripción del area...',
+    label: 'Comentario',
+    placeholder: 'Añadir un comentario a la respuesta...',
     required: true,
     validFeedback: '',
     invalidFeedback: 'De 1 a 250 caracteres',

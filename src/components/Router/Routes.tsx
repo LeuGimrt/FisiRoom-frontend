@@ -19,8 +19,8 @@ import NotFoundPage from 'pages/NotFoundPage';
 import SeleccionFuente from 'pages/SeleccionFuente';
 import Configuracion from 'pages/Configuracion';
 
-import TareaDetalles from '../../pages/TareaDetalles';
 import SeleccionCursor from 'pages/SeleccionCursor';
+import RespuestaTarea from '../../pages/RespuestaTarea';
 
 const Routes = () => {
   return (
@@ -47,7 +47,7 @@ const Routes = () => {
           <Route path="gestionar-tareas">
             <Route path="" element={<CursoTareas />} />
             <Route path="crear" element={<CrearTarea />} />
-            <Route path="detalles" element={<TareaDetalles />} />
+            <Route path=":TareaId/detalles" element={<RespuestaTarea />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Route>

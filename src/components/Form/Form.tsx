@@ -122,7 +122,7 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
         );
       })}
 
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center ">
         <Button type="submit" size="lg" color="primary" elevated>
           {btnLabel}
         </Button>

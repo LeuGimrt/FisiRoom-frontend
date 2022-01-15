@@ -15,14 +15,15 @@ const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
               <h6>Fecha de entrega:</h6>
               <p> Inserte fecha</p>
             </div>
+            {}
             <div className="col-12 col-xs-12 col-md-3 offset-md-1 list-group justify-content-center px-3 btnlistgroup">
               <button
                 className="col-xs-4 col-md-12 list-group-item list-group-item-action btnitem text-center p-1 m-1 btn btn-primary active "
                 type="button"
               >
-                Evaluar
+                Ver
               </button>
-              <button
+              {/* <button
                 className="col-xs-4 col-md-12 list-group-item list-group-item-action btnitem text-center p-1 m-1 btn btn-primary active "
                 type="button"
               >
@@ -33,7 +34,7 @@ const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
                 type="button"
               >
                 Eliminar
-              </button>
+              </button> */}
             </div>
           </div>
         );
