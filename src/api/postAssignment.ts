@@ -1,17 +1,19 @@
 import axiosInstance from './config';
-import { newMaterial } from 'common/types';
+import { newAssignment } from 'common/types';
 
-export async function postAssignment(id: string, data: newMaterial) {
+export async function postAssignment(id: string, data: newAssignment) {
+  const form = new FormData();
+
+  for (const [key, value] of Object.entries(data)) {
+    form.append(key, value);
+  }
+
   const response = await axiosInstance({
     method: 'POST',
     url: `/classroom/${id}/assignments/`,
-    data: {
-      title: data.title,
-      description: data.description,
-      due_datetime: '2022-01-04T21:00:00Z',
-    },
+    data: form,
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'multipart/form-data',
       Authorization: `Token ${localStorage.getItem('user-token')}`,
     },
   });

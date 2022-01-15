@@ -226,7 +226,7 @@ export const MaterialCreationInputs = [
     minLength: 1,
   },
   {
-    name: 'Documento',
+    name: 'file',
     type: 'file',
     label: 'Documento',
     placeholder: 'Añadir un Documento...',
@@ -251,48 +251,19 @@ export const MaterialCreationTextAreas = [
     rows: 3,
   },
 ];
-export const TareaCreationSelects = [
-  {
-    name: 'day',
-    label: 'Fecha Límite',
-    placeholder: 'Seleccione el día',
-    required: true,
-    validFeedback: '',
-    invalidFeedback: 'Toda tarea debe tener un día seleccionado',
-    options: [
-      {
-        id: '1',
-        name: 'Lunes',
-      },
-      {
-        id: '2',
-        name: 'Martes',
-      },
-      {
-        id: '3',
-        name: 'Miércoles',
-      },
-      {
-        id: '4',
-        name: 'Jueves',
-      },
-      {
-        id: '5',
-        name: 'Viernes',
-      },
-      {
-        id: '6',
-        name: 'Sábado',
-      },
-      {
-        id: '7',
-        name: 'Domingo',
-      },
-    ],
-  },
-];
 
 export const TareaCreationInputs = [
+  {
+    name: 'due_datetime',
+    type: 'datetime-local',
+    label: 'Fecha límite',
+    placeholder: 'Añadir un Documento...',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'Debe incluirse la fecha límite',
+    maxLength: 30,
+    minLength: 8,
+  },
   {
     name: 'title',
     type: 'text',
@@ -305,7 +276,7 @@ export const TareaCreationInputs = [
     minLength: 1,
   },
   {
-    name: 'Documento',
+    name: 'file',
     type: 'file',
     label: 'Documento',
     placeholder: 'Añadir un Documento...',
