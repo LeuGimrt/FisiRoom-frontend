@@ -65,6 +65,7 @@ const TareaDetalles = ({ cursoId, tareaId }: Props) => {
         >
           <div className="align-self-center">
             <a
+              className="btn btn-secondary"
               target="_blank"
               href={nullToString(
                 BASE_URL?.concat(nullToString(tareadetalle.file))
