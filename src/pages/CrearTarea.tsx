@@ -25,7 +25,7 @@ const CrearTarea = () => {
   };
   //respuesta
   return (
-    <div className="col-9 border border-light p-3">
+    <div className="col-12 border border-light p-3">
       <div className="border-bottom border-primary ">
         <h2 className="text-center">Nueva Tarea</h2>
       </div>

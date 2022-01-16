@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 import './CardItemsTarea.scss';
 
 import { formatDate } from 'common/utils/formatDate';
+import moment from 'moment';
 
 const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
   const { cursoId } = useParams();
@@ -14,7 +15,7 @@ const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
     <>
       {tareas.map((tarea) => {
         return (
-          <div className="row border p-3 carditem my-2">
+          <div className="row border p-3 carditemTarea my-2">
             {/* <div className="col-12 col-md-3 px-0 bg-light text-black"></div> */}
             <div className="col-12 col-md-4 px-3">
               <h5>{tarea.title}</h5>
@@ -25,7 +26,7 @@ const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
               <p>{formatDate(tarea.due_datetime)}</p>
             </div>
             {}
-            <div className="col-12 col-xs-12 col-md-3 offset-md-1 list-group justify-content-center px-3 btnlistgroup">
+            <div className="col-12 col-xs-12 col-md-3 offset-md-1 align-items-center d-flex justify-content-center px-3 btnlistgroup">
               <Link
                 to={`/curso/${cursoId}/gestionar-tareas/${tarea.id}/detalles`}
               >

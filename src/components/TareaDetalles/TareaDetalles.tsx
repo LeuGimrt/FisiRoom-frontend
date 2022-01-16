@@ -25,7 +25,7 @@ const TareaDetalles = ({ cursoId, tareaId }: Props) => {
   });
   const defaultImg =
     'https://vilmanunez.com/wp-content/uploads/2016/03/herramientas-y-recursos-para-crear-curso-online.png';
-  console.log('pipipipi');
+
   useEffect(() => {
     getAssignment(cursoId ? cursoId : '', tareaId ? tareaId : '').then(
       (response: AxiosResponse) => {

@@ -8,7 +8,7 @@ const CardItemsTema = ({ temas }: { temas: Topic[] }) => {
       {temas.map((tema) => {
         return (
           <div className="row border p-3 carditem my-2">
-            <div className="col-6 px-3">
+            <div className="col-9 px-3">
               <h5>{tema.title}</h5>
               <p>{tema.description}</p>
             </div>

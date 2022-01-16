@@ -21,7 +21,7 @@ const CursoTareas = () => {
   //respuesta
   return (
     <>
-      <div className="col-9 border border-light p-3">
+      <div className="col-12 border border-light p-3">
         <div className="row ">
           <div className="d-flex justify-content-end py-3 border-bottom">
             <Link to="crear">
