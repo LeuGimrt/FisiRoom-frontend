@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import './CardCourse.scss';
 import Button from 'components/Button/Button';
-import { BASE_URL } from 'common/constants';
+import { Trash } from 'react-bootstrap-icons';
+import ConfirmationModal from 'components/Modal/ConfirmationModal';
+import { deleteCourse } from 'api/deleteCourse';
+import { AxiosError, AxiosResponse } from 'axios';
+import { toast } from 'react-toastify';
+
 type Props = {
   id?: number;
   image: string;
@@ -10,6 +15,8 @@ type Props = {
   day_of_the_week?: string;
   time_start?: string;
   time_end?: string;
+  type: 'created' | 'enrolled';
+  handleDelete?: Function;
 };
 
 const defaultImg =
@@ -22,6 +29,8 @@ const CardCourse = ({
   day_of_the_week,
   time_start,
   time_end,
+  type,
+  handleDelete = () => {},
 }: Props) => {
   return (
     <div className="col-md-6 col-lg-4 col-xl-3 px-auto py-1" key={id}>
@@ -29,11 +38,7 @@ const CardCourse = ({
         <div className="card-body ">
           <div className="row py-2  ">
             <img
-              src={image}
-              onError={({ currentTarget }) => {
-                currentTarget.onerror = null; // prevents looping
-                currentTarget.src = 'image_path_here';
-              }}
+              src={image || defaultImg}
               height="180rem"
               className="card-img-top"
               alt=""
@@ -69,6 +74,16 @@ const CardCourse = ({
                   Ir al Curso
                 </Button>
               </Link>
+              {type === 'created' && (
+                <ConfirmationModal
+                  id={id}
+                  buttonContent={<Trash size={18} color="#d12424" />}
+                  onConfirm={handleDelete}
+                  buttonColor="light"
+                >
+                  ¿Desea eliminar el curso {title}?
+                </ConfirmationModal>
+              )}
             </div>
           </div>
         </div>

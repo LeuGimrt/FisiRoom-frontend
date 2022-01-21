@@ -7,6 +7,7 @@ import Wrapper from '../containers/Wrapper/Wrapper';
 const MisCursos = (props: PropsWithRef<any>) => {
   const [cursos, setCursos] = useState([]);
   // carga de lista de cursos
+
   useEffect(() => {
     // Consumir API
     getCoursesEnrolled()
@@ -18,6 +19,7 @@ const MisCursos = (props: PropsWithRef<any>) => {
         console.error('Error: ', e);
       });
   }, []);
+
   return (
     <Wrapper>
       <div className="album py-5 bg-light">
@@ -36,6 +38,7 @@ const MisCursos = (props: PropsWithRef<any>) => {
                   day_of_the_week={curso.day_of_the_week}
                   time_start={curso.time_start}
                   time_end={curso.time_end}
+                  type="enrolled"
                 />
               );
             })}

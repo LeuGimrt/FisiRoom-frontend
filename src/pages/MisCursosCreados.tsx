@@ -6,9 +6,12 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'components/Button/Button';
 import Header from 'components/Header/Header';
+import { deleteCourse } from 'api/deleteCourse';
+import { AxiosError, AxiosResponse } from 'axios';
+import { toast } from 'react-toastify';
 
 const MisCursosCreados = () => {
-  const [cursos, setCursos] = useState([]);
+  const [cursos, setCursos] = useState<Curso[]>([]);
   // carga de lista de cursos
   useEffect(() => {
     // Consumir API
@@ -21,6 +24,19 @@ const MisCursosCreados = () => {
         console.error('Error: ', e);
       });
   }, []);
+
+  const handleDeleteCourse = (id: number) => {
+    deleteCourse(id)
+      .then((response: AxiosResponse) => {
+        toast.success('Curso eliminado correctamente');
+        setCursos(cursos.filter((x) => x.id === id));
+      })
+      .catch((e: AxiosError) => {
+        toast.error('Ocurrió un error :(');
+        console.log(e);
+      });
+  };
+
   return (
     <Wrapper>
       <div className="album py-3 bg-light">
@@ -51,6 +67,8 @@ const MisCursosCreados = () => {
                   day_of_the_week={curso.day_of_the_week}
                   time_start={curso.time_start}
                   time_end={curso.time_end}
+                  type="created"
+                  handleDelete={handleDeleteCourse}
                 />
               );
             })}
