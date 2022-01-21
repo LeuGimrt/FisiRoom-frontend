@@ -3,7 +3,15 @@ import { useContext } from 'react';
 
 const CursoDetalles = () => {
   const { course } = useContext(CourseContext);
-
+  const descripcion = () => {
+    console.log('verificando texto');
+    console.log(course.description);
+    if (course.description !== 'undefined') {
+      return course.description;
+    } else {
+      return 'no Hay descripción disponible';
+    }
+  };
   return (
     <>
       <div className="col-9 border border-light ">
@@ -17,10 +25,10 @@ const CursoDetalles = () => {
             <strong>{`${course.day_of_the_week} - ${course.time_start.slice(
               0,
               5
-            )} hasta ${course.time_end.slice(0, 5)}`}</strong>
+            )}  hasta  ${course.time_end.slice(0, 5)}`}</strong>
           </small>
           <hr />
-          <p>{course.description}</p>
+          <p>{descripcion()}</p>
         </div>
       </div>
     </>

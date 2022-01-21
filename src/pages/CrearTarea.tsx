@@ -2,6 +2,7 @@ import { postAssignment } from 'api/postAssignment';
 import { newAssignment, newMaterial } from 'common/types';
 import Form from 'components/Form/Form';
 import { useParams } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import {
   TareaCreationInputs,
@@ -10,6 +11,7 @@ import {
 
 const CrearTarea = () => {
   const { cursoId } = useParams();
+  const navigate = useNavigate();
   //logica
   const handleSubmit = async (data: newAssignment) => {
     console.log(data);
@@ -18,6 +20,7 @@ const CrearTarea = () => {
       .then((response) => {
         toast.success('La tarea fue subida exitosamente');
         console.log(response);
+        navigate(`/curso/${cursoId}/gestionar-tareas`);
       })
       .catch(() => {
         toast.error('Ocurrió un errror');

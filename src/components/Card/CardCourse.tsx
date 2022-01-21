@@ -29,7 +29,11 @@ const CardCourse = ({
         <div className="card-body ">
           <div className="row py-2  ">
             <img
-              src={image || defaultImg}
+              src={image}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null; // prevents looping
+                currentTarget.src = 'image_path_here';
+              }}
               height="180rem"
               className="card-img-top"
               alt=""

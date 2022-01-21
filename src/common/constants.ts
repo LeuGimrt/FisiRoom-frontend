@@ -113,7 +113,7 @@ export const courseCreationInputs = [
     type: 'file',
     label: 'Imagen',
     placeholder: 'Añadir imagen...',
-    required: true,
+    required: false,
     validFeedback: '',
     invalidFeedback: 'Debe subirse un archivo en el formato jpg o png',
     maxLength: 30,

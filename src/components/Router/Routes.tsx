@@ -21,6 +21,7 @@ import Configuracion from 'pages/Configuracion';
 
 import SeleccionCursor from 'pages/SeleccionCursor';
 import RespuestaTarea from '../../pages/RespuestaTarea';
+import CursoGestionarAlumnos from 'pages/CursoGestionarAlumnos';
 
 const Routes = () => {
   return (
@@ -48,6 +49,9 @@ const Routes = () => {
             <Route path="" element={<CursoTareas />} />
             <Route path="crear" element={<CrearTarea />} />
             <Route path=":tareaId/detalles" element={<RespuestaTarea />} />
+          </Route>
+          <Route path="gestionar-alumnos">
+            <Route path="" element={<CursoGestionarAlumnos />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Route>
