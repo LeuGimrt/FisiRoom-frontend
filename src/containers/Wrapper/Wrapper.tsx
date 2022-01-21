@@ -4,7 +4,7 @@ import Footer from 'components/Footer/Footer';
 import { ThemeContext } from 'context/ThemeContext';
 
 const Wrapper = (props: PropsWithChildren<any>) => {
-  const { themeColor, fontSize } = useContext(ThemeContext);
+  const { themeColor, fontSize, cursorSize } = useContext(ThemeContext);
 
   const style = {
     fontSize: `${fontSize}px`,
@@ -13,10 +13,17 @@ const Wrapper = (props: PropsWithChildren<any>) => {
 
   return (
     <>
-      <div style={style} className={`theme-${themeColor}`}>
+      <div
+        style={style}
+        className={`theme-${themeColor} cursor-size-${cursorSize}`}
+      >
         <Navbar />
       </div>
-      <div style={style} className={`theme-${themeColor}`} id="content">
+      <div
+        style={style}
+        className={`theme-${themeColor} cursor-size-${cursorSize}`}
+        id="content"
+      >
         <div className="container-fluid">
           <div>
             <div className="row p-0">
@@ -30,7 +37,10 @@ const Wrapper = (props: PropsWithChildren<any>) => {
           </div>
         </div>
       </div>
-      <div style={style} className={`theme-${themeColor}`}>
+      <div
+        style={style}
+        className={`theme-${themeColor} cursor-size-${cursorSize}`}
+      >
         <Footer />
       </div>
     </>
