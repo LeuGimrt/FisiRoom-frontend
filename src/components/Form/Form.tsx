@@ -45,7 +45,7 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
   const restrictFileType = (name: string): string => {
     if (name === 'image') return '.png,.jpg';
 
-    return '.pdf,.txt';
+    return '';
   };
 
   return (

@@ -6,7 +6,6 @@ import { Link, useParams } from 'react-router-dom';
 import './CardItemsTarea.scss';
 
 import { formatDate } from 'common/utils/formatDate';
-import moment from 'moment';
 
 const CardItemsTarea = ({ tareas }: { tareas: Assignment[] }) => {
   const { cursoId } = useParams();
