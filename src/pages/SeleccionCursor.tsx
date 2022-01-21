@@ -1,45 +1,56 @@
+import { nullToString } from 'common/utils/isNull';
 import Button from 'components/Button/Button';
 import CursorRadioButton from 'components/RadioButton/CursorRadioButton';
-import PaletteRadioButton from 'components/RadioButton/PaletteRadioButton';
-import { ThemeContext } from 'context/ThemeContext';
+import { ThemeContext, UserTheme } from 'context/ThemeContext';
 import { useContext, useState } from 'react';
+import { toast } from 'react-toastify';
 
-const paletteOptions = [
+const cursorOptions = [
   {
-    id: 'first',
+    id: 0,
     labelImg: '/assets/images/cursor1.png',
     label: 'Normal',
   },
   {
-    id: 'second',
+    id: 1,
     labelImg: '/assets/images/cursor2.png',
     label: 'Grande',
   },
   {
-    id: 'third',
+    id: 2,
     labelImg: '/assets/images/cursor3.png',
     label: 'Muy grande',
   },
 ];
 const SeleccionCursor = () => {
-  const { themeColor, setThemeColor } = useContext(ThemeContext);
+  const { cursorSize, setCursorSize } = useContext(ThemeContext);
 
-  const [palette, setPalette] = useState<string>(themeColor || 'default');
+  const [size, setSize] = useState<number>(cursorSize || 0);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPalette(e.target.value);
+    setSize(parseInt(e.target.value));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setThemeColor(palette);
-    localStorage.setItem('user-theme', palette);
+    setCursorSize(size);
+    let obj: UserTheme = JSON.parse(
+      nullToString(localStorage.getItem('user-theme'))
+    );
+    obj.cursorSize = size;
+    localStorage.setItem('user-theme', JSON.stringify(obj));
+    toast.success('Configuración guardada');
   };
 
   const handleRevert = () => {
-    setPalette('default');
-    setThemeColor('default');
-    localStorage.setItem('user-theme', 'default');
+    setSize(0);
+    setCursorSize(0);
+    let obj: UserTheme = JSON.parse(
+      nullToString(localStorage.getItem('user-theme'))
+    );
+    obj.cursorSize = 0;
+    localStorage.setItem('user-theme', JSON.stringify(obj));
+    toast.success('Configuración por defecto');
   };
   return (
     <>
@@ -49,17 +60,17 @@ const SeleccionCursor = () => {
       </h4>
       <form noValidate onSubmit={handleSubmit}>
         <div className="row">
-          {paletteOptions.map((opt) => {
+          {cursorOptions.map((opt) => {
             return (
               <div className="col btn">
                 <CursorRadioButton
-                  id={opt.id}
+                  id={String(opt.id)}
                   name="colorVariations"
                   imgUrl={opt.labelImg}
                   onChange={handleChange}
                   label={opt.label}
-                  value={opt.id}
-                  checked={palette === opt.id}
+                  value={String(opt.id)}
+                  checked={size === opt.id}
                 />
               </div>
             );

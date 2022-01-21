@@ -11,7 +11,6 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  cursor: url('./sassIcons/cursor3.png'), auto;
 
   h1 {
     font-size: 2.5em;
@@ -92,6 +91,30 @@ body {
     }
     .btn-primary {
       @include btn-primary($t-primary);
+    }
+  }
+  .cursor-size-1 {
+    cursor: url('./sassIcons/cursor2.png'), auto;
+    .btn {
+      cursor: url('./sassIcons/pointer2.png'), pointer;
+    }
+    input {
+      cursor: url('./sassIcons/bar2.png'), text;
+    }
+    label {
+      cursor: url('./sassIcons/cursor2.png'), auto;
+    }
+  }
+  .cursor-size-2 {
+    cursor: url('./sassIcons/cursor3.png'), auto;
+    .btn {
+      cursor: url('./sassIcons/pointer3.png'), pointer;
+    }
+    input {
+      cursor: url('./sassIcons/bar3.png'), text;
+    }
+    label {
+      cursor: url('./sassIcons/cursor3.png'), auto;
     }
   }
 }
