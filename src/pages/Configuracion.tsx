@@ -21,7 +21,7 @@ const Configuracion = () => {
           <Header>Configuración</Header>
           <div
             style={{ maxWidth: '1300px' }}
-            className="container card my-3 p-2 w-100 justify-content-center"
+            className="container card my-3 p-2 w-100 justify-content-center position-static"
           >
             <div className="row py-1 ">
               <div className="col-12 col-sm-2 col-md-3">

@@ -95,13 +95,19 @@ body {
   }
   .cursor-size-1 {
     cursor: url('./sassIcons/cursor2.png'), auto;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
     p,
     textarea,
     input[type='text'],
     input[type='number'],
     input[type='email'],
     input[type='password'] {
-      cursor: url('./sassIcons/bar2.png') 14 10, text;
+      cursor: url('./sassIcons/bar2.png') 14 14, text;
     }
 
     a,
@@ -111,7 +117,9 @@ body {
     .dropdown-item,
     .list-group-item,
     .Toastify__toast,
-    input[type='file'] {
+    input[type='file'],
+    input[type='time'],
+    input[type='datetime-local'] {
       cursor: url('./sassIcons/pointer2.png') 14 3, pointer;
     }
 
@@ -122,13 +130,19 @@ body {
   }
   .cursor-size-2 {
     cursor: url('./sassIcons/cursor3.png'), auto;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
     p,
     textarea,
     input[type='text'],
     input[type='number'],
     input[type='email'],
     input[type='password'] {
-      cursor: url('./sassIcons/bar3.png') 14 10, text;
+      cursor: url('./sassIcons/bar3.png') 14 16, text;
     }
     a,
     select,
@@ -137,7 +151,9 @@ body {
     .dropdown-item,
     .list-group-item,
     .Toastify__toast,
-    input[type='file'] {
+    input[type='file'],
+    input[type='time'],
+    input[type='datetime-local'] {
       cursor: url('./sassIcons/pointer3.png') 14 3, pointer;
     }
 
