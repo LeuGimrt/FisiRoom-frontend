@@ -20,7 +20,7 @@ const MisCursosCreados = () => {
         console.log('data:', response.data);
         setCursos(response.data);
       })
-      .catch((e) => {
+      .catch((e: AxiosError) => {
         console.error('Error: ', e);
       });
   }, []);
@@ -29,7 +29,9 @@ const MisCursosCreados = () => {
     deleteCourse(id)
       .then((response: AxiosResponse) => {
         toast.success('Curso eliminado correctamente');
-        setCursos(cursos.filter((x) => x.id === id));
+        console.log('id a eliminar: ', id);
+        console.log(cursos);
+        setCursos(cursos.filter((x) => x.id !== id));
       })
       .catch((e: AxiosError) => {
         toast.error('Ocurrió un error :(');

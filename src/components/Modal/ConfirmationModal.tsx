@@ -22,16 +22,16 @@ const ConfirmationModal = ({
         type="button"
         className={`btn btn-${buttonColor}`}
         data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
+        data-bs-target={`#confirmationModal-${id}`}
       >
         {buttonContent}
       </button>
       {/* Modal */}
       <div
         className="modal fade"
-        id="exampleModal"
+        id={`confirmationModal-${id}`}
         tabIndex={-1}
-        aria-labelledby="exampleModalLabel"
+        aria-labelledby={`confirmationModal-${id}`}
         aria-hidden="true"
       >
         <div className="modal-dialog modal-dialog-centered">

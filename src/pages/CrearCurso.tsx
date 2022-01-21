@@ -31,7 +31,7 @@ const CrearCurso = () => {
         navigate('/cursos-creados');
       })
       .catch((e: AxiosError) => {
-        console.error('Error: ', e);
+        console.error('Error: ', e.response?.data.message);
         toast.error('Ocurrio un error:', e.response?.data.message);
       });
   };

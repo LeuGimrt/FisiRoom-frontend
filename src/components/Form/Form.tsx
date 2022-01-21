@@ -8,10 +8,18 @@ type Props = {
   selects: Select[];
   callback: Function;
   btnLabel: string;
+  initialValue?: Object;
 };
 
-const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
-  const [data, setData] = useState({});
+const Form = ({
+  inputs,
+  callback,
+  btnLabel,
+  textAreas,
+  selects,
+  initialValue,
+}: Props) => {
+  const [data, setData] = useState(initialValue || {});
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const form = e.currentTarget;
@@ -32,6 +40,7 @@ const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
       if (!files || !files[0]) return;
       setData({ ...data, [e.target.name]: files[0] });
     }
+    console.log(data);
   };
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
