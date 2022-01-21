@@ -3,6 +3,7 @@ export type Curso = {
   day: string;
   day_of_the_week: string;
   description: string;
+  image: string;
   id: number;
   owner: string;
   owner_name: string;
@@ -101,15 +102,17 @@ export type CourseData = {
 
 export type PalleteOptions = 'default' | 'first-v' | 'second' | 'third';
 
-export type ButtonItem = {
-  label: string;
-  route: string;
-};
-
 export type newMaterial = {
   title: string;
   description: string;
   file: File;
+};
+
+export type newAssignment = {
+  title: string;
+  description: string;
+  file: File;
+  due_datetime: string;
 };
 
 export type Assignment = {
@@ -118,7 +121,7 @@ export type Assignment = {
   title: string;
   description: string;
   creation_timestamp: string;
-  file: Object;
+  file?: string;
   due_datetime: string;
 };
 

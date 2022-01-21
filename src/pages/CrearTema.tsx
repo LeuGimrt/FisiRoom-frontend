@@ -13,9 +13,12 @@ const CrearTema = () => {
   const { cursoId } = useParams();
   //logica
   const handleSubmit = async (data: newMaterial) => {
+    console.log(data);
+
     postMaterial(cursoId ? cursoId : '', data)
-      .then(() => {
+      .then((response) => {
         toast.success('El material fue subido exitosamente');
+        console.log(response);
       })
       .catch(() => {
         toast.error('Ocurrió un errror');
@@ -23,7 +26,7 @@ const CrearTema = () => {
   };
   //respuesta
   return (
-    <div className="col-9 border border-light p-3">
+    <div className="col-12 border border-light p-3">
       <div className="border-bottom border-primary ">
         <h2 className="text-center">Nuevo Material</h2>
       </div>

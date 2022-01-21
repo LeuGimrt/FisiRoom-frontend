@@ -46,8 +46,8 @@ const MisCursosCreados = () => {
                 <CardCourse
                   key={curso.id}
                   id={curso.id}
-                  description={curso.description}
                   title={curso.title}
+                  image={curso.image}
                   day_of_the_week={curso.day_of_the_week}
                   time_start={curso.time_start}
                   time_end={curso.time_end}

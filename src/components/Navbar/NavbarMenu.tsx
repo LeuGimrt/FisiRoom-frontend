@@ -1,6 +1,7 @@
 import { UserContext } from 'context/UserContext';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import './Navbar.scss';
 
 const NavbarMenu = () => {
   const { user } = useContext(UserContext);
@@ -8,7 +9,6 @@ const NavbarMenu = () => {
   const closeSession = () => {
     localStorage.removeItem('user-token');
     localStorage.removeItem('user-data');
-    localStorage.removeItem('user-theme');
     window.location.reload();
   };
   return (
@@ -37,8 +37,8 @@ const NavbarMenu = () => {
             </Link>
           </li>
           <li className="nav-item responsive-item">
-            <Link className="nav-link" to="/profile">
-              Mi Perfil
+            <Link className="nav-link" to="/configuracion/color">
+              Configuración
             </Link>
           </li>
 

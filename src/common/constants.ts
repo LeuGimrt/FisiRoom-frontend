@@ -1,4 +1,4 @@
-import { nullToString } from './utils/isNull';
+export const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const registerInputs = [
   {
@@ -194,6 +194,7 @@ export const initialCourseData = {
   day_of_the_week: '',
   description: '',
   id: 1,
+  image: '',
   owner: '',
   owner_name: '',
   time_end: '',
@@ -203,6 +204,15 @@ export const initialCourseData = {
   posts: [],
 };
 
+export const initialTareaData = {
+  id: 0,
+  course: 0,
+  title: '',
+  description: '',
+  creation_timestamp: '',
+  file: undefined,
+  due_datetime: '',
+};
 export const MaterialCreationInputs = [
   {
     name: 'title',
@@ -216,7 +226,7 @@ export const MaterialCreationInputs = [
     minLength: 1,
   },
   {
-    name: 'Documento',
+    name: 'file',
     type: 'file',
     label: 'Documento',
     placeholder: 'Añadir un Documento...',
@@ -241,48 +251,19 @@ export const MaterialCreationTextAreas = [
     rows: 3,
   },
 ];
-export const TareaCreationSelects = [
-  {
-    name: 'day',
-    label: 'Fecha Límite',
-    placeholder: 'Seleccione el día',
-    required: true,
-    validFeedback: '',
-    invalidFeedback: 'Toda tarea debe tener un día seleccionado',
-    options: [
-      {
-        id: '1',
-        name: 'Lunes',
-      },
-      {
-        id: '2',
-        name: 'Martes',
-      },
-      {
-        id: '3',
-        name: 'Miércoles',
-      },
-      {
-        id: '4',
-        name: 'Jueves',
-      },
-      {
-        id: '5',
-        name: 'Viernes',
-      },
-      {
-        id: '6',
-        name: 'Sábado',
-      },
-      {
-        id: '7',
-        name: 'Domingo',
-      },
-    ],
-  },
-];
 
 export const TareaCreationInputs = [
+  {
+    name: 'due_datetime',
+    type: 'datetime-local',
+    label: 'Fecha límite',
+    placeholder: 'Añadir un Documento...',
+    required: true,
+    validFeedback: '',
+    invalidFeedback: 'Debe incluirse la fecha límite',
+    maxLength: 30,
+    minLength: 8,
+  },
   {
     name: 'title',
     type: 'text',
@@ -295,7 +276,7 @@ export const TareaCreationInputs = [
     minLength: 1,
   },
   {
-    name: 'Documento',
+    name: 'file',
     type: 'file',
     label: 'Documento',
     placeholder: 'Añadir un Documento...',
@@ -322,59 +303,9 @@ export const TareaCreationTextAreas = [
 ];
 export const MaterialCreationSelects = [];
 
-export const RespuestaCreationSelects = [
-  {
-    name: 'day',
-    label: 'Fecha Límite',
-    placeholder: 'Seleccione el día',
-    required: true,
-    validFeedback: '',
-    invalidFeedback: 'Toda tarea debe tener un día seleccionado',
-    options: [
-      {
-        id: '1',
-        name: 'Lunes',
-      },
-      {
-        id: '2',
-        name: 'Martes',
-      },
-      {
-        id: '3',
-        name: 'Miércoles',
-      },
-      {
-        id: '4',
-        name: 'Jueves',
-      },
-      {
-        id: '5',
-        name: 'Viernes',
-      },
-      {
-        id: '6',
-        name: 'Sábado',
-      },
-      {
-        id: '7',
-        name: 'Domingo',
-      },
-    ],
-  },
-];
+export const RespuestaCreationSelects = [];
 
 export const RespuestaCreationInputs = [
-  {
-    name: 'title',
-    type: 'text',
-    label: 'Nombre de la Tarea',
-    placeholder: 'Añadir nombre de la nueva tarea...',
-    required: true,
-    validFeedback: '',
-    invalidFeedback: 'El nombre es obligatorio. De 1 a 100 caracteres',
-    maxLength: 100,
-    minLength: 1,
-  },
   {
     name: 'Documento',
     type: 'file',
@@ -389,10 +320,10 @@ export const RespuestaCreationInputs = [
 ];
 export const RespuestaCreationTextAreas = [
   {
-    name: 'description',
+    name: 'comentario',
     type: 'textarea',
-    label: 'Descripción',
-    placeholder: 'Añadir descripción del area...',
+    label: 'Comentario',
+    placeholder: 'Añadir un comentario a la respuesta...',
     required: true,
     validFeedback: '',
     invalidFeedback: 'De 1 a 250 caracteres',
