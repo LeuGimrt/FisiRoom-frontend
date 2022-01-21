@@ -95,24 +95,52 @@ body {
   }
   .cursor-size-1 {
     cursor: url('./sassIcons/cursor2.png'), auto;
-    .btn {
-      cursor: url('./sassIcons/pointer2.png'), pointer;
+    p,
+    textarea,
+    input[type='text'],
+    input[type='number'],
+    input[type='email'],
+    input[type='password'] {
+      cursor: url('./sassIcons/bar2.png') 14 10, text;
     }
-    input {
-      cursor: url('./sassIcons/bar2.png'), text;
+
+    a,
+    select,
+    .btn,
+    .btn p,
+    .dropdown-item,
+    .list-group-item,
+    .Toastify__toast,
+    input[type='file'] {
+      cursor: url('./sassIcons/pointer2.png') 14 3, pointer;
     }
-    label {
+
+    label,
+    option {
       cursor: url('./sassIcons/cursor2.png'), auto;
     }
   }
   .cursor-size-2 {
     cursor: url('./sassIcons/cursor3.png'), auto;
-    .btn {
-      cursor: url('./sassIcons/pointer3.png'), pointer;
+    p,
+    textarea,
+    input[type='text'],
+    input[type='number'],
+    input[type='email'],
+    input[type='password'] {
+      cursor: url('./sassIcons/bar3.png') 14 10, text;
     }
-    input {
-      cursor: url('./sassIcons/bar3.png'), text;
+    a,
+    select,
+    .btn,
+    .btn p,
+    .dropdown-item,
+    .list-group-item,
+    .Toastify__toast,
+    input[type='file'] {
+      cursor: url('./sassIcons/pointer3.png') 14 3, pointer;
     }
+
     label {
       cursor: url('./sassIcons/cursor3.png'), auto;
     }
