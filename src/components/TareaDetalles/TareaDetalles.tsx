@@ -67,9 +67,7 @@ const TareaDetalles = ({ cursoId, tareaId }: Props) => {
             <a
               className="btn btn-secondary"
               target="_blank"
-              href={nullToString(
-                BASE_URL?.concat(nullToString(tareadetalle.file))
-              )}
+              href={nullToString(tareadetalle.file)}
             >
               Ir al archivo
             </a>

@@ -29,7 +29,7 @@ const CardCourse = ({
         <div className="card-body ">
           <div className="row py-2  ">
             <img
-              src={image ? BASE_URL?.concat(image) : defaultImg}
+              src={image || defaultImg}
               height="180rem"
               className="card-img-top"
               alt=""
