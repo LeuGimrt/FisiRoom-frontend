@@ -5,7 +5,6 @@ import { Outlet } from 'react-router';
 
 const options = [
   { label: 'Daltónicos', route: 'color' },
-  { label: 'Información', route: 'info' },
   { label: 'Fuente', route: 'fuente' },
   { label: 'Cursor', route: 'cursor' },
 ];

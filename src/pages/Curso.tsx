@@ -16,10 +16,10 @@ const alumnosOptions = [
 ];
 const profesorOptions = [
   { label: 'Información', route: `detalles` },
-  { label: 'Temas', route: `temas` },
+  //{ label: 'Temas', route: `temas` },
   { label: 'Gestionar Tareas', route: 'gestionar-tareas' },
   { label: 'Gestionar Alumnos', route: 'gestionar-alumnos' },
-  { label: 'Gestionar Notas', route: 'gestionar-notas' },
+  //{ label: 'Gestionar Notas', route: 'gestionar-notas' },
 ];
 
 const Curso = () => {

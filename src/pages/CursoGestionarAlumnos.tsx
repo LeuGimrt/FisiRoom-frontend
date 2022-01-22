@@ -12,6 +12,7 @@ const CursoGestionarAlumnos = () => {
             <PopupListaAlumnos
               btnlabelPopup={'Invitar Alumnos'}
               title={'Invite a un nuevo alumno a su clase'}
+              callback={() => {}}
             />
           </div>
         </div>
@@ -20,7 +21,6 @@ const CursoGestionarAlumnos = () => {
             <table className="table ">
               <thead>
                 <tr>
-                  <th scope="col">Nro.</th>
                   <th scope="col">Nombres</th>
                   <th scope="col">Apellidos</th>
                   <th scope="col">Correo</th>
@@ -33,7 +33,6 @@ const CursoGestionarAlumnos = () => {
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">1</th>
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>@mdo</td>

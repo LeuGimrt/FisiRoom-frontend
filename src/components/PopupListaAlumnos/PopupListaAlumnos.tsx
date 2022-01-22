@@ -1,11 +1,37 @@
 import Button from 'components/Button/Button';
 import FormRespuesta from 'components/FormRespuesta/FormRespuesta';
 import PopupConfirmaciónAcción from 'components/PopupConfirmaciónAcción/PopupConfirmaciónAcción';
+import { useState } from 'react';
 type Props = {
   btnlabelPopup: string;
   title: string;
+  callback: Function;
 };
-const PopupListaAlumnos = ({ btnlabelPopup, title }: Props) => {
+const PopupListaAlumnos = ({ btnlabelPopup, title, callback }: Props) => {
+  const [data, setData] = useState({});
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.type !== 'file') {
+      setData({ ...data, [e.target.name]: e.target.value });
+    } else {
+      const files = e.target.files;
+      if (!files || !files[0]) return;
+      setData({ ...data, [e.target.name]: files[0] });
+    }
+    console.log(data);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const form = e.currentTarget;
+    e.currentTarget.className += ' was-validated';
+    e.preventDefault();
+    if (form.checkValidity() === false) {
+      e.stopPropagation();
+    } else {
+      callback(data);
+    }
+  };
+
   return (
     <div>
       <div className="d-flex justify-content-center py-2">
@@ -39,73 +65,30 @@ const PopupListaAlumnos = ({ btnlabelPopup, title }: Props) => {
               />
             </div>
             <div className="modal-body">
-              <div className="table-responsive">
-                <table className="table ">
-                  <thead>
-                    <tr>
-                      <th scope="col">Nro.</th>
-                      <th scope="col">Nombres</th>
-                      <th scope="col">Apellidos</th>
-                      <th scope="col">Correo</th>
-                      <th scope="col">
-                        <div className="d-flex justify-content-center">
-                          Opciones
-                        </div>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>
-                        <div className="d-flex justify-content-center">
-                          <Button
-                            type="button"
-                            className="mx-1"
-                            color="primary"
-                            elevated
-                          >
-                            Invitar
-                          </Button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>
-                        <div className="d-flex justify-content-center">
-                          <Button
-                            type="button"
-                            className="mx-1"
-                            color="primary"
-                            elevated
-                          >
-                            Invitar
-                          </Button>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Cerrar
-              </button>
-              {/* <button type="button" className="btn btn-primary">
-                  Save changes
-                </button> */}
+              <form onSubmit={handleSubmit} className="form-group my-3">
+                <label className="form-label">
+                  Ingrese el correo del alumno
+                </label>
+                <div className="d-flex">
+                  <input
+                    maxLength={40}
+                    minLength={1}
+                    className="form-control"
+                    type="email"
+                    id={'email'}
+                    name={'email'}
+                    placeholder={'Ingrese el correo del alumno'}
+                    onChange={handleInputChange}
+                    required={true}
+                  />
+                  <button
+                    type="submit"
+                    className="btn bg-primary text-light mx-5"
+                  >
+                    Invitar
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
