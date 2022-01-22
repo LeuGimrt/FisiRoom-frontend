@@ -23,14 +23,17 @@ import SeleccionCursor from 'pages/SeleccionCursor';
 import RespuestaTarea from '../../pages/RespuestaTarea';
 import CursoGestionarAlumnos from 'pages/CursoGestionarAlumnos';
 import TareaRespuestas from 'pages/TareaRespuestas';
+import PublicRoutes from './PublicRoutes';
 
 const Routes = () => {
   return (
     <DOMRoutes>
-      <Route path="/" element={<Home />} />
+      <Route element={<PublicRoutes />}>
+        <Route path="/" element={<Home />} />
 
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Route>
 
       {/* Protected Routes */}
       <Route element={<ProtectedRoutes />}>
