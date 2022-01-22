@@ -59,21 +59,30 @@ const MisCursosCreados = () => {
             </div>
           </div>
           <div className="row pt-2">
-            {cursos.map((curso: Curso) => {
-              return (
-                <CardCourse
-                  key={curso.id}
-                  id={curso.id}
-                  title={curso.title}
-                  image={curso.image}
-                  day_of_the_week={curso.day_of_the_week}
-                  time_start={curso.time_start}
-                  time_end={curso.time_end}
-                  type="created"
-                  handleDelete={handleDeleteCourse}
-                />
-              );
-            })}
+            {cursos.length === 0 ? (
+              <div
+                style={{ minHeight: 120 }}
+                className="d-flex justify-content-center align-items-center"
+              >
+                <span>Aún no tiene cursos creados.</span>
+              </div>
+            ) : (
+              cursos.map((curso: Curso) => {
+                return (
+                  <CardCourse
+                    key={curso.id}
+                    id={curso.id}
+                    title={curso.title}
+                    image={curso.image}
+                    day_of_the_week={curso.day_of_the_week}
+                    time_start={curso.time_start}
+                    time_end={curso.time_end}
+                    type="created"
+                    handleDelete={handleDeleteCourse}
+                  />
+                );
+              })
+            )}
           </div>
         </div>
       </div>

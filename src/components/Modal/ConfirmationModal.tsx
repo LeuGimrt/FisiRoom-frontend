@@ -1,6 +1,7 @@
 type Props = {
   id: number;
   title?: string;
+  btnTitle: string;
   children: React.ReactNode;
   onConfirm: Function;
   buttonContent: React.ReactNode;
@@ -10,6 +11,7 @@ type Props = {
 const ConfirmationModal = ({
   id,
   title = '',
+  btnTitle,
   children,
   onConfirm,
   buttonContent,
@@ -19,6 +21,7 @@ const ConfirmationModal = ({
     <div>
       {/* Button trigger modal */}
       <button
+        title={btnTitle}
         type="button"
         className={`btn btn-${buttonColor}`}
         data-bs-toggle="modal"

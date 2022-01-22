@@ -3,9 +3,6 @@ import './CardCourse.scss';
 import Button from 'components/Button/Button';
 import { Trash } from 'react-bootstrap-icons';
 import ConfirmationModal from 'components/Modal/ConfirmationModal';
-import { deleteCourse } from 'api/deleteCourse';
-import { AxiosError, AxiosResponse } from 'axios';
-import { toast } from 'react-toastify';
 
 type Props = {
   id?: number;
@@ -75,14 +72,17 @@ const CardCourse = ({
                 </Button>
               </Link>
               {type === 'created' && (
-                <ConfirmationModal
-                  id={id}
-                  buttonContent={<Trash size={18} color="#d12424" />}
-                  onConfirm={handleDelete}
-                  buttonColor="light"
-                >
-                  ¿Desea eliminar el curso {title}?
-                </ConfirmationModal>
+                <>
+                  <ConfirmationModal
+                    id={id}
+                    btnTitle="Eliminar curso"
+                    buttonContent={<Trash size={18} color="#d12424" />}
+                    onConfirm={handleDelete}
+                    buttonColor="light"
+                  >
+                    ¿Desea eliminar el curso {title}?
+                  </ConfirmationModal>
+                </>
               )}
             </div>
           </div>

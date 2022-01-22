@@ -1,5 +1,5 @@
 import { postAssignment } from 'api/postAssignment';
-import { newAssignment, newMaterial } from 'common/types';
+import { newAssignment } from 'common/types';
 import Form from 'components/Form/Form';
 import { useParams } from 'react-router';
 import { useNavigate } from 'react-router-dom';

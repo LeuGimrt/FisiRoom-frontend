@@ -3,6 +3,7 @@ import CardCourse from 'components/Card/CardCourse';
 import { PropsWithRef, useEffect, useState } from 'react';
 import { getCoursesEnrolled } from 'api/getCoursesEnrolled';
 import Wrapper from '../containers/Wrapper/Wrapper';
+import Header from 'components/Header/Header';
 
 const MisCursos = (props: PropsWithRef<any>) => {
   const [cursos, setCursos] = useState([]);
@@ -24,24 +25,31 @@ const MisCursos = (props: PropsWithRef<any>) => {
     <Wrapper>
       <div className="album py-5 bg-light">
         <div className="container">
-          <div>
-            <h1 className="text-center">Mis Cursos Inscritos</h1>
-          </div>
+          <Header centered>Mis Cursos Inscritos</Header>
           <div className="row">
-            {cursos.map((curso: Curso) => {
-              return (
-                <CardCourse
-                  image={curso.image}
-                  key={curso.id}
-                  id={curso.id}
-                  title={curso.title}
-                  day_of_the_week={curso.day_of_the_week}
-                  time_start={curso.time_start}
-                  time_end={curso.time_end}
-                  type="enrolled"
-                />
-              );
-            })}
+            {cursos.length === 0 ? (
+              <div
+                style={{ minHeight: 120 }}
+                className="d-flex justify-content-center align-items-center"
+              >
+                <span>Aún no se ha inscrito a ningún curso.</span>
+              </div>
+            ) : (
+              cursos.map((curso: Curso) => {
+                return (
+                  <CardCourse
+                    image={curso.image}
+                    key={curso.id}
+                    id={curso.id}
+                    title={curso.title}
+                    day_of_the_week={curso.day_of_the_week}
+                    time_start={curso.time_start}
+                    time_end={curso.time_end}
+                    type="enrolled"
+                  />
+                );
+              })
+            )}
           </div>
         </div>
       </div>
