@@ -133,3 +133,7 @@ export type Topic = {
   creation_timestamp: string;
   file: Object;
 };
+
+export type InvitationData = {
+  email: string;
+};

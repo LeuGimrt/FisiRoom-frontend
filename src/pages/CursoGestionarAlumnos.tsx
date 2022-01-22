@@ -1,9 +1,25 @@
-import Button from 'components/Button/Button';
+import { inviteUser } from 'api/inviteUser';
+import { AxiosResponse } from 'axios';
+import { InvitationData } from 'common/types';
 import PopupConfirmaciónAcción from 'components/PopupConfirmaciónAcción/PopupConfirmaciónAcción';
-import { Link } from 'react-router-dom';
+import { CourseContext } from 'context/CourseContext';
+import { useContext } from 'react';
+import { toast } from 'react-toastify';
 import PopupListaAlumnos from '../components/PopupListaAlumnos/PopupListaAlumnos';
 
 const CursoGestionarAlumnos = () => {
+  const { course } = useContext(CourseContext);
+
+  const sendInvitation = (data: InvitationData) => {
+    inviteUser(course.id, data)
+      .then((response: AxiosResponse) => {
+        toast.success('Se envió un correo de invitación al usuario');
+      })
+      .catch(() => {
+        toast.error('Ocurrió un error');
+      });
+  };
+
   return (
     <>
       <div className="col-12 border border-light p-3">
@@ -12,7 +28,7 @@ const CursoGestionarAlumnos = () => {
             <PopupListaAlumnos
               btnlabelPopup={'Invitar Alumnos'}
               title={'Invite a un nuevo alumno a su clase'}
-              callback={() => {}}
+              callback={sendInvitation}
             />
           </div>
         </div>

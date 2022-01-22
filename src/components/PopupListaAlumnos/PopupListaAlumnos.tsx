@@ -11,13 +11,7 @@ const PopupListaAlumnos = ({ btnlabelPopup, title, callback }: Props) => {
   const [data, setData] = useState({});
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.type !== 'file') {
-      setData({ ...data, [e.target.name]: e.target.value });
-    } else {
-      const files = e.target.files;
-      if (!files || !files[0]) return;
-      setData({ ...data, [e.target.name]: files[0] });
-    }
+    setData({ ...data, [e.target.name]: e.target.value });
     console.log(data);
   };
 
