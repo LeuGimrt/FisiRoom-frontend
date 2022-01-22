@@ -18,7 +18,7 @@ const CursoUnirse = () => {
   const { cursoId } = useParams();
   const navigate = useNavigate();
   const [curso, setCurso] = useState<Curso>(initialCourseData);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   const enrollUserCallback = () => {
     enrollUser(cursoId ? cursoId : '')
@@ -31,26 +31,23 @@ const CursoUnirse = () => {
       });
   };
 
-  useEffect(() => {
-    getCourseDetails(cursoId ? cursoId : '')
-      .then((response: AxiosResponse) => {
-        setCurso(response.data);
-        setLoading(false);
-        console.log(response.data);
-      })
-      .catch((e: AxiosError) => {
-        console.log('Error de obtener cursos id:', cursoId);
-      });
-  }, []);
+  // useEffect(() => {
+  //   getCourseDetails(cursoId ? cursoId : '')
+  //     .then((response: AxiosResponse) => {
+  //       setCurso(response.data);
+  //       setLoading(false);
+  //       console.log(response.data);
+  //     })
+  //     .catch((e: AxiosError) => {
+  //       console.log('Error de obtener cursos id:', cursoId);
+  //     });
+  // }, []);
 
   //respuesta
   return (
     <Wrapper>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <div className="container d-flex flex-column h-100 justify-content-center align-items-center">
-          <h3>Unirse a Curso : {curso.title}</h3>
+      <div className="container d-flex flex-column h-100 justify-content-center align-items-center">
+        {/* <h3>Unirse a Curso : {curso.title}</h3>
           <p>Docente: {curso.owner_name}</p>
           <br />
           <small>
@@ -58,28 +55,29 @@ const CursoUnirse = () => {
               0,
               5
             )}  hasta  ${curso.time_end.slice(0, 5)}`}</strong>
-          </small>
-          <div className="d-flex justify-content-between mt-4">
-            <Link
-              to="/cursos"
-              onClick={() => {
-                toast.warning('Se rechazó la invitación');
-              }}
-              className="btn btn-light px-4 mx-4"
-            >
-              Rechazar
-            </Link>
-            <Button
-              onClick={enrollUserCallback}
-              className="px-5 mx-4"
-              color="primary"
-              elevated
-            >
-              Unirse
-            </Button>
-          </div>
+          </small> */}
+        <h3>Unirse al curso</h3>
+
+        <div className="d-flex justify-content-between mt-4">
+          <Link
+            to="/cursos"
+            onClick={() => {
+              toast.warning('Se rechazó la invitación');
+            }}
+            className="btn btn-light px-4 mx-4"
+          >
+            Rechazar
+          </Link>
+          <Button
+            onClick={enrollUserCallback}
+            className="px-5 mx-4"
+            color="primary"
+            elevated
+          >
+            Unirse
+          </Button>
         </div>
-      )}
+      </div>
     </Wrapper>
   );
 };
