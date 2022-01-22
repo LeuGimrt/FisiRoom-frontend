@@ -8,18 +8,10 @@ type Props = {
   selects: Select[];
   callback: Function;
   btnLabel: string;
-  initialValue?: Object;
 };
 
-const Form = ({
-  inputs,
-  callback,
-  btnLabel,
-  textAreas,
-  selects,
-  initialValue,
-}: Props) => {
-  const [data, setData] = useState(initialValue || {});
+const Form = ({ inputs, callback, btnLabel, textAreas, selects }: Props) => {
+  const [data, setData] = useState({});
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const form = e.currentTarget;
