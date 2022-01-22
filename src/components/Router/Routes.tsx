@@ -25,6 +25,7 @@ import CursoGestionarAlumnos from 'pages/CursoGestionarAlumnos';
 import TareaRespuesta from 'pages/TareaRespuesta';
 import PublicRoutes from './PublicRoutes';
 import CursoUnirse from 'pages/CursoUnirse';
+import TemaDetalles from 'pages/TemaDetalles';
 
 const Routes = () => {
   return (
@@ -51,6 +52,7 @@ const Routes = () => {
           <Route path="temas">
             <Route path="" element={<CursoTemas />} />
             <Route path="crear" element={<CrearTema />} />
+            <Route path=":temaId/detalles" element={<TemaDetalles />} />
           </Route>
           <Route path="gestionar-tareas">
             <Route path="" element={<CursoTareas />} />

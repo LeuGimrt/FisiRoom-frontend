@@ -13,12 +13,13 @@ const CardItemsTema = ({ temas }: { temas: Topic[] }) => {
               <p>{tema.description}</p>
             </div>
             <div className="col-3 list-group justify-content-center px-3 btnlistgroup">
-              <button
+              <Link
+                to={`${tema.id}/detalles`}
                 className="col-12 list-group-item list-group-item-action btnitem text-center p-1 m-1 btn btn-primary active "
                 type="button"
               >
                 Ver
-              </button>
+              </Link>
             </div>
           </div>
         );

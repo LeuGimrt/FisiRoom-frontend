@@ -11,13 +11,13 @@ import { Outlet, useParams } from 'react-router';
 
 const alumnosOptions = [
   { label: 'Información', route: `detalles` },
-  // { label: 'Temas', route: `temas` },
-  { label: 'Tareas', route: `gestionar-tareas` },
+  { label: 'Temas', route: `temas` },
+  //{ label: 'Tareas', route: `gestionar-tareas` },
 ];
 const profesorOptions = [
   { label: 'Información', route: `detalles` },
-  //{ label: 'Temas', route: `temas` },
-  { label: 'Gestionar Tareas', route: 'gestionar-tareas' },
+  { label: 'Gestionar Temas', route: `temas` },
+  //{ label: 'Gestionar Tareas', route: 'gestionar-tareas' },
   { label: 'Gestionar Alumnos', route: 'gestionar-alumnos' },
   //{ label: 'Gestionar Notas', route: 'gestionar-notas' },
 ];
