@@ -7,6 +7,7 @@ import { formatDate } from 'common/utils/formatDate';
 import { nullToString } from 'common/utils/isNull';
 import { UserContext } from 'context/UserContext';
 import Spinner from 'components/Spinner/Spinner';
+import Button from 'components/Button/Button';
 
 type Props = {
   tareaId: string;
@@ -79,6 +80,50 @@ const TareaDetalles = ({ cursoId, tareaId, ownerId }: Props) => {
           btnlabelPopup={'Entregar Tarea'}
           title={'Responder Tarea'}
         />
+      )}
+      {ownerId === String(user.id) && (
+        <>
+          <div className="row p-2">
+            <h3>Entregas de los Alumnos</h3>
+          </div>
+          <div className="row">
+            <div className="table-responsive">
+              <table className="table ">
+                <thead>
+                  <tr>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">
+                      <div className="d-flex justify-content-center">
+                        Opciones
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>
+                      <div className="d-flex justify-content-center">
+                        <Button
+                          type="button"
+                          className="mx-1"
+                          color="primary"
+                          elevated
+                        >
+                          Revisar
+                        </Button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );

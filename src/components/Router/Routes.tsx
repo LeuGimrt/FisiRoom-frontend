@@ -22,6 +22,7 @@ import Configuracion from 'pages/Configuracion';
 import SeleccionCursor from 'pages/SeleccionCursor';
 import RespuestaTarea from '../../pages/RespuestaTarea';
 import CursoGestionarAlumnos from 'pages/CursoGestionarAlumnos';
+import TareaRespuestas from 'pages/TareaRespuestas';
 
 const Routes = () => {
   return (
@@ -49,6 +50,7 @@ const Routes = () => {
             <Route path="" element={<CursoTareas />} />
             <Route path="crear" element={<CrearTarea />} />
             <Route path=":tareaId/detalles" element={<RespuestaTarea />} />
+            <Route path=":tareaId/entregas" element={<TareaRespuestas />} />
           </Route>
           <Route path="gestionar-alumnos">
             <Route path="" element={<CursoGestionarAlumnos />} />
