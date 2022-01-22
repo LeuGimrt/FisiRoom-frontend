@@ -11,7 +11,7 @@ import { Outlet, useParams } from 'react-router';
 
 const alumnosOptions = [
   { label: 'Información', route: `detalles` },
-  { label: 'Temas', route: `temas` },
+  // { label: 'Temas', route: `temas` },
   { label: 'Tareas', route: `gestionar-tareas` },
 ];
 const profesorOptions = [
