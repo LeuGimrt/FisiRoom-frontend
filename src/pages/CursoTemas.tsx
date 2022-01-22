@@ -22,8 +22,11 @@ const CursoTemas = () => {
   return (
     <>
       <div className="col-12 border border-light p-3">
-        <div className="row ">
-          <div className="d-flex justify-content-end py-3 border-bottom">
+        <div className="row d-flex align-items-center">
+          <div className="col-6">
+            <h2>Temas del curso</h2>
+          </div>
+          <div className=" col-6 d-flex justify-content-end py-3 border-bottom">
             <Link to="crear">
               <Button type="button" className="mx-1" color="primary" elevated>
                 Crear nuevo Material
