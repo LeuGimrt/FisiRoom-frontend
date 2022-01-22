@@ -24,6 +24,7 @@ import RespuestaTarea from '../../pages/RespuestaTarea';
 import CursoGestionarAlumnos from 'pages/CursoGestionarAlumnos';
 import TareaRespuesta from 'pages/TareaRespuesta';
 import PublicRoutes from './PublicRoutes';
+import CursoUnirse from 'pages/CursoUnirse';
 
 const Routes = () => {
   return (
@@ -43,8 +44,10 @@ const Routes = () => {
           <Route path="fuente" element={<SeleccionFuente />} />
           <Route path="cursor" element={<SeleccionCursor />} />
         </Route>
+        <Route path="/curso/:cursoId/unirse" element={<CursoUnirse />} />
         <Route path="/curso/:cursoId" element={<Curso />}>
           <Route path="detalles" element={<CursoDetalles />} />
+
           <Route path="temas">
             <Route path="" element={<CursoTemas />} />
             <Route path="crear" element={<CrearTema />} />
