@@ -25,8 +25,8 @@ const Wrapper = (props: PropsWithChildren<any>) => {
         id="content"
       >
         <div className="container-fluid">
-          <div>
-            <div className="row p-0">
+          <div className="h-100">
+            <div className="row p-0 h-100">
               <main
                 role="main"
                 className="col-md-12 ml-sm-12 col-lg-12 px-md-4"

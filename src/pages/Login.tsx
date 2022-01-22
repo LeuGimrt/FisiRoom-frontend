@@ -31,24 +31,33 @@ const Login = () => {
   };
   return (
     <Wrapper>
-      <div className="py-4 w-100 d-flex flex-column justify-content-center align-items-center">
-        <div
-          style={{ maxWidth: '600px' }}
-          className="w-100 d-flex flex-column justify-content-center align-items-center"
-        >
-          <Header centered>Iniciar Sesión</Header>
-          <div style={{ maxWidth: '500px' }} className="card my-3 p-2 w-100">
-            <Header variant="secondary" centered>
-              Bienvenido a HoloSchool
-            </Header>
-            <div className="px-4">
-              <Form
-                inputs={loginInputs}
-                textAreas={[]}
-                selects={[]}
-                callback={handleSubmit}
-                btnLabel="Ingresar"
-              />
+      <div className="row h-100">
+        <div className="col-12 col-md-6 d-none d-md-flex align-items-center justify-content-center">
+          <img
+            style={{ maxHeight: '70vh', minHeight: '400px' }}
+            src="/assets/images/search.png"
+            alt=""
+          />
+        </div>
+        <div className="col-12 col-md-6 py-4 d-flex flex-column justify-content-center align-items-center">
+          <div
+            style={{ maxWidth: '600px' }}
+            className="w-100 d-flex flex-column justify-content-center align-items-center"
+          >
+            <Header centered>Iniciar Sesión</Header>
+            <div style={{ maxWidth: '500px' }} className="card my-3 p-2 w-100">
+              <Header variant="secondary" centered>
+                Bienvenido a HoloSchool
+              </Header>
+              <div className="px-4">
+                <Form
+                  inputs={loginInputs}
+                  textAreas={[]}
+                  selects={[]}
+                  callback={handleSubmit}
+                  btnLabel="Ingresar"
+                />
+              </div>
             </div>
           </div>
         </div>
