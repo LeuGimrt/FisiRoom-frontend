@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import PopupRespuesta from 'components/PopupRespuesta/PopupRespuesta';
-import { Assignment } from 'common/types';
+import { Assignment, UserData } from 'common/types';
 import { getAssignment } from 'api/getAssignment';
 import { AxiosResponse } from 'axios';
 import { formatDate } from 'common/utils/formatDate';
@@ -13,8 +13,9 @@ type Props = {
   tareaId: string;
   cursoId: string;
   ownerId: string;
+  alumnosList: UserData[];
 };
-const TareaDetalles = ({ cursoId, tareaId, ownerId }: Props) => {
+const TareaDetalles = ({ cursoId, tareaId, ownerId, alumnosList }: Props) => {
   const { user } = useContext(UserContext);
   const [tareadetalle, setTareadetalle] = useState<Assignment>({
     id: 0,
@@ -26,7 +27,7 @@ const TareaDetalles = ({ cursoId, tareaId, ownerId }: Props) => {
     due_datetime: '',
   });
   const [loading, setLoading] = useState(true);
-
+  console.log(alumnosList);
   useEffect(() => {
     getAssignment(cursoId ? cursoId : '', tareaId ? tareaId : '').then(
       (response: AxiosResponse) => {
@@ -102,23 +103,29 @@ const TareaDetalles = ({ cursoId, tareaId, ownerId }: Props) => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>
-                      <div className="d-flex justify-content-center">
-                        <Button
-                          type="button"
-                          className="mx-1"
-                          color="primary"
-                          elevated
-                        >
-                          Revisar
-                        </Button>
-                      </div>
-                    </td>
-                  </tr>
+                  {alumnosList.map((alumno: UserData) => {
+                    return (
+                      <>
+                        <tr>
+                          <td>{alumno.first_name}</td>
+                          <td>{alumno.last_name}</td>
+                          <td>{alumno.email}</td>
+                          <td>
+                            <div className="d-flex justify-content-center">
+                              <Button
+                                type="button"
+                                className="mx-1"
+                                color="primary"
+                                elevated
+                              >
+                                Revisar
+                              </Button>
+                            </div>
+                          </td>
+                        </tr>
+                      </>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

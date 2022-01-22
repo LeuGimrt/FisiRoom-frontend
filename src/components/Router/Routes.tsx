@@ -22,7 +22,7 @@ import Configuracion from 'pages/Configuracion';
 import SeleccionCursor from 'pages/SeleccionCursor';
 import RespuestaTarea from '../../pages/RespuestaTarea';
 import CursoGestionarAlumnos from 'pages/CursoGestionarAlumnos';
-import TareaRespuestas from 'pages/TareaRespuestas';
+import TareaRespuesta from 'pages/TareaRespuesta';
 import PublicRoutes from './PublicRoutes';
 
 const Routes = () => {
@@ -53,7 +53,7 @@ const Routes = () => {
             <Route path="" element={<CursoTareas />} />
             <Route path="crear" element={<CrearTarea />} />
             <Route path=":tareaId/detalles" element={<RespuestaTarea />} />
-            <Route path=":tareaId/entregas" element={<TareaRespuestas />} />
+            <Route path=":tareaId/entregas" element={<TareaRespuesta />} />
           </Route>
           <Route path="gestionar-alumnos">
             <Route path="" element={<CursoGestionarAlumnos />} />

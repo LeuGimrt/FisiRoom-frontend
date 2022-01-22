@@ -1,7 +1,7 @@
 import { getCourseAssignments } from 'api/getCourseAssignments';
 import { getCourseDetails } from 'api/getCourseDetails';
 import { AxiosResponse } from 'axios';
-import { Assignment, Curso } from 'common/types';
+import { Assignment, Curso, UserData } from 'common/types';
 import TareaDetalles from 'components/TareaDetalles/TareaDetalles';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -19,6 +19,7 @@ const RespuestaTarea = () => {
     due_datetime: '',
   });
   const [owner, setOwner] = useState('');
+  const [alumnos, setAlumnos] = useState<UserData[]>([]);
 
   useEffect(() => {
     getCourseAssignments(cursoId ? cursoId : '').then(
@@ -30,15 +31,19 @@ const RespuestaTarea = () => {
     getCourseDetails(cursoId ? cursoId : '').then(
       (response: AxiosResponse<Curso>) => {
         setOwner(response.data.owner);
+        console.log(response.data.enrolled);
+        setAlumnos(response.data.enrolled as UserData[]);
       }
     );
   }, []);
+  console.log(alumnos);
   return (
     <>
       <TareaDetalles
         tareaId={tareaId ? tareaId : ''}
         cursoId={cursoId ? cursoId : ''}
         ownerId={owner}
+        alumnosList={alumnos}
       />
     </>
   );
