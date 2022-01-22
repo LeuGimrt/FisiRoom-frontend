@@ -9,6 +9,7 @@ type Props = {
   image: string;
   description?: string;
   title: string;
+  day: string;
   day_of_the_week?: string;
   time_start?: string;
   time_end?: string;
@@ -23,6 +24,8 @@ const CardCourse = ({
   id = 0,
   image,
   title,
+  description,
+  day,
   day_of_the_week,
   time_start,
   time_end,
@@ -82,7 +85,6 @@ const CardCourse = ({
                     btnTitle="Eliminar curso"
                     buttonContent={<Trash size={18} color="#d12424" />}
                     onConfirm={handleDelete}
-                    buttonColor="light"
                   >
                     ¿Desea eliminar el curso {title}?
                   </ConfirmationModal>

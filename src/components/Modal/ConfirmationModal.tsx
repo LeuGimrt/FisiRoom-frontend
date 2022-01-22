@@ -5,7 +5,6 @@ type Props = {
   children: React.ReactNode;
   onConfirm: Function;
   buttonContent: React.ReactNode;
-  buttonColor?: string;
 };
 
 const ConfirmationModal = ({
@@ -15,7 +14,6 @@ const ConfirmationModal = ({
   children,
   onConfirm,
   buttonContent,
-  buttonColor = 'primary',
 }: Props) => {
   return (
     <div>
@@ -23,7 +21,7 @@ const ConfirmationModal = ({
       <button
         title={btnTitle}
         type="button"
-        className={`btn btn-${buttonColor}`}
+        className={`btn btn-light`}
         data-bs-toggle="modal"
         data-bs-target={`#confirmationModal-${id}`}
       >
@@ -42,7 +40,7 @@ const ConfirmationModal = ({
             {title && (
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">
-                  Modal title
+                  {title}
                 </h5>
                 <button
                   type="button"

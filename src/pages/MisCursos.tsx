@@ -4,9 +4,11 @@ import { PropsWithRef, useEffect, useState } from 'react';
 import { getCoursesEnrolled } from 'api/getCoursesEnrolled';
 import Wrapper from '../containers/Wrapper/Wrapper';
 import Header from 'components/Header/Header';
+import Spinner from 'components/Spinner/Spinner';
 
 const MisCursos = (props: PropsWithRef<any>) => {
   const [cursos, setCursos] = useState([]);
+  const [loading, setLoading] = useState(true);
   // carga de lista de cursos
 
   useEffect(() => {
@@ -15,6 +17,7 @@ const MisCursos = (props: PropsWithRef<any>) => {
       .then((response) => {
         console.log('data:', response.data);
         setCursos(response.data);
+        setLoading(false);
       })
       .catch((e) => {
         console.error('Error: ', e);
@@ -27,7 +30,9 @@ const MisCursos = (props: PropsWithRef<any>) => {
         <div className="container">
           <Header centered>Mis Cursos Inscritos</Header>
           <div className="row">
-            {cursos.length === 0 ? (
+            {loading ? (
+              <Spinner />
+            ) : cursos.length === 0 ? (
               <div
                 style={{ minHeight: 120 }}
                 className="d-flex justify-content-center align-items-center"
@@ -42,6 +47,7 @@ const MisCursos = (props: PropsWithRef<any>) => {
                     key={curso.id}
                     id={curso.id}
                     title={curso.title}
+                    day={curso.day}
                     day_of_the_week={curso.day_of_the_week}
                     time_start={curso.time_start}
                     time_end={curso.time_end}
