@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { initialCourseData } from 'common/constants';
 import { Curso } from 'common/types';
 import { getCourseDetails } from 'api/getCourseDetails';
-import { AxiosResponse } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 import { formatDate } from 'common/utils/formatDate';
 import Button from 'components/Button/Button';
 import Spinner from 'components/Spinner/Spinner';
@@ -32,11 +32,15 @@ const CursoUnirse = () => {
   };
 
   useEffect(() => {
-    getCourseDetails(cursoId ? cursoId : '').then((response: AxiosResponse) => {
-      setCurso(response.data);
-      setLoading(false);
-      console.log(response.data);
-    });
+    getCourseDetails(cursoId ? cursoId : '')
+      .then((response: AxiosResponse) => {
+        setCurso(response.data);
+        setLoading(false);
+        console.log(response.data);
+      })
+      .catch((e: AxiosError) => {
+        console.log('Error de obtener cursos');
+      });
   }, []);
 
   //respuesta

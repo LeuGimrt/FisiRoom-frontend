@@ -1,6 +1,8 @@
 import axiosInstance from './config';
 
 export async function getCourseDetails(id: string) {
+  console.log('awa');
+
   const response = await axiosInstance({
     method: 'GET',
     url: `/classroom/${id}/`,
