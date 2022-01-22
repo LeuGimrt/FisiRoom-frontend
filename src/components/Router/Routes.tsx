@@ -52,8 +52,10 @@ const Routes = () => {
           <Route path="gestionar-tareas">
             <Route path="" element={<CursoTareas />} />
             <Route path="crear" element={<CrearTarea />} />
-            <Route path=":tareaId/detalles" element={<RespuestaTarea />} />
-            <Route path=":tareaId/entregas" element={<TareaRespuesta />} />
+            <Route path=":tareaId/detalles">
+              <Route path="" element={<RespuestaTarea />} />
+              <Route path="entregas" element={<TareaRespuesta />} />
+            </Route>
           </Route>
           <Route path="gestionar-alumnos">
             <Route path="" element={<CursoGestionarAlumnos />} />
