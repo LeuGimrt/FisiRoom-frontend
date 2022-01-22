@@ -16,7 +16,7 @@ const Home = () => {
           <Link
             style={{ maxWidth: 300 }}
             className="btn btn-primary px-5 mt-4"
-            to="/login"
+            to="/register"
           >
             Empezar <ArrowRight className="ms-3" size={20} />
           </Link>
