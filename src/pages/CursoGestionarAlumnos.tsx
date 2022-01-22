@@ -41,8 +41,11 @@ const CursoGestionarAlumnos = () => {
   return (
     <>
       <div className="col-12 border border-light p-3">
-        <div className="row ">
-          <div className="d-flex justify-content-end py-3 border-bottom">
+        <div className="row d-flex align-items-center border-bottom border-light">
+          <div className="col-6">
+            <h2>Mis alumnos</h2>
+          </div>
+          <div className="col-6 d-flex justify-content-end py-3 border-bottom">
             <PopupListaAlumnos
               btnlabelPopup={'Invitar Alumnos'}
               title={'Invite a un nuevo alumno a su clase'}

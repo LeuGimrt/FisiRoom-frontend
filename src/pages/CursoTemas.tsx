@@ -30,6 +30,7 @@ const CursoTemas = () => {
   return (
     <>
       <div className="col-12 border border-light p-3">
+
         <div className="row ">
           <div className="d-flex justify-content-end py-3 border-bottom">
             {loading ? (
@@ -48,6 +49,7 @@ const CursoTemas = () => {
                 </Link>
               )
             )}
+
           </div>
         </div>
         <CardItemsTema temas={temas} />
