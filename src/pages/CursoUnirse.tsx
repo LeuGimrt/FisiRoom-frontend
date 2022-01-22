@@ -39,7 +39,7 @@ const CursoUnirse = () => {
         console.log(response.data);
       })
       .catch((e: AxiosError) => {
-        console.log('Error de obtener cursos');
+        console.log('Error de obtener cursos id:', cursoId);
       });
   }, []);
 

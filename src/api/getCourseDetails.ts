@@ -11,5 +11,8 @@ export async function getCourseDetails(id: string) {
       Authorization: `Token ${localStorage.getItem('user-token')}`,
     },
   });
+
+  console.log('termino el request');
+
   return response;
 }
