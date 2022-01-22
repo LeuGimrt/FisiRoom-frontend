@@ -18,7 +18,7 @@ const CursoUnirse = () => {
     if (course.description !== 'undefined') {
       return course.description;
     } else {
-      return 'no Hay descripción disponible';
+      return 'No hay descripción disponible';
     }
   };
   //respuesta

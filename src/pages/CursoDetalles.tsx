@@ -9,7 +9,7 @@ const CursoDetalles = () => {
     if (course.description !== 'undefined') {
       return course.description;
     } else {
-      return 'no Hay descripción disponible';
+      return 'No hay descripción disponible';
     }
   };
   return (
