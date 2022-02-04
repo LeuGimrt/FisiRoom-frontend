@@ -26,6 +26,7 @@ import TareaRespuesta from 'pages/TareaRespuesta';
 import PublicRoutes from './PublicRoutes';
 import CursoUnirse from 'pages/CursoUnirse';
 import TemaDetalles from 'pages/TemaDetalles';
+import Home2 from 'pages/Home-loggedIn';
 
 const Routes = () => {
   return (
@@ -39,6 +40,7 @@ const Routes = () => {
 
       {/* Protected Routes */}
       <Route element={<ProtectedRoutes />}>
+        <Route path="/dashboard" element={<Home2 />} />
         <Route path="/cursos/crear" element={<CrearCurso />} />
         <Route path="/configuracion" element={<Configuracion />}>
           <Route path="color" element={<SeleccionColor />} />

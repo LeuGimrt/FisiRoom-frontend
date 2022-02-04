@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <header className="navbar navbar-expand-md navbar-dark bg-primary">
       <div className="container-fluid  ">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/dashboard">
           HoloSchool
         </Link>
         {localStorage.getItem('user-token') ? showUser() : showButtons()}

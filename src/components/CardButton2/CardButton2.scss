@@ -1,0 +1,18 @@
+@import 'common/sassStyles/_variables';
+.cardimg {
+  border-radius: 0.5rem;
+  border-color: #0d0d0e !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+p {
+  color: #0d0d0e;
+}
+
+@media only screen and(max-width:991px  ) {
+  .cardimg {
+    height: 15rem !important;
+  }
+}
