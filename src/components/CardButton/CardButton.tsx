@@ -50,11 +50,12 @@ const Cardbutton = ({
           setTexto(text);
           setPointer('not pointer');
         }}
-        className="col-12  cardimg d-flex align-items-center text-center CardImg"
+        className="row cardimg d-flex align-items-center text-center m-1"
         style={{
           backgroundImage: texto,
           cursor: pointer,
           height: heightValue ? heightValue : defaultHeight,
+          boxShadow: '5px 7px 5px 1px #888888',
         }}
       >
         <div className="row">

@@ -1,4 +1,5 @@
 import Cardbutton from 'components/CardButton/CardButton';
+import Cardbutton2 from 'components/CardButton2/CardButton2';
 import Header from 'components/Header/Header';
 import Wrapper from 'containers/Wrapper/Wrapper';
 
@@ -20,7 +21,7 @@ const Home2 = () => {
           />
         </div>
         <div className="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 col-xxl-3 pr-2 pl-2 d-flex py-1   justify-content-center">
-          <Cardbutton
+          <Cardbutton2
             title={'Mis cursos Creados'}
             description={'Aquí puede visualizar sus cursos que ha creado'}
             background={'/assets/images/ilonka.jpg'}
@@ -42,7 +43,7 @@ const Home2 = () => {
               />
             </div>
             <div className="col-12 pt-1 p-0 d-flex  justify-content-center align-items-end">
-              <Cardbutton
+              <Cardbutton2
                 title={'Modo Daltónicos'}
                 description={
                   '¿Tiene algun problema de visión?, pruebe activar este modo'
