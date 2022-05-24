@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './CardCourse.scss';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 import { Trash } from 'react-bootstrap-icons';
 import ConfirmationModal from 'components/Modal/ConfirmationModal';
 

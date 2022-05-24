@@ -4,7 +4,7 @@ import CardCourse from 'components/Card/CardCourse';
 import Wrapper from 'containers/Wrapper/Wrapper';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 import Header from 'components/Header/Header';
 import { deleteCourse } from 'api/deleteCourse';
 import { AxiosError, AxiosResponse } from 'axios';

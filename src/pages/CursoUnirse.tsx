@@ -9,7 +9,7 @@ import { Curso } from 'common/types';
 import { getCourseDetails } from 'api/getCourseDetails';
 import { AxiosError, AxiosResponse } from 'axios';
 import { formatDate } from 'common/utils/formatDate';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 import Spinner from 'components/Spinner/Spinner';
 
 const CursoUnirse = () => {

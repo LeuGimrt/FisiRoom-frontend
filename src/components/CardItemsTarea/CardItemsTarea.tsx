@@ -1,5 +1,5 @@
 import { Assignment } from 'common/types';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 
 import { Link, useParams } from 'react-router-dom';
 

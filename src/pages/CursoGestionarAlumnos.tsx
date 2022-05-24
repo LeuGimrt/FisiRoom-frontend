@@ -1,7 +1,7 @@
 import { getCourseDetails } from 'api/getCourseDetails';
 import { AxiosResponse } from 'axios';
 import { Curso, UserData } from 'common/types';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 import PopupConfirmaciónAcción from 'components/PopupConfirmaciónAcción/PopupConfirmaciónAcción';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';

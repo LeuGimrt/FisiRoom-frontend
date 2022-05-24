@@ -7,7 +7,7 @@ import { formatDate } from 'common/utils/formatDate';
 import { nullToString } from 'common/utils/isNull';
 import { UserContext } from 'context/UserContext';
 import Spinner from 'components/Spinner/Spinner';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 
 type Props = {
   tareaId: string;

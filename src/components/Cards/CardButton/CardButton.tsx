@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './CardButton.scss';
 import Media from 'react-media';
 import { useNavigate } from 'react-router-dom';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 
 type Props = {
   title: string;
@@ -50,7 +50,7 @@ const Cardbutton = ({
           setTexto(text);
           setPointer('not pointer');
         }}
-        className="row cardimg d-flex align-items-center text-center m-1"
+        className="row cardimg  align-items-center text-center m-1"
         style={{
           backgroundImage: texto,
           cursor: pointer,
@@ -58,8 +58,8 @@ const Cardbutton = ({
           boxShadow: '5px 7px 5px 1px #888888',
         }}
       >
-        <div className="row">
-          <div className="col-12 py-1 px-4">
+        <div className="col-12">
+          <div className="col-12 pb-1 pt-4 px-4">
             <h3>
               <strong>{title}</strong>
             </h3>

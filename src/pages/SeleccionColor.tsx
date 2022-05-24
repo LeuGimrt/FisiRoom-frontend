@@ -1,4 +1,4 @@
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 import { useContext, useState } from 'react';
 import { ThemeContext, UserTheme } from 'context/ThemeContext';
 import PaletteRadioButton from 'components/RadioButton/PaletteRadioButton';

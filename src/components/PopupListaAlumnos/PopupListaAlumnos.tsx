@@ -1,4 +1,4 @@
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 import FormRespuesta from 'components/FormRespuesta/FormRespuesta';
 import PopupConfirmaciónAcción from 'components/PopupConfirmaciónAcción/PopupConfirmaciónAcción';
 import { useState } from 'react';

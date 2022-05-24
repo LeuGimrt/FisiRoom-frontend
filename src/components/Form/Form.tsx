@@ -1,5 +1,5 @@
 import { Input, Select, TextArea } from 'common/types';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 import React, { useState } from 'react';
 
 type Props = {

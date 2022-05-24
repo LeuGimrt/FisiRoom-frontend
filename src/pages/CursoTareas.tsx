@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 import CardItemsTarea from 'components/CardItemsTarea/CardItemsTarea';
 import { useContext, useEffect, useState } from 'react';
 import { getCourseAssignments } from 'api/getCourseAssignments';

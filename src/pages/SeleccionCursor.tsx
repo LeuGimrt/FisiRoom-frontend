@@ -1,5 +1,5 @@
 import { nullToString } from 'common/utils/isNull';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 import CursorRadioButton from 'components/RadioButton/CursorRadioButton';
 import { ThemeContext, UserTheme } from 'context/ThemeContext';
 import { useContext, useState } from 'react';

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './CardButton2.scss';
 import Media from 'react-media';
 import { useNavigate } from 'react-router-dom';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 
 type Props = {
   title: string;
@@ -10,10 +10,12 @@ type Props = {
   buttonlabel?: string;
   background?: string;
   height?: string;
+  textheight?: string;
   ruta?: string;
 };
 const defaultImg = '/assets/images/ilonka.jpg';
 const defaultHeight = 'auto';
+const defaultTextHeight = '6rem';
 const defaultRuta = '/dashboard';
 
 const Cardbutton2 = ({
@@ -22,6 +24,7 @@ const Cardbutton2 = ({
   buttonlabel,
   background,
   height,
+  textheight,
   ruta,
 }: Props) => {
   const backgroundCardHover = `linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.7)), url(${
@@ -40,14 +43,15 @@ const Cardbutton2 = ({
   const [heightValue, setHeightValue] = useState(
     height ? height : defaultHeight
   );
-  const [showcontent, setShowcontent] = useState('none');
+  const [TextheightValue, setTextHeightValue] = useState(
+    textheight ? textheight : defaultTextHeight
+  );
+  const [TextOpacity, setTextOpacity] = useState('1');
+
   const navigate = useNavigate();
-  const [showtext, setShowtext] = useState({
-    display: 'flex',
-    height: '0rem ',
-    opacity: '0',
-    transition: '0.5s',
-  });
+
+  //funcionts for styles
+
   return (
     <>
       <div
@@ -56,22 +60,14 @@ const Cardbutton2 = ({
         onMouseOver={() => {
           setbackgroundCardstate(backgroundCardHover);
           setPointer('pointer');
-          setShowtext({
-            display: 'flex',
-            height: '7rem',
-            opacity: '1',
-            transition: '0.5s',
-          });
+          setTextOpacity('1');
+          setTextHeightValue(textheight ? textheight : defaultTextHeight);
         }}
         onMouseOut={() => {
           setbackgroundCardstate(backgroundCard);
           setPointer('not pointer');
-          setShowtext({
-            display: 'flex',
-            height: '0rem',
-            opacity: '0',
-            transition: '.5s',
-          });
+          setTextOpacity('0');
+          setTextHeightValue('0rem');
         }}
         //basic styles
         className="row  cardimg  align-items-end text-center m-1"
@@ -96,7 +92,16 @@ const Cardbutton2 = ({
               <strong>{title}</strong>
             </h3>
           </div>
-          <div className="col-12 py-1 px-4" style={showtext}>
+          <div
+            className="col-12 py-1 px-4"
+            style={{
+              display: 'flex',
+              height: TextheightValue,
+              opacity: TextOpacity,
+              transition: '.5s',
+              justifyContent: 'center',
+            }}
+          >
             <p>
               <strong>{description}</strong>
             </p>

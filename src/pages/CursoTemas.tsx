@@ -1,6 +1,6 @@
 import { Topic } from 'common/types';
 import { Link } from 'react-router-dom';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 import CardItemsTema from '../components/CardItemsTema/CardItemsTema';
 import { useContext, useEffect, useState } from 'react';
 import { getCourseTopics } from 'api/getCourseTopics';
@@ -30,7 +30,6 @@ const CursoTemas = () => {
   return (
     <>
       <div className="col-12 border border-light p-3">
-
         <div className="row ">
           <div className="d-flex justify-content-end py-3 border-bottom">
             {loading ? (
@@ -49,7 +48,6 @@ const CursoTemas = () => {
                 </Link>
               )
             )}
-
           </div>
         </div>
         <CardItemsTema temas={temas} />

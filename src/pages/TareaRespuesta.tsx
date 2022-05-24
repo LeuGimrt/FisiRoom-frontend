@@ -1,6 +1,6 @@
 import { getCourseDetails } from 'api/getCourseDetails';
 import { AxiosResponse } from 'axios';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 

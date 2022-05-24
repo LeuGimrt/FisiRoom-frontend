@@ -1,5 +1,5 @@
 import { newAssignment } from 'common/types';
-import Button from 'components/Button/Button';
+import Button from 'components/Buttons/Button/Button';
 import Form from 'components/Form/Form';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
