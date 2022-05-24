@@ -17,6 +17,7 @@ const Login = () => {
     axiosInstance
       .post<UserData>('/users/login/', data)
       .then((response: AxiosResponse<UserData>) => {
+        // guardar en user-token en cookies
         localStorage.setItem('user-token', response.data.token);
         setUser(response.data);
         localStorage.setItem('user-data', JSON.stringify(response.data));
